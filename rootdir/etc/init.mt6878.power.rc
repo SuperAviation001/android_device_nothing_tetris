@@ -5,6 +5,10 @@ on init
     write /dev/cpuset/top-app/cpus 0-7
 
 ## Utilization Clamping
+    # Tuning
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 96
+    write /proc/sys/kernel/sched_util_clamp_min 128
+
     # Real-Time tasks
     write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 1
     write /dev/cpuctl/rt/cpu.uclamp.max max
