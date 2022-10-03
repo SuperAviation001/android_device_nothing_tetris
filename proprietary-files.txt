@@ -29,6 +29,7 @@ vendor/lib64/hw/audio.primary.mediatek.so
 vendor/lib64/hw/audio.primary.mt6878.so
 vendor/lib64/hw/audio.r_submix.mediatek.so
 vendor/lib64/hw/audio.r_submix.mt6878.so
+vendor/lib64/libalsautils.so:vendor/lib64/libalsautils-stock.so
 vendor/lib64/libaudio_param_parser-vnd.so
 vendor/lib64/libaudiocompensationfilter_vendor.so
 vendor/lib64/libaudiocompensationfilterc.so
