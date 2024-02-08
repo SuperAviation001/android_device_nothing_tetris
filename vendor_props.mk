@@ -45,6 +45,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.powerhal.power.dl=true \
     vendor.audio.powerhal.power.ul=true \
     vendor.audio.usb.iems.period_us=5000 \
+    persist.vendor.audiohal.aurisys.pcm_dump_on=0 \
+    persist.vendor.audiohal.p2w_dump_on=0 \
+    persist.vendor.audiohal.pcm_mixer_dump_on=0 \
+    vendor.usbsph.dl.pcm.dump=0 \
+    vendor.usbsph.ul.pcm.dump=0 \
+    vendor.usbsph.srcaws.pcm.dump=0 \
+    vendor.streamout.pcm.dump=0 \
+    vendor.streamin.pcm.dump=0 \
     vendor.bluetooth.ldac.abr=true
 
 # Camera
