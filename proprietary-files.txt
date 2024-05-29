@@ -1474,6 +1474,7 @@ vendor/etc/init/mtk_gnss.rc
 vendor/etc/vintf/manifest/gnss-default.xml:vendor/etc/vintf/manifest/gnss-aosp.xml
 vendor/etc/vintf/manifest/gnss-mtk.xml
 vendor/etc/vintf/manifest/mtkgnss-batching.xml
+vendor/etc/mpe.conf
 vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
 vendor/lib64/hw/mtkflp.default.so
@@ -2513,8 +2514,8 @@ vendor/etc/vintf/manifest/mtkpower_applist-mtk-default.xml
 vendor/lib64/hw/power.default.so
 vendor/lib64/hw/vendor.mediatek.hardware.mtkpower-aidl-impl.so
 vendor/lib64/lib_power_applist.so
-vendor/lib64/libperfctl_vendor.so
 vendor/lib64/libpower_timer.so
+vendor/lib64/libperfctl_vendor.so
 vendor/lib64/libpowerhal.so
 vendor/lib64/libpowerhalwrap_vendor.so
 vendor/lib64/vendor.mediatek.framework.mtksf_ext-V2-ndk.so
@@ -2675,9 +2676,10 @@ vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
 vendor/bin/mcDriverDaemon
 
 # Thermal
-vendor/bin/hw/android.hardware.thermal-service.mediatek
-vendor/etc/init/thermal-mediatek.rc
+vendor/bin/thermal_core
+vendor/bin/thermal_intf
 vendor/lib64/hw/thermal_hal.so
+vendor/etc/init/init.thermal_core.rc
 
 # Thermal configs
 vendor/etc/thermal/disable_skin_control.conf

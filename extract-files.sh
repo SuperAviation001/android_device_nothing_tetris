@@ -61,6 +61,10 @@ function blob_fixup() {
         system_ext/lib64/libsource.so)
             grep -q libui_shim.so "$2" || "$PATCHELF" --add-needed libui_shim.so "$2"
             ;;
+        vendor/etc/init/init.thermal_core.rc)
+            [ "$2" = "" ] && return 0
+            sed -i 's|ro.vendor.mtk_thermal_2_0|vendor.thermal.link_ready|g' "${2}"
+            ;;
         vendor/lib64/hw/audio.primary.mt6878.so)
             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-stock.so" "${2}"
             ;;
