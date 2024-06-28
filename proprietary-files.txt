@@ -2702,14 +2702,6 @@ vendor/etc/thermal/thermal_policy_12.conf
 vendor/etc/thermal/thermal_policy_13.conf
 vendor/etc/thermal/thermal_policy_14.conf
 
-# USB
-vendor/bin/hw/android.hardware.usb-aidl-service.mediatekv1.0
-vendor/bin/hw/android.hardware.usb.gadget-aidl-service.mediatekv1.0
-vendor/etc/init/android.hardware.usb-aidl-service.mediatek.rc
-vendor/etc/init/android.hardware.usb.gadget-aidl-service.mediatek.rc
-vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
-vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
-
 # Vibrator
 vendor/lib64/hw/vibrator.default.so
 vendor/lib64/libvibratorutils.so

@@ -393,9 +393,8 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,android_hardware_mediatek_usb,audio_accessory_supported,true)
 
 PRODUCT_PACKAGES += \
-    android.frameworks.stats-V1-ndk.vendor \
-    android.hardware.usb-V1-ndk.vendor \
-    android.hardware.usb.gadget-V1-ndk.vendor
+    android.hardware.usb-service.mediatek \
+    android.hardware.usb.gadget-service.mediatek
 
 # Vibrator
 PRODUCT_PACKAGES += \
