@@ -390,6 +390,8 @@ PRODUCT_PACKAGES += \
     libmtkperf_client_vendor
 
 # USB
+$(call soong_config_set,android_hardware_mediatek_usb,audio_accessory_supported,true)
+
 PRODUCT_PACKAGES += \
     android.frameworks.stats-V1-ndk.vendor \
     android.hardware.usb-V1-ndk.vendor \
