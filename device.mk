@@ -140,6 +140,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     ApertureOverlayTetris
+    libcamera_metadata.vendor \
+    libcamera_metadata_shim
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \

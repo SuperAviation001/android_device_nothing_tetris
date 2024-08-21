@@ -58,6 +58,9 @@ function blob_fixup() {
         system_ext/etc/init/init.vtservice.rc)
             sed -i 's|start|enable|g' "$2"
             ;;
+        vendor/bin/hw/mt6878/camerahalserver)
+            "$PATCHELF" --add-needed libcamera_metadata_shim.so "$2"
+            ;;
         system_ext/lib64/libsource.so)
             grep -q libui_shim.so "$2" || "$PATCHELF" --add-needed libui_shim.so "$2"
             ;;
