@@ -197,7 +197,6 @@ vendor/etc/dirac/interface.json
 vendor/etc/smartpa_param/AW_DSP.bin
 
 # Bluetooth
-vendor/lib64/libbluetooth_audio_session_mediatek.so
 vendor/lib64/libbluetooth_mtk.so
 vendor/lib64/libbluetooth_mtk_pure.so
 vendor/lib64/libbt-vendor.so

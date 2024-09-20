@@ -109,11 +109,6 @@
         <name>vendor.mediatek.hardware.audio</name>
         <fqname>IMtkAudio/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.mediatek.hardware.bluetooth.audio</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.2::IBluetoothAudioProvidersFactory/default</fqname>
-    </hal>
     <hal format="aidl">
         <name>vendor.mediatek.hardware.camera.atms</name>
         <fqname>IATMs/default</fqname>
