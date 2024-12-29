@@ -4,6 +4,10 @@ on init
     write /dev/cpuset/system-background/cpus 0-4
     write /dev/cpuset/top-app/cpus 0-7
 
+    # Boot time tuning
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "performance"
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "performance"
+
 ## Utilization Clamping
     # Tuning
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
@@ -54,3 +58,8 @@ on init
     write /dev/cpuctl/foreground/cpu.uclamp.min 5
     write /dev/cpuctl/top-app/cpu.uclamp.max max
     write /dev/cpuctl/top-app/cpu.shares 20480
+
+on property:sys.boot_completed=1
+    # End boot time tuning
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedutil"
