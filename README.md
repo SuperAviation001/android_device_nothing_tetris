@@ -1,6 +1,7 @@
 # Android device tree for the Nothing CMF Phone 1 (nothing_tetris) 
 ## Usage:
 Clone to device/nothing/tetris
+then:
 
 ```
 cd device/nothing/tetris
