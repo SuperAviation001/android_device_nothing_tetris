@@ -100,4 +100,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/alps/mssi_64_64only_ww_armv82/mssi_64_64only_ww_armv82-vendor.mk)
+$(call inherit-product, vendor/nothing/tetris/tetris-vendor.mk)
