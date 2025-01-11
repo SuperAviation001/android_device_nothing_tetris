@@ -9,6 +9,13 @@ chmod +x setup-makefiles.sh
 chmod +x extract-files.sh
 
 ```
+## After this: execute these commands, make sure device is connected via ADB and booted into the system:
+
+```
+./extract-files.sh
+./setup-makefiles.sh
+
+```
 
 ```
 #
