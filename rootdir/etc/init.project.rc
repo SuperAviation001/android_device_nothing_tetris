@@ -1,0 +1,94 @@
+import /vendor/etc/init/hw/init.mtkgki.rc
+import /vendor/etc/init/hw/init.pstore.rc
+
+# MTK project .rc configure
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+#NT_EDIT BEE-62 for smartpa cali begin
+on fs
+    mkdir /mnt/vendor/persist/factory 0771 root root
+    mkdir /mnt/vendor/persist/factory/audio 0771 root root
+    chown media audio /mnt/vendor/persist/factory/audio
+on post-fs-data
+    chmod 0664 /sys/bus/i2c/drivers/aw882xx_smartpa/6-0034/re_show
+    chown media audio /sys/bus/i2c/drivers/aw882xx_smartpa/6-0034/re_show
+#NT_EDIT BEE-62 for smartpa cali end
+
+#NT_EDIT BEE-447 for vibrator cali begin
+on fs
+    chmod 0771 /mnt/vendor/persist/haptic
+    chown system system /mnt/vendor/persist/haptic
+    chmod 0771 /mnt/vendor/persist/haptic/cali_data
+    chown system system /mnt/vendor/persist/haptic/cali_data
+#NT_EDIT BEE-447 for vibrator cali end
+
+on post-fs-data
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#dual calibration
+    mkdir /data/vendor/camera 0775 camera camera
+    chmod 0444 /mnt/vendor/persist/camera/dualcam_cali.bin
+    copy /mnt/vendor/persist/camera/dualcam_cali.bin /data/vendor/camera/bokeh_caldata_uw_persist.bin
+    chmod 0444 /data/vendor/camera/bokeh_caldata_uw_persist.bin
+    chown cameraserver audio /data/vendor/camera/bokeh_caldata_uw_persist.bin
+    chmod 0777 /vendor/etc/camera
+    copy /vendor/etc/camera/bokeh_caldata_uw_golden.bin /data/vendor/camera/bokeh_caldata_uw_golden.bin
+    chmod 0444 /data/vendor/camera/bokeh_caldata_uw_golden.bin
+    chown cameraserver audio /data/vendor/camera/bokeh_caldata_uw_golden.bin
+
+#liqun Add permissions for exifinfo 2024/02/27. #AERO-210
+    chmod 0777 /data/vendor/camera
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+# start mmstat
+on property:sys.boot_completed=1
+    mkdir /sys/kernel/tracing/instances/mmstat 711
+    write /sys/kernel/tracing/instances/mmstat/tracing_on 0
+    write /sys/kernel/tracing/instances/mmstat/buffer_size_kb 16
+    write /sys/kernel/tracing/instances/mmstat/events/mmstat/enable 1
+    write /sys/kernel/tracing/instances/mmstat/tracing_on 1

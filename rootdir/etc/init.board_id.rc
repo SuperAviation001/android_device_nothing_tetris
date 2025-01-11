@@ -1,0 +1,14 @@
+service board_id_sh /vendor/bin/init.board_id.sh
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on early-boot
+    chown system system /proc/hwid
+    chmod 0664 /proc/hwid
+
+on boot
+    start board_id_sh
+
