@@ -20,10 +20,12 @@ Instead of this, you could clone the vendor tree I am providing into vendor/noth
 # IF YOU DID THE ABOVE STEP, YOU DO NOT NEED TO CLONE THE VENDOR TREE !!
 
 ## Kernel Source
-Kernel source is available at:
+### Kernel source is available at:
 https://github.com/NothingOSS/android_kernel_6.1_nothing_mt6878
-Clone it into kernel/nothing/tetris
-Enjoy!
+### Clone it into kernel/nothing/tetris
+
+# Enjoy!!
+I will build some roms for this device btw.
 ```
 #
 # Copyright (C) 2025 The LineageOS Project
