@@ -14,8 +14,8 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from Nothing Tetris (CMF Phone 1) device
 $(call inherit-product, device/nothing/tetris/device.mk)
 
-PRODUCT_DEVICE := nothing_tetris
-PRODUCT_NAME := lineage_nothing_tetris
+PRODUCT_DEVICE := tetris
+PRODUCT_NAME := lineage_tetris
 PRODUCT_BRAND := Nothing
 PRODUCT_MODEL := A015
 PRODUCT_MANUFACTURER := Nothing
