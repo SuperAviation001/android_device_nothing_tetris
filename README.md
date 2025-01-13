@@ -9,15 +9,12 @@ chmod +x setup-makefiles.sh
 chmod +x extract-files.sh
 
 ```
-## After this: execute these commands, make sure device is connected via ADB and booted into the system (if you wish to make your own vendor tree):
-Instead of this, you could clone the vendor tree I am providing into vendor/nothing/tetris
-```
-./extract-files.sh
-./setup-makefiles.sh
+## After this: clone my vendor tree to vendor/nothing/tetris
+Available at: https://github.com/SuperAviation001/android_vendor_nothing_tetris
 
 ```
-# WARNING 
-# IF YOU DID THE ABOVE STEP, YOU DO NOT NEED TO CLONE THE VENDOR TREE !!
+git clone https://github.com/SuperAviation001/android_vendor_nothing_tetris.git vendor/nothing/tetris
+```
 
 ## Kernel Source
 ### Kernel source is available at:
