@@ -8,6 +8,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_nothing_tetris.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_nothing_tetris-user \
-    lineage_nothing_tetris-userdebug \
-    lineage_nothing_tetris-eng
+    lineage_tetris-user \
+    lineage_tetris-userdebug \
+    lineage_tetris-eng
