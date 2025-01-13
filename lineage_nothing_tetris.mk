@@ -16,10 +16,13 @@ $(call inherit-product, device/nothing/tetris/device.mk)
 
 PRODUCT_DEVICE := nothing_tetris
 PRODUCT_NAME := lineage_nothing_tetris
-PRODUCT_BRAND := nothing
-PRODUCT_MODEL := tetris
-PRODUCT_MANUFACTURER := nothing
+PRODUCT_BRAND := Nothing
+PRODUCT_MODEL := A015
+PRODUCT_MANUFACTURER := Nothing
 
 PRODUCT_GMS_CLIENTID_BASE := android-nothing
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="tetris 14 UP1A.231005.007 2407022200 release-keys"
 
 BUILD_FINGERPRINT := nothing/tetris/tetris:14/UP1A.231005.007/2407022200:user/release-keys
