@@ -5,7 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_nothing_tetris.mk
+    $(LOCAL_DIR)/lineage_tetris.mk
 
 COMMON_LUNCH_CHOICES := \
     lineage_tetris-user \
