@@ -22,7 +22,7 @@ Instead of this, you could clone the vendor tree I am providing into vendor/noth
 ## Kernel Source
 ### Kernel source is available at:
 https://github.com/NothingOSS/android_kernel_6.1_nothing_mt6878
-### Clone it into kernel/nothing/tetris
+### Clone it into device/nothing/tetris-kernel
 
 # Enjoy!!
 I will build some roms for this device btw.
