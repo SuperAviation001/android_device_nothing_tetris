@@ -102,4 +102,4 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Inherit the proprietary files
-include vendor/alps/mssi_64_64only_ww_armv82/BoardConfigVendor.mk
+include vendor/nothing/tetris/BoardConfigVendor.mk
