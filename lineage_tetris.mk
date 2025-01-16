@@ -16,9 +16,9 @@ $(call inherit-product, device/nothing/tetris/device.mk)
 
 PRODUCT_DEVICE := tetris
 PRODUCT_NAME := lineage_tetris
-PRODUCT_BRAND := Nothing
+PRODUCT_BRAND := nothing
 PRODUCT_MODEL := tetris
-PRODUCT_MANUFACTURER := Nothing
+PRODUCT_MANUFACTURER := nothing
 
 PRODUCT_GMS_CLIENTID_BASE := android-nothing
 
