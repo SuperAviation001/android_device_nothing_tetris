@@ -17,9 +17,7 @@ git clone https://github.com/SuperAviation001/android_vendor_nothing_tetris.git 
 ```
 
 ## Kernel Source
-### Kernel source is available at:
-https://github.com/NothingOSS/android_kernel_6.1_nothing_mt6878
-### Clone it into device/nothing/tetris-kernel
+### Kernel source is in the device tree. No need to clone the kernel !!!
 
 # Enjoy!!
 I will build some roms for this device btw.
