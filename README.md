@@ -1,4 +1,5 @@
 # Android device tree for the Nothing CMF Phone 1 (nothing_tetris) 
+# IMPORTANT: INSTALL "mono-xbuild" BEFORE BUILDING A ROM WITH THIS!!
 ## Usage:
 Clone to device/nothing/tetris
 then:
