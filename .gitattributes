@@ -1,0 +1,4 @@
+prebuilts/vendor.img filter=lfs diff=lfs merge=lfs -text
+prebuilts/odm.img filter=lfs diff=lfs merge=lfs -text
+prebuilts/product.img filter=lfs diff=lfs merge=lfs -text
+prebuilts/system_ext.img filter=lfs diff=lfs merge=lfs -text
