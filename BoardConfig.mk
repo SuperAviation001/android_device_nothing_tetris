@@ -11,15 +11,12 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     system \
     product \
-    system_ext \
     system_dlkm \
     vendor \
     vbmeta_system \
     odm \
     boot \
-    vbmeta_vendor \
-    odm_dlkm \
-    vendor_dlkm
+    vbmeta_vendor
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
@@ -62,12 +59,9 @@ BOARD_SUPER_PARTITION_GROUPS := alps_dynamic_partitions
 BOARD_ALPS_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
-    system_ext \
     system_dlkm \
     vendor \
-    odm \
-    odm_dlkm \
-    vendor_dlkm
+    odm
 BOARD_ALPS_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
@@ -94,11 +88,17 @@ VENDOR_SECURITY_PATCH := 2024-05-05
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+#BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
+
+BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := 1
+BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 1
+
 
 # Fix "overriding commands for target..."
 BUILD_BROKEN_DUP_RULES := true
@@ -109,5 +109,37 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 # VINTF
  DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
+# Define prebuilt ODM. Need commit from 'https://github.com/StagOS/android_build_make/commit/443f8e964e096f70be2dfd4a4f68610d530606b3' in build/core/Makefile for it to work.
+BOARD_PREBUILT_ODMIMAGE := $(DEVICE_PATH)/prebuilts/odm.img
+TARGET_COPY_OUT_ODM := odm
+
+# Define prebuilt Product
+BOARD_PREBUILT_PRODUCTIMAGE :=  $(DEVICE_PATH)/prebuilts/product.img
+TARGET_COPY_OUT_PRODUCT := product
+
+# Define prebuilt System_DLKM
+BOARD_PREBUILT_SYSTEM_DLKMIMAGE :=  $(DEVICE_PATH)/prebuilts/system_dlkm.img
+TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
+
+# Define prebuilt Vendor
+BOARD_PREBUILT_VENDORIMAGE := $(DEVICE_PATH)/prebuilts/vendor.img
+TARGET_COPY_OUT_VENDOR := vendor
+
+# Define prebuilt DTB
+BOARD_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilts/dtb.img
+TARGET_COPY_OUT_DTB := dtb
+
+# Specify to build images. DO NOT UNCOMMENT PREBUILTS!!
+  IMAGES_TO_BUILD += vendor_boot
+#  IMAGES_TO_BUILD += vendor_dlkm
+  IMAGES_TO_BUILD += vbmeta
+  IMAGES_TO_BUILD += userdata
+  IMAGES_TO_BUILD += system
+#  IMAGES_TO_BUILD += system_dlkm
+#  IMAGES_TO_BUILD += dtb
+# IMAGES_TO_BUILD += odm_dlkm
+  IMAGES_TO_BUILD += init_boot
+  IMAGES_TO_BUILD += boot
+
 # Inherit the proprietary files
-include vendor/nothing/tetris/BoardConfigVendor.mk
+#include vendor/nothing/tetris/BoardConfigVendor.mk
