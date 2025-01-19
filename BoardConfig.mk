@@ -11,12 +11,15 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     system \
     product \
+    system_ext \
     system_dlkm \
     vendor \
     vbmeta_system \
     odm \
     boot \
-    vbmeta_vendor
+    vbmeta_vendor \
+    odm_dlkm \
+    vendor_dlkm
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
@@ -59,9 +62,12 @@ BOARD_SUPER_PARTITION_GROUPS := alps_dynamic_partitions
 BOARD_ALPS_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
+    system_ext \
     system_dlkm \
     vendor \
-    odm
+    odm \
+    odm_dlkm \
+    vendor_dlkm
 BOARD_ALPS_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
