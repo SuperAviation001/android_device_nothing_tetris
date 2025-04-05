@@ -141,6 +141,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V4-ndk.vendor \
     android.hardware.graphics.composer3-V2-ndk.vendor \
     android.hardware.memtrack-service.mediatek-mali \
+    libprocessgroup.vendor \
     libhwc2on1adapter \
     libhwc2onfbadapter \
     libdrm.vendor
