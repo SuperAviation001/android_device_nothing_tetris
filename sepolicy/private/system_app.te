@@ -1,0 +1,5 @@
+# Define sysfs_zram fs type
+type sysfs_zram, fs_type, sysfs_type;
+
+# Allow system_app to access sysfs_zram
+allow system_app sysfs_zram:file rw_file_perms;
