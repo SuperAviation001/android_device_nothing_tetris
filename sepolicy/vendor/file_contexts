@@ -4,3 +4,6 @@
 
 # Richtap
 /dev/aac_richtap    u:object_r:aac_richtap_dev_device:s0
+
+# Charger
+/sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?              u:object_r:sysfs_ntchg:s0

@@ -1,0 +1,5 @@
+# Define nt-chg type
+type sysfs_ntchg, fs_type, sysfs_type;
+
+# Allow hal_health_default access to nt-chg
+allow hal_health_default sysfs_ntchg:file rw_file_perms;
