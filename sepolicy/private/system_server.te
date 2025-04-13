@@ -1,0 +1,5 @@
+# Allow system_server access to sysfs_mmstat
+allow system_server sysfs_mmstat:file rw_file_perms;
+
+# Allow system_server access to zygote_tmpfs
+allow system_server zygote_tmpfs:file rw_file_perms;

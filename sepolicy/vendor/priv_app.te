@@ -1,0 +1,2 @@
+# Allow priv_app access to metadata
+allow priv_app metadata_file:dir rw_file_perms;
