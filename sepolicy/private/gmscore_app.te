@@ -1,2 +1,2 @@
 # Allow gmscore_app access to system_adbd_prop
-allow gmscore_app system_adbd_prop:file r_file_perms;
+allow gmscore_app system_adbd_prop:file {read};
