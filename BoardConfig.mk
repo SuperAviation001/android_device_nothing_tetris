@@ -71,8 +71,8 @@ BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 include device/nothing/tetris-kernel/BoardConfigKernel.mk
 
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -114,7 +114,7 @@ BOARD_HAS_MTK_HARDWARE := true
 TARGET_BOARD_PLATFORM := mt6878
 
 # Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
