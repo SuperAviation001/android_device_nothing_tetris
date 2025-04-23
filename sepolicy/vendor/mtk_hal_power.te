@@ -1,0 +1,1 @@
+allow mtk_hal_power vendor_power_prop:file r_file_perms;
