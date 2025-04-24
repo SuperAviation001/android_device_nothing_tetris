@@ -723,3 +723,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.zramwriteback_enable=true \
     persist.sys.zramwriteback_first_boot=1 \
     persist.sys.zramwriteback_size=2147483648
+
+# Fingerprint
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.feature.fingerprint_sensorui_position_center_x=540 \
+    vendor.feature.fingerprint_sensorui_position_center_y=2164 \
+    vendor.feature.fingerprint_sensorui_position_center_r=98
