@@ -2716,9 +2716,6 @@ vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
 vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
 
 # Vibrator
-vendor/bin/hw/android.hardware.vibrator-service.mediatek
-vendor/etc/aac_richtap.config
-vendor/etc/init/vibrator-mtk-default.rc
 vendor/etc/richtapresources/NT_OnOff_button.he
 vendor/etc/richtapresources/NT_camera_photo.he
 vendor/etc/richtapresources/NT_camera_zoom.he
@@ -2813,11 +2810,15 @@ vendor/etc/richtapresources/weak/pop.he
 vendor/etc/richtapresources/weak/texture_tick.he
 vendor/etc/richtapresources/weak/thud.he
 vendor/etc/richtapresources/weak/tick.he
-vendor/etc/vintf/manifest/vibrator-mtk-default.xml
 vendor/lib64/hw/vibrator.default.so
-vendor/lib64/libaacvibrator.so
 vendor/lib64/libvibratorutils.so
 vendor/lib64/vendor.aac.hardware.richtap.vibrator-V2-ndk.so
+
+# Richtap
+-vendor/lib64/libaacvibrator.so
+
+# Richtap config
+vendor/etc/aac_richtap.config
 
 # Wi-Fi
 vendor/bin/conninfra_loader
