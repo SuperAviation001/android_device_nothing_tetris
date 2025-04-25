@@ -1,0 +1,2 @@
+# Allow priv_app sysfs_mmstat access
+allow priv_app sysfs_mmstat:file {read};
