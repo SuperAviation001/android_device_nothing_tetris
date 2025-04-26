@@ -467,13 +467,6 @@
     <!-- Is the device capable of hot swapping an UICC Card -->
     <bool name="config_hotswapCapable">true</bool>
 
-    <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
-    <integer-array name="config_udfps_sensor_props" translatable="false" >
-        <item>540</item>
-        <item>2109</item>
-        <item>93</item>
-    </integer-array>
-
     <!-- Whether the device supports Smart Pixels -->
      <bool name="config_supportSmartPixels">true</bool>
 
