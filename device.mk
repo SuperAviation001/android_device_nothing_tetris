@@ -230,6 +230,9 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    vendor.mediatek.hardware.mtkpower@1.2-service.stub \
+    android.hardware.power-service.lineage-libperfmgr \
+    android.hardware.power-service-mediatek \
     android.hardware.power-V4-ndk.vendor \
     android.hardware.power@1.2.vendor
 
@@ -361,7 +364,14 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
+    hardware/mediatek/libmtkperf_client \
+    hardware/lineage/interfaces/power-libperfmgr \
     $(LOCAL_PATH)
+
+# Performance
+PRODUCT_PACKAGES += \
+    libmtkperf_client \
+    libmtkperf_client_vendor
 
 # USB
 PRODUCT_PACKAGES += \

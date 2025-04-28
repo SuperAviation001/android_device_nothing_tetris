@@ -679,7 +679,6 @@ vendor/lib64/libmtkcam_ulog.so
 vendor/lib64/libmtkcam_zsl_customselector.so
 vendor/lib64/libmtkcm_ipc_dummy.so
 vendor/lib64/libmtkgpuserv.so
-vendor/lib64/libmtkperf_client_vendor.so
 vendor/lib64/libmvpu_wrapper.so
 vendor/lib64/libn3d_tuning.so
 vendor/lib64/libnoteengine.so
@@ -1504,7 +1503,6 @@ system_ext/lib64/libimsma_socketwrapper.so
 system_ext/lib64/libmtk_vt_service.so
 system_ext/lib64/libmtk_vt_wrapper.so
 system_ext/lib64/libmtk_vt_wrapper.so
-system_ext/lib64/libmtkperf_client.so
 system_ext/lib64/libsignal.so
 system_ext/lib64/libsink.so
 system_ext/lib64/libsource.so
@@ -2508,8 +2506,6 @@ vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-init.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc
 vendor/etc/task_profiles.json
 vendor/etc/vintf/manifest/mtkpower_applist-mtk-default.xml
-vendor/etc/vintf/manifest/power-mediatek.xml
-vendor/lib64/android.hardware.power-service-mediatek.so
 vendor/lib64/hw/power.default.so
 vendor/lib64/hw/vendor.mediatek.hardware.mtkpower-aidl-impl.so
 vendor/lib64/lib_power_applist.so
