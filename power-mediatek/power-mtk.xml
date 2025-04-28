@@ -1,7 +1,7 @@
 <manifest version="1.0" type="device">
     <hal format="aidl">
-        <name>android.hardware.power</name>
-        <version>2</version>
-        <fqname>IPower/default</fqname>
+        <name>vendor.mediatek.hardware.mtkpower</name>
+        <version>1</version>
+        <fqname>IMtkPowerService/default</fqname>
     </hal>
 </manifest>
