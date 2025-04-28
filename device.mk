@@ -231,7 +231,6 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub \
-    android.hardware.power-service.lineage-libperfmgr \
     android.hardware.power-V4-ndk.vendor \
     android.hardware.power@1.2.vendor
 
