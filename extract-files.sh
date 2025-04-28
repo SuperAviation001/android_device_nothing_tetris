@@ -56,6 +56,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+		vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service)
+ 			grep -q "android.hardware.power-V2-ndk_platform.so" "${2}" && \
+ 			"${PATCHELF}" --replace-needed "android.hardware.power-V2-ndk_platform.so" "android.hardware.power-V2-ndk.so" "${2}"
+ 			;;
         system_ext/etc/init/init.vtservice.rc)
             sed -i 's|start|enable|g' "$2"
             ;;
