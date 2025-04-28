@@ -74,6 +74,9 @@ function blob_fixup() {
         vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so)
             grep -q libui_shim.so "$2" || "$PATCHELF" --add-needed libui_shim.so "$2"
             ;;
+        vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc)
+            echo "$(cat ${2}) input" > "${2}"
+            ;;
     esac
 }
 
