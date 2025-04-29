@@ -1,0 +1,11 @@
+on late-fs
+     chown system system /dev/aac_richtap
+     chmod 0600 /dev/aac_richtap
+
+service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator.service.tetris
+    class hal
+    user system
+    group system input
+
+    setenv RICHTAP_DEVICE_PATH  /dev/aac_richtap
+    setenv ENV_RICHTAP_CONFIG_PATH /vendor/etc/aac_richtap.config

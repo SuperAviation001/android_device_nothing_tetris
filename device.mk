@@ -11,9 +11,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# Fingerprint
-TARGET_HAS_UDFPS := true
-
 # Inherit virtual_ab_ota product
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
@@ -70,6 +67,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 PRODUCT_PACKAGES += \
     FrameworksResOverlayTetris \
     SettingsResTetris \
@@ -186,6 +187,13 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint-V4-ndk.vendor \
+    android.hardware.biometrics.common-V4-ndk.vendor \
+    android.hardware.biometrics.common.util.vendor \
+    android.hardware.biometrics.common.thread.vendor
+
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.secure_element-V1-ndk.vendor \
@@ -223,8 +231,16 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    vendor.mediatek.hardware.mtkpower@1.2-service.stub \
+    vendor.mediatek.hardware.mtkpower@1.0.vendor \
+    vendor.mediatek.hardware.mtkpower@1.1.vendor \
+    vendor.mediatek.hardware.mtkpower@1.2.vendor \
+    android.hardware.power-service-mediatek \
     android.hardware.power-V4-ndk.vendor \
-    android.hardware.power@1.2.vendor
+    android.hardware.power@1.2.vendor \
+    lmodroid-power-ext-V1-ndk.vendor \
+    powerext_native_test \
+    libpowerext.vendor
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/power/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -354,7 +370,14 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
+    hardware/mediatek/libmtkperf_client \
+    hardware/lineage/interfaces/power-libperfmgr \
     $(LOCAL_PATH)
+
+# Performance
+PRODUCT_PACKAGES += \
+    libmtkperf_client \
+    libmtkperf_client_vendor
 
 # USB
 PRODUCT_PACKAGES += \
@@ -364,7 +387,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator-V2-ndk.vendor
+    android.hardware.vibrator.service.tetris
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -377,6 +400,7 @@ PRODUCT_PACKAGES += \
     libkeystore-wifi-hidl \
     libkeystore-engine-wifi-hidl \
     libwifi-hal-wrapper \
+    wifi_legacy \
     wpa_supplicant
 
 PRODUCT_COPY_FILES += \

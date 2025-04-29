@@ -1,0 +1,7 @@
+allow untrusted_app qemu_hw_prop:file {read};
+allow untrusted_app qemu_sf_lcd_density_prop:file {read};
+allow untrusted_app rootfs:dir {read};
+allow untrusted_app input_device:dir {search};
+allow untrusted_app sysfs_net:dir {search};
+allow untrusted_app mnt_product_file:dir search;
+allow untrusted_app vm_data_file:dir getattr;

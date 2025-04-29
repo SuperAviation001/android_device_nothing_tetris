@@ -3,3 +3,5 @@ type sysfs_mmstat, fs_type, sysfs_type;
 
 # Allow system_app to access sysfs_zram
 allow system_app sysfs_mmstat:file rw_file_perms;
+
+allow system_app user_profile_data_file:dir {read};

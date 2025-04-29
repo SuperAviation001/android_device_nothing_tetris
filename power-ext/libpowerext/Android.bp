@@ -1,0 +1,25 @@
+cc_binary {
+    name: "powerext_native_test",
+    vendor: true,
+    srcs: ["test/main.cpp"],
+    shared_libs: [
+        "libpowerext",
+    ]
+}
+
+cc_library_shared {
+    name: "libpowerext",
+    vendor_available: true,
+    srcs: ["PowerExt.cpp"],
+    shared_libs: [
+        "android.hardware.power-V5-ndk",
+        "libbinder_ndk",
+        "liblog",
+        "lmodroid-power-ext-V1-ndk",
+    ],
+    export_shared_lib_headers: [
+        "lmodroid-power-ext-V1-ndk",
+    ],
+    include_dirs: ["."],
+    export_include_dirs: ["."],
+}

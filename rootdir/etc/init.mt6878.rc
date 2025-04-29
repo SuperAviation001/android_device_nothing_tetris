@@ -888,6 +888,9 @@ on boot
     chmod 0666 /sys/class/leds/vibrator_nt/loop
     chown system system /sys/class/leds/vibrator_nt/loop
 
+    # Fingerprint
+    chown system system /dev/goodix_fp
+
     # gauge symbolic
     symlink /sys/devices/platform/soc/11280000.i2c/i2c-5/5-0034/11280000.i2c:mt6375@34:mtk-gauge /dev/gauge
 

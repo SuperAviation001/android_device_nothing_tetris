@@ -1,0 +1,31 @@
+package {
+    // See: http://go/android-license-faq
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+aidl_interface {
+    name: "lmodroid-power-ext",
+    vendor_available: true,
+    srcs: [
+        "lmodroid/hardware/power/extension/IPowerExt.aidl",
+    ],
+
+    stability: "vintf",
+
+    backend: {
+        java: {
+            platform_apis: true,
+        },
+        cpp: {
+            enabled: true,
+        },
+    },
+    owner: "lmodroid",
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}

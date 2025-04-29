@@ -679,7 +679,6 @@ vendor/lib64/libmtkcam_ulog.so
 vendor/lib64/libmtkcam_zsl_customselector.so
 vendor/lib64/libmtkcm_ipc_dummy.so
 vendor/lib64/libmtkgpuserv.so
-vendor/lib64/libmtkperf_client_vendor.so
 vendor/lib64/libmvpu_wrapper.so
 vendor/lib64/libn3d_tuning.so
 vendor/lib64/libnoteengine.so
@@ -1327,9 +1326,6 @@ vendor/etc/panel-truly-td4330-cmd_pq.xml
 vendor/lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.mt6878.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint.so
-vendor/bin/hw/vendor.nothing.hardware.biometrics.fingerprint-service
-vendor/etc/init/vendor.nothing.hardware.biometrics.fingerprint-service.rc
-vendor/etc/vintf/manifest/vendor.nothing.hardware.biometrics.fingerprint-service.xml
 vendor/lib64/android.hardware.biometrics.fingerprint-V3-ndk.so
 vendor/lib64/android.hardware.biometrics.common-V3-ndk.so
 vendor/etc/init/vendor.noth.fingerprint.goodix.config.rc
@@ -1504,7 +1500,6 @@ system_ext/lib64/libimsma_socketwrapper.so
 system_ext/lib64/libmtk_vt_service.so
 system_ext/lib64/libmtk_vt_wrapper.so
 system_ext/lib64/libmtk_vt_wrapper.so
-system_ext/lib64/libmtkperf_client.so
 system_ext/lib64/libsignal.so
 system_ext/lib64/libsink.so
 system_ext/lib64/libsource.so
@@ -2508,8 +2503,6 @@ vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-init.rc
 vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc
 vendor/etc/task_profiles.json
 vendor/etc/vintf/manifest/mtkpower_applist-mtk-default.xml
-vendor/etc/vintf/manifest/power-mediatek.xml
-vendor/lib64/android.hardware.power-service-mediatek.so
 vendor/lib64/hw/power.default.so
 vendor/lib64/hw/vendor.mediatek.hardware.mtkpower-aidl-impl.so
 vendor/lib64/lib_power_applist.so
@@ -2519,9 +2512,6 @@ vendor/lib64/libpowerhal.so
 vendor/lib64/libpowerhalwrap_vendor.so
 vendor/lib64/vendor.mediatek.framework.mtksf_ext-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mtkpower-V1-ndk.so
-vendor/lib64/vendor.mediatek.hardware.mtkpower@1.0.so
-vendor/lib64/vendor.mediatek.hardware.mtkpower@1.1.so
-vendor/lib64/vendor.mediatek.hardware.mtkpower@1.2.so
 vendor/lib64/vendor.mediatek.hardware.mtkpower_applist-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.power@1.1.so
 vendor/lib64/vendor.mediatek.hardware.power@2.0.so
@@ -2716,9 +2706,6 @@ vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
 vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
 
 # Vibrator
-vendor/bin/hw/android.hardware.vibrator-service.mediatek
-vendor/etc/aac_richtap.config
-vendor/etc/init/vibrator-mtk-default.rc
 vendor/etc/richtapresources/NT_OnOff_button.he
 vendor/etc/richtapresources/NT_camera_photo.he
 vendor/etc/richtapresources/NT_camera_zoom.he
@@ -2813,11 +2800,15 @@ vendor/etc/richtapresources/weak/pop.he
 vendor/etc/richtapresources/weak/texture_tick.he
 vendor/etc/richtapresources/weak/thud.he
 vendor/etc/richtapresources/weak/tick.he
-vendor/etc/vintf/manifest/vibrator-mtk-default.xml
 vendor/lib64/hw/vibrator.default.so
-vendor/lib64/libaacvibrator.so
 vendor/lib64/libvibratorutils.so
 vendor/lib64/vendor.aac.hardware.richtap.vibrator-V2-ndk.so
+
+# Richtap - from eqs 14-U1SQS34.52-21-1-10 504bf-893e0 release-keys
+vendor/lib64/libaacvibrator.so|a58aac68c3a3a964adfcda9bb948aa7eef089f58
+
+# Richtap config - from Spacewar NOS3.0-250303-1817
+vendor/etc/aac_richtap.config|242d4c1ab550784e011fee3c5d21fef04131534b
 
 # Wi-Fi
 vendor/bin/conninfra_loader

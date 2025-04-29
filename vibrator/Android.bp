@@ -1,0 +1,27 @@
+cc_binary {
+    name: "android.hardware.vibrator.service.tetris",
+    vendor: true,
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-DLOG_TAG=\"android.hardware.vibrator.service.tetris\"",
+    ],
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.vibrator.service.tetris.rc"],
+    vintf_fragments: [
+        "android.hardware.vibrator.service.tetris.xml",
+    ],
+    srcs: [
+        "service.cpp",
+        "Vibrator.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libbase",
+        "libbinder_ndk",
+        "libaacvibrator",
+        "android.hardware.vibrator-V2-ndk",
+    ],
+}

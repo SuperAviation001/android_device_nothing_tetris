@@ -1,0 +1,3 @@
+allow system_suspend sysfs:dir { read map getattr };
+allow system_suspend sysfs_batteryinfo:dir { read map getattr };
+allow system_suspend sysfs:file { map getattr };

@@ -1,20 +1,4 @@
 <compatibility-matrix version="7.0" type="framework">
-    <hal format="aidl">
-	<name>android.hardware.power</name>
-	<version>2</version>
-	<interface>
-	    <name>IPower</name>
-	    <instance>default</instance>
-	</interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>android.hardware.biometrics.fingerprint</name>
-        <version>3</version>
-        <interface>
-            <name>IFingerprint</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.bluetooth</name>
         <interface>

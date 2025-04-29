@@ -4,6 +4,8 @@
 
 # Richtap
 /dev/aac_richtap    u:object_r:aac_richtap_dev_device:s0
+/vendor/bin/hw/android.hardware.vibrator.service.tetris         u:object_r:hal_vibrator_default_exec:s0
 
 # Charger
 /sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?              u:object_r:sysfs_ntchg:s0
+
