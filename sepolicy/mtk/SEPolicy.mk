@@ -1,7 +1,7 @@
 # Board specific SELinux policy variable definitions
 MTK_SEPOLICY_PATH := device/nothing/tetris/sepolicy/mtk
 
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include device/droidx/sepolicy/libperfmgr/sepolicy.mk
 
 ifeq ($(BOARD_MTK_SEPOLICY_IS_LEGACY), true)
 # Build with broken namespaces
