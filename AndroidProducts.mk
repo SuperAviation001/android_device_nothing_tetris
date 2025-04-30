@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_tetris.mk
+    $(LOCAL_DIR)/droidx_tetris.mk
