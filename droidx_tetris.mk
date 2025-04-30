@@ -8,8 +8,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common AOSP stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common DroidX-UI stuff.
+$(call inherit-product, vendor/droidx/config/common_full_phone.mk)
 
 # Inherit from tetris device
 $(call inherit-product, device/nothing/tetris/device.mk)
@@ -30,3 +30,14 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="Tetris 15 AP3A.240905.015 2502082015 release-keys" \
     BuildFingerprint=Nothing/Tetris/Tetris:15/AP3A.240905.015.A2/2502082015:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
+
+# DroidX Specific stuff
+ 
+# Build type
+DROIDX_BUILD_TYPE := OFFICIAL
+ 
+# GAPPS
+DROIDX_GAPPS := true
+ 
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
