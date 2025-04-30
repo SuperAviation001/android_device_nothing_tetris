@@ -1489,6 +1489,7 @@ vendor/lib64/vendor.mediatek.hardware.gnss.batching-V1-ndk.so
 system_ext/bin/vtservice
 system_ext/etc/init/init.vtservice.rc
 -system_ext/framework/mediatek-common.jar:framework/mediatek-common.jar
+-system_ext/framework/mediatek-framework.jar:framework/mediatek-framework.jar
 -system_ext/framework/mediatek-ims-base.jar:framework/mediatek-ims-base.jar
 system_ext/framework/mediatek-ims-extension-plugin.jar:framework/mediatek-ims-extension-plugin.jar
 system_ext/lib64/libcomutils.so
@@ -1514,10 +1515,6 @@ vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
 
 # ImsService - from zahedan U
 -system_ext/priv-app/ImsService/ImsService.apk|e0390f357ce63afa3c1d4ff8f5d9258d6d4bc2f6
-
-# mediatek-framework - from Pacman V3.0-240617
--system_ext/framework/mediatek-framework.jar:framework/mediatek-framework.jar
-# shasum c20440d02102fdb511be21cdcf9d13c97a44bea3
 
 # Keymint
 vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
