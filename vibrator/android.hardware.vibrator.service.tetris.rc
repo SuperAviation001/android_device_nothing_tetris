@@ -9,3 +9,6 @@ service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator.service
 
     setenv RICHTAP_DEVICE_PATH  /dev/aac_richtap
     setenv ENV_RICHTAP_CONFIG_PATH /vendor/etc/aac_richtap.config
+
+on property:sys.boot_completed=1
+      setprop vendor.haptic.calibrate.done 1
