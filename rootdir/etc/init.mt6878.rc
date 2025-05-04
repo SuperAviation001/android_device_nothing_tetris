@@ -2,6 +2,7 @@
 
 import /vendor/etc/init/hw/init.cgroup.rc
 import /vendor/etc/init/hw/init.connectivity.rc
+import /vendor/etc/init/hw/init.mt6878.neuralnetworks.rc
 import /vendor/etc/init/hw/init.mt6878.power.rc
 import /vendor/etc/init/hw/init.mt6878.usb.rc
 import /vendor/etc/init/hw/init.project.rc

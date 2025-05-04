@@ -1,0 +1,16 @@
+service neuralnetworks_hal_service_shim_mtk /vendor/bin/hw/android.hardware.neuralnetworks-shim-service-mtk
+    class hal
+    user system
+    group system
+    group system readproc
+    task_profiles NNApiHALPerformance
+    disabled
+
+on post-fs-data
+    mkdir /data/vendor/nn 0775 system system
+
+on post-fs-data
+    mkdir /data/vendor/nn/debug_plus 0775 system system
+
+on property:ro.vendor.mtk_nn_baseline_support=1
+    start neuralnetworks_hal_service_shim_mtk

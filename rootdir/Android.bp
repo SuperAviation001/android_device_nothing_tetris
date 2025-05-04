@@ -65,6 +65,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.mt6878.neuralnetworks.rc",
+    src: "init.mt6878.neuralnetworks.rc",
+    relative_install_path: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.mt6878.power.rc",
     src: "etc/init.mt6878.power.rc",
     sub_dir: "init/hw",

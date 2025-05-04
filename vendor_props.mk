@@ -431,6 +431,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.pq.mtk_video_transition=0 \
     ro.vendor.pref_scale_enable_cfg=1
 
+
+# Neural Network
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.mtk_tflite.target_nnapi=29 \
+    ro.vendor.mtk_nn.option=A,B,C,D,E,F,G,Z \
+    ro.vendor.mtk_nn_baseline_support=1 \
+    ro.vendor.mtk_nn_quant_preferred=1 \
+    ro.vendor.mtk_nn_support=1
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \

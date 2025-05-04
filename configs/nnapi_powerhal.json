@@ -1,0 +1,230 @@
+{
+    "fast_single_answer": [
+        {
+            "name": "PERF_RES_CPUFREQ_PERF_MODE",
+            "id": "0x00414000",
+            "value": 1
+        },
+        {
+            "name": "PERF_RES_SCHED_ISOLATION_CPU",
+            "id": "0x0143c000",
+            "value": 128
+        },
+        {
+            "name": "PERF_RES_CPUFREQ_CCI_FREQ",
+            "id": "0x00410000",
+            "value": 1
+        },
+        {
+            "name": "PERF_RES_DRAM_OPP_MIN",
+            "id": "0x01000000",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UCLAMP_MIN_TA",
+            "id": "0x01408300",
+            "value": 100
+        },
+        {
+            "name": "PERF_RES_SCHED_UCLAMP_MIN_FG",
+            "id": "0x01408100",
+            "value": 100
+        },
+        {
+            "name": "PERF_RES_FPS_FSTB_SOFT_FPS_LOWER",
+            "id": "0x0201c000",
+            "value": 60
+        },
+        {
+            "name": "PERF_RES_FPS_FSTB_SOFT_FPS_UPPER",
+            "id": "0x0201c100",
+            "value": 60
+        },
+        {
+            "name": "PERF_RES_FPS_FBT_BHR_OPP",
+            "id": "0x02020000",
+            "value": 31
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_0",
+            "id": "0x01438300",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_1",
+            "id": "0x01438400",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_2",
+            "id": "0x01438500",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_0",
+            "id": "0x01438600",
+            "value": 40000
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_1",
+            "id": "0x01438700",
+            "value": 40000
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_2",
+            "id": "0x01438800",
+            "value": 40000
+        },
+        {
+            "name": "PERF_RES_PM_QOS_CPUIDLE_MCDI_ENABLE",
+            "id": "0x01c3c100",
+            "value": 0
+        }
+    ],
+    "sustained_speed": [
+        {
+            "name": "PERF_RES_DRAM_OPP_MIN",
+            "id": "0x01000000",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UCLAMP_MIN_TA",
+            "id": "0x01408300",
+            "value": 100
+        },
+        {
+            "name": "PERF_RES_FPS_FSTB_SOFT_FPS_LOWER",
+            "id": "0x0201c000",
+            "value": 60
+        },
+        {
+            "name": "PERF_RES_FPS_FSTB_SOFT_FPS_UPPER",
+            "id": "0x0201c100",
+            "value": 60
+        },
+        {
+            "name": "PERF_RES_FPS_FBT_BHR_OPP",
+            "id": "0x02020000",
+            "value": 31
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_1",
+            "id": "0x01438400",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_2",
+            "id": "0x01438500",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_1",
+            "id": "0x01438700",
+            "value": 40000
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_2",
+            "id": "0x01438800",
+            "value": 40000
+        },
+        {
+            "name": "PERF_RES_PM_QOS_CPUIDLE_MCDI_ENABLE",
+            "id": "0x01c3c100",
+            "value": 0
+        }
+    ],
+    "compilation": [
+        {
+            "name": "PERF_RES_CPUFREQ_PERF_MODE",
+            "id": "0x00414000",
+            "value": 1
+        },
+        {
+            "name": "PERF_RES_CPUFREQ_CCI_FREQ",
+            "id": "0x00410000",
+            "value": 1
+        },
+        {
+            "name": "PERF_RES_DRAM_OPP_MIN",
+            "id": "0x01000000",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UCLAMP_MIN_TA",
+            "id": "0x01408300",
+            "value": 100
+        },
+        {
+            "name": "PERF_RES_FPS_FBT_BHR_OPP",
+            "id": "0x02020000",
+            "value": 31
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_1",
+            "id": "0x01438400",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_UP_RATE_LIMIT_US_CLUSTER_2",
+            "id": "0x01438500",
+            "value": 0
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_1",
+            "id": "0x01438700",
+            "value": 40000
+        },
+        {
+            "name": "PERF_RES_SCHED_UTIL_DOWN_RATE_LIMIT_US_CLUSTER_2",
+            "id": "0x01438800",
+            "value": 40000
+        }
+    ],
+    "baseline": [
+        {
+            "name": "PERF_RES_AI_APUSYS_BOOST_IPU_IF",
+            "id": "0X01810000",
+            "value": 0
+        }
+    ],
+    "preference_options": [
+        {
+            "name": "low_power",
+            "id": 0,
+            "options": "--opt-bw"
+        },
+        {
+            "name": "fast_single_answer",
+            "id": 1,
+            "options": "--opt 3 --intval-coloring-coverage=0.01"
+        },
+        {
+            "name": "sustained_speed",
+            "id": 2,
+            "options": "--opt-bw"
+        }
+    ],
+    "cpu_cluster": [
+        {
+            "name": "LITTLE_CORE_CLUSTER",
+            "id": 0,
+            "value": 15
+        },
+        {
+            "name": "BIG_CORE_CLUSTER",
+            "id": 1,
+            "value": 112
+        },
+        {
+            "name": "ULTRA_CORE_CLUSTER",
+            "id": 2,
+            "value": 0
+        }
+    ],
+    "smp_signature": [
+        {
+            "hash": "",
+            "options": ""
+        }
+    ]
+}
