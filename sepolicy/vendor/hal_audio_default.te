@@ -18,6 +18,7 @@ allow hal_audio_default mtk_audiohal_data_file:dir create_dir_perms;
 allow hal_audio_default mtk_audiohal_data_file:file create_file_perms;
 
 hal_client_domain(hal_audio_default, hal_power)
+hal_client_domain(hal_audio_default, hal_mtk_power)
 
 allow hal_audio_default sysfs_boot_mode:file r_file_perms;
 
