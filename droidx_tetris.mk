@@ -32,12 +32,12 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=$(DEVICE_CODENAME)
 
 # DroidX Specific stuff
- 
+
 # Build type
 DROIDX_BUILD_TYPE := OFFICIAL
- 
+
 # GAPPS
 DROIDX_GAPPS := true
- 
+
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
