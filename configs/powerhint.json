@@ -54,13 +54,7 @@
           "27",
           "28",
           "29",
-          "30",
-          "31",
-          "32",
-          "33",
-          "34",
-          "35",
-          "36"
+          "30"
         ],
         "ResetOnInit": true,
         "DefaultIndex": 0,
@@ -95,20 +89,13 @@
           "[27] freq: 592000, volt: 62500, vsram: 75000, posdiv: 2, vaging: 0, power: 520",
           "[28] freq: 570000, volt: 61875, vsram: 75000, posdiv: 2, vaging: 0, power: 490",
           "[29] freq: 547000, volt: 61250, vsram: 75000, posdiv: 2, vaging: 0, power: 455",
-          "[30] freq: 525000, volt: 60625, vsram: 75000, posdiv: 2, vaging: 0, power: 428",
-          "[31] freq: 502000, volt: 60625, vsram: 75000, posdiv: 2, vaging: 0, power: 406",
-          "[32] freq: 480000, volt: 60000, vsram: 75000, posdiv: 2, vaging: 0, power: 390",
-          "[33] freq: 457000, volt: 59375, vsram: 75000, posdiv: 2, vaging: 0, power: 365",
-          "[34] freq: 435000, volt: 58750, vsram: 75000, posdiv: 2, vaging: 0, power: 334",
-          "[35] freq: 412000, volt: 58125, vsram: 75000, posdiv: 2, vaging: 0, power: 311",
-          "[36] freq: 390000, volt: 57500, vsram: 75000, posdiv: 2, vaging: 0, power: 289"
+          "[30] freq: 525000, volt: 60625, vsram: 75000, posdiv: 2, vaging: 0, power: 428"
         ]
       },
       {
         "Name": "CPUEfficiencyClusterMaxFreq",
         "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
         "Values": [
-          "9999999",
           "2000000",
           "1900000",
           "1850000",
@@ -147,7 +134,6 @@
         "Name": "CPUEfficiencyClusterMinFreq",
         "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
         "Values": [
-          "9999999",
           "2000000",
           "1900000",
           "1850000",
@@ -184,9 +170,9 @@
       },
       {
         "Name": "CPUSuperClusterMaxFreq",
-        "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq",
+        "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq",
         "Values": [
-          "9999999",
+          "2500000",
           "2200000",
           "2150000",
           "2050000",
@@ -211,9 +197,9 @@
       },
       {
         "Name": "CPUSuperClusterMinFreq",
-        "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq",
+        "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq",
         "Values": [
-          "9999999",
+          "2500000",
           "2200000",
           "2150000",
           "2050000",
@@ -237,20 +223,10 @@
         "ResetOnInit": true
       },
       {
-        "Name": "DoubleTapToWake",
-        "Path": "/sys/devices/virtual/touchscreen/primary/double_tap_enabled",
-        "Values": [
-          "0",
-          "1"
-        ],
-        "DefaultIndex": 0,
-        "ResetOnInit": true
-      },
-      {
         "Name": "PMQoSCpuDmaLatency",
         "Path": "/dev/cpu_dma_latency",
         "Values": [
-          "51",
+          "5",
           "0"
         ],
         "HoldFd": true
@@ -314,6 +290,12 @@
         "Values": ["EXPENSIVE_RENDERING", ""],
         "Type": "Property"
       }
+      {
+        "Name": "DoubleTapToWake",
+        "Path": "persist.sys.tetris.dt2w",
+        "Values": ["EXPENSIVE_RENDERING", ""],
+        "Type": "Property"
+      }
     ],
     "Actions": [
       {
@@ -326,13 +308,13 @@
         "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
         "Node": "CPUEfficiencyClusterMinFreq",
         "Duration": 0,
-        "Value": "850000"
+        "Value": "250000"
       },
       {
         "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
         "Node": "CPUSuperClusterMinFreq",
         "Duration": 0,
-        "Value": "950000"
+        "Value": "250000"
       },
       {
         "PowerHint": "DOUBLE_TAP_TO_WAKE",
@@ -362,25 +344,25 @@
         "PowerHint": "FIXED_PERFORMANCE",
         "Node": "CPUSuperClusterMaxFreq",
         "Duration": 0,
-        "Value": "9999999"
+        "Value": "2500000"
       },
       {
         "PowerHint": "FIXED_PERFORMANCE",
         "Node": "CPUSuperClusterMinFreq",
         "Duration": 0,
-        "Value": "9999999"
+        "Value": "2500000"
       },
       {
         "PowerHint": "FIXED_PERFORMANCE",
         "Node": "CPUEfficiencyClusterMaxFreq",
         "Duration": 0,
-        "Value": "9999999"
+        "Value": "2500000"
       },
       {
         "PowerHint": "FIXED_PERFORMANCE",
         "Node": "CPUEfficiencyClusterMinFreq",
         "Duration": 0,
-        "Value": "9999999"
+        "Value": "2000000"
       },
       {
         "PowerHint": "FIXED_PERFORMANCE",
@@ -542,13 +524,13 @@
         "PowerHint": "FP_BOOST",
         "Node": "CPUSuperClusterMinFreq",
         "Duration": 4000,
-        "Value": "9999999"
+        "Value": "2500000"
       },
       {
         "PowerHint": "FP_BOOST",
         "Node": "CPUEfficiencyClusterMinFreq",
         "Duration": 4000,
-        "Value": "9999999"
+        "Value": "2000000"
       },
       {
         "PowerHint": "FP_BOOST",
