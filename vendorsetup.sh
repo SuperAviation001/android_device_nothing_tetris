@@ -11,6 +11,3 @@ fi
 if [ ! -d "kernel/nothing/tetris" ]; then
   git clone https://github.com/SuperAviation001/android_kernel_nothing_tetris -b lineage-22.2 kernel/nothing/tetris
 fi
-if [ ! -d "device/nothing/tetris-kernel" ]; then
-  git clone https://github.com/SuperAviation001/android_device_nothing_tetris-kernel -b 15_v2 device/nothing/tetris-kernel
-fi
