@@ -131,7 +131,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6.vendor
 
 PRODUCT_PACKAGES += \
-    eCameraOverlayTetris
+    ApertureOverlayTetris
 
 # Charger
 PRODUCT_PACKAGES += \
