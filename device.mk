@@ -404,11 +404,7 @@ PRODUCT_PACKAGES += \
     libwifi-hal-wrapper \
     wifi_legacy \
     wpa_supplicant \
-    macloader \
-    wifiloader \
-    wificond \
-    wifilogd \
-    wlutil
+    wificond
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
