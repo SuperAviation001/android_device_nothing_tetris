@@ -9,5 +9,5 @@ if [ ! -d "kernel/nothing/tetris" ]; then
   git clone https://github.com/NothingOSS/android_kernel_6.1_nothing_mt6878 -b mt6878/Tetris/u kernel/nothing/tetris
 fi
 if [ ! -d "device/nothing/tetris-kernel" ]; then
-  git clone https://github.com/SuperAviation001/android_device_nothing_tetris-kernel -b 15_v2 device/nothing/tetris-kernel
+  git clone https://github.com/SuperAviation001/android_device_nothing_tetris-kernel -b lineage-22.2 device/nothing/tetris-kernel
 fi
