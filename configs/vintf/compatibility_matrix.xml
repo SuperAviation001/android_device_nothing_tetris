@@ -1,5 +1,4 @@
-<compatibility-matrix version="7.0" type="framework">
-    <hal format="aidl" optional="true">
+<compatibility-matrix version="7.0" type="framework"> <hal format="aidl" optional="true">
         <name>android.hardware.bluetooth</name>
         <interface>
             <name>IBluetoothHci</name>
@@ -1131,6 +1130,15 @@
         <version>2.2</version>
         <interface>
             <name>ISupplicant</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.wifi.offload</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOffload</name>
             <instance>default</instance>
         </interface>
     </hal>
