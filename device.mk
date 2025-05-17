@@ -375,6 +375,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
     hardware/google/pixel \
+    hardware/google/interfaces \
     $(LOCAL_PATH)
 
 # Performance
