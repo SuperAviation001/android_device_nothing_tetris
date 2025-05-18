@@ -181,7 +181,7 @@
       },
       {
         "Name": "CPUSuperClusterMaxFreq",
-        "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq",
+        "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq",
         "Values": [
           "9999999",
           "2500000",
@@ -209,7 +209,7 @@
       },
       {
         "Name": "CPUSuperClusterMinFreq",
-        "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq",
+        "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq",
         "Values": [
           "9999999",
           "2500000",
