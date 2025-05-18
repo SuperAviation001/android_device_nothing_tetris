@@ -68,7 +68,16 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
-include device/nothing/tetris-kernel/BoardConfigKernel.mk
+# Kernel Configuration
+TARGET_KERNEL_CONFIG := gki_defconfig
+
+# Prebuilt DTB(O)
+BOARD_CUSTOM_DTBOIMG_MK := $(DEVICE_PATH)/configs/kernel/dtbo.mk
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
+-include $(DEVICE_PATH)/configs/kernel/dtb.mk
+
+# Modules
+-include $(DEVICE_PATH)/configs/kernel/modules.mk
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
