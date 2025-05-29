@@ -726,6 +726,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.feature.fingerprint_sensorui_position_center_x=540 \
-    vendor.feature.fingerprint_sensorui_position_center_y=2109 \
-    vendor.feature.fingerprint_sensorui_position_center_r=93
+    ro.vendor.fingerprint.type=udfps_optical \
+    ro.vendor.fingerprint.sensor_location=540|2109|93

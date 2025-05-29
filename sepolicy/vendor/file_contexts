@@ -1,6 +1,6 @@
 # Fingerprint
 /data/vendor/goodix/gf_data(/.*)?    u:object_r:fingerprint_data_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.nothing\.hardware\.biometrics\.fingerprint-service u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.nothing				u:object_r:hal_fingerprint_default_exec
 
 # Richtap
 /dev/aac_richtap    u:object_r:aac_richtap_dev_device:s0
