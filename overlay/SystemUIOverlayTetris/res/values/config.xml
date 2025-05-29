@@ -23,9 +23,6 @@
     <!-- Whether to enable framework dimming for UDFPS -->
     <bool name="config_udfpsFrameworkDimming">true</bool>
 
-    <!-- Boolean to enable/disable the UDFPS onPress node functionality
-    <bool name="config_enableUdfpsSysfsNodes">true</bool> -->
-
     <!-- Array of brightness-alpha lut for framework dimming -->
     <string-array name="config_udfpsDimmingBrightnessAlphaArray" translatable="false">
         <!-- Low curve -->
@@ -56,12 +53,6 @@
         <item>1667,95</item>
         <item>2177,85</item>
         <item>2452,75</item>
-    </string-array>
-
-    <!-- Array of UDFPS node paths -->
-    <string-array name="config_udfpsSysfsNodePaths">
-        <item>/sys/devices/platform/soc/1401a000.dsi0/hbm</item>
-        <item>/sys/panel_feature/ui_status</item>
     </string-array>
 
     <!-- Color of the UDFPS Pressed view -->

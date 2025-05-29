@@ -1326,9 +1326,6 @@ vendor/etc/panel-truly-td4330-cmd_pq.xml
 vendor/lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.mt6878.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint.so
-vendor/bin/hw/vendor.nothing.hardware.biometrics.fingerprint-service
-vendor/etc/init/vendor.nothing.hardware.biometrics.fingerprint-service.rc
-vendor/etc/vintf/manifest/vendor.nothing.hardware.biometrics.fingerprint-service.xml
 vendor/lib64/android.hardware.biometrics.fingerprint-V3-ndk.so
 vendor/lib64/android.hardware.biometrics.common-V3-ndk.so
 vendor/etc/init/vendor.noth.fingerprint.goodix.config.rc
