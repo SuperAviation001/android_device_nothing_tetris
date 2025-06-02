@@ -6,5 +6,5 @@ if [ ! -d "vendor/nothing/tetris" ]; then
   git clone https://gitlab.com/SuperAviation001/android_vendor_nothing_tetris -b a15 vendor/nothing/tetris
 fi
 if [ ! -d "device/nothing/tetris-kernel" ]; then
-  git clone https://github.com/SuperAviation001/android_device_nothing_tetris-kernel -b lineage-22.2 device/nothing/tetris-kernel
+  git clone https://github.com/SuperAviation001/android_device_nothing_tetris-kernel -b a15 device/nothing/tetris-kernel
 fi
