@@ -402,7 +402,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-V1-ndk.vendor \
     android.hardware.wifi.hostapd-V1-ndk.vendor \
     android.hardware.wifi.supplicant-V2-ndk.vendor \
-    libnetutils.vendor \
     android.hardware.wifi-service \
     hostapd \
     libkeystore-wifi-hidl \
