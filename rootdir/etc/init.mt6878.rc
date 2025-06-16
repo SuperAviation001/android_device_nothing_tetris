@@ -175,6 +175,11 @@ on post-fs
     chown system system /mnt/vendor/protect_s
     chmod 0770 /mnt/vendor/protect_s
 
+# ZRAM low memory
+    write /sys/block/zram0/disksize 4294967296
+    exec u:object_r:zramswap:s0 -- /system/bin/mkswap /dev/block/zram0
+    exec u:object_r:zramswap:s0 -- /system/bin/swapon /dev/block/zram0
+
 on post-fs-data
     write /proc/bootprof "INIT:post-fs-data"
     wait_for_prop vendor.all.modules.ready 1
