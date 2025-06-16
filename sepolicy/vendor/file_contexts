@@ -11,3 +11,7 @@
 
 # Power
 /vendor/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr                      u:object_r:hal_power_default_exec:s0
+
+# ZRAM
+/dev/block/zram0                      u:object_r:zramswap:s0
+/sys/block/zram0/disksize                      u:object_r:zramswap:s0
