@@ -340,7 +340,8 @@ PRODUCT_PACKAGES += \
     ueventd.mt6878.rc \
     fstab.mt6878 \
     fstab.mt6878.vendor_ramdisk \
-    init.recovery.mt6878.rc
+    init.recovery.mt6878.rc \
+    fstab.enableswap
 
 # Text classifier
 PRODUCT_PACKAGES += \
