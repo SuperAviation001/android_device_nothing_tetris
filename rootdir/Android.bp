@@ -5,7 +5,13 @@ sh_binary {
 }
 
 prebuilt_etc {
-    name: "init.board_id.rc",
+    name: "fstab.enableswap",
+    src: "etc/fstab.enableswap",
+    vendor: true
+}
+
+prebuilt_etc {
+    name: "init.board_id.rc", 
     src: "etc/init.board_id.rc",
     sub_dir: "init/hw",
     vendor: true
