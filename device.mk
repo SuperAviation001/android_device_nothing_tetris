@@ -319,9 +319,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     fastbootd
 
-# Kernel
-$(call inherit-product, device/nothing/tetris-kernel/kernel.mk)
-
 # Rootdir
 PRODUCT_PACKAGES += \
     init.board_id.sh \
