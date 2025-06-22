@@ -30,3 +30,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="Tetris 15 AP3A.240905.015 2502082015 release-keys" \
     BuildFingerprint=Nothing/Tetris/Tetris:15/AP3A.240905.015.A2/2502082015:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
+
+# OTA
+TARGET_INCLUDE_UPDATER := true
+PRODUCT_PACKAGES += \
+    Updater
