@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.updater.tetris">
-
+    package="net.pixelos.ota.tetris"
+    android:versionCode="1"
+    android:versionName="1.0">
     <overlay
-        android:isStatic="true"
-        android:priority="800"
-        android:targetPackage="org.lineageos.updater" />
+      android:targetPackage="net.pixelos.ota"
+      android:isStatic="true"
+      android:priority="10" />
 </manifest>
