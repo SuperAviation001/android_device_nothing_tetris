@@ -1,2 +1,0 @@
-hal_client_domain(mtk_hal_gpuserv, hal_power)
-hal_client_domain(mtk_hal_gpuserv, hal_mtk_power)

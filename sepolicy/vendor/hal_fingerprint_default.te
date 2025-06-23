@@ -7,5 +7,3 @@ allow hal_fingerprint_default boot_status_prop:file { read open getattr watch wa
 
 get_prop(hal_fingerprint_default, vendor_fp_prop);
 set_prop(hal_fingerprint_default, vendor_fp_prop)
-
-hal_client_domain(hal_fingerprint_default, hal_mtk_power);

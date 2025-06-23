@@ -4,6 +4,3 @@ allow system_server sysfs_mmstat:file rw_file_perms;
 # Allow system_server access to zygote_tmpfs
 allow system_server zygote_tmpfs:file rw_file_perms;
 allow system_server app_zygote_tmpfs:file rw_file_perms;
-
-# Allow system server access to mtkpower
-hal_client_domain(system_server, hal_mtk_power)
