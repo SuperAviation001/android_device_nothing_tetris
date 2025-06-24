@@ -413,15 +413,6 @@ on post-fs-data
     #Accdet
     chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
 
-    #Fingerprint
-    chown system system /dev/goodix_fp
-    chmod 0660 /dev/goodix_fp
-
-    chmod 666 /sys/panel_feature/ui_status
-    chown system system /sys/panel_feature/ui_status
-
-    chmod 666 /sys/devices/platform/soc/1401a000.dsi0/hbm
-
     #v4l2 codec
     chmod 0660 /dev/vcu
     chown media system /dev/vcu
