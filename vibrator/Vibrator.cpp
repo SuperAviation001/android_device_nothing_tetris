@@ -84,10 +84,10 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
 
     switch (es) {
         case EffectStrength::LIGHT:
-            strength = RICHTAP_STRONG_STRENGTH;
+            strength = RICHTAP_LIGHT_STRENGTH;
             break;
         case EffectStrength::MEDIUM:
-            strength = RICHTAP_STRONG_STRENGTH;
+            strength = RICHTAP_MEDIUM_STRENGTH;
             break;
         case EffectStrength::STRONG:
             strength = RICHTAP_STRONG_STRENGTH;
