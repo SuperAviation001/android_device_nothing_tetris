@@ -13,9 +13,9 @@
 
 #include "aac_vibra_function.h"
 
-#define RICHTAP_LIGHT_STRENGTH 69
-#define RICHTAP_MEDIUM_STRENGTH 89
-#define RICHTAP_STRONG_STRENGTH 99
+#define RICHTAP_LIGHT_STRENGTH 66
+#define RICHTAP_MEDIUM_STRENGTH 85
+#define RICHTAP_STRONG_STRENGTH 94
 
 namespace aidl {
 namespace android {
@@ -71,6 +71,25 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
     return ndk::ScopedAStatus::ok();
 }
 
+#ifdef USE_RICHTAP_EFFECT_REMAP
+std::optional<uint32_t> mapEffectToPrebakedId(Effect effect) {
+    switch (effect) {
+        case Effect::CLICK:
+        case Effect::DOUBLE_CLICK:
+        case Effect::TICK:
+            return static_cast<uint32_t>(effect) + 0x1000;
+
+        case Effect::THUD:
+        case Effect::POP:
+        case Effect::HEAVY_CLICK:
+            return static_cast<uint32_t>(effect) + 0x3002;
+
+        default:
+            return std::nullopt;
+    }
+}
+#endif
+
 ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                                      const std::shared_ptr<IVibratorCallback>& callback,
                                      int32_t* _aidl_return) {
@@ -96,7 +115,20 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
             return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
     }
 
+#ifdef USE_RICHTAP_EFFECT_REMAP
+    auto mappedEffect = mapEffectToPrebakedId(effect);
+    if (!mappedEffect.has_value()) {
+        ALOGE("Unsupported effect: %d", static_cast<int>(effect));
+        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    }
+
+    ALOGD("Performing effect_id=0x%x (mapped from %d), strength=%d",
+          mappedEffect.value(), static_cast<int>(effect), strength);
+
+    int32_t ret = aac_vibra_looper_prebaked_effect(mappedEffect.value(), strength);
+#else
     int32_t ret = aac_vibra_looper_prebaked_effect(static_cast<uint32_t>(effect), strength);
+#endif
     if (ret < 0) {
         ALOGE("AAC perform failed: %d\n", ret);
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
