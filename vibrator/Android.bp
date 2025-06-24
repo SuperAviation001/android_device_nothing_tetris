@@ -10,8 +10,6 @@ cc_binary {
         "-Wall",
         "-Werror",
         "-DLOG_TAG=\"android.hardware.vibrator.service.tetris\"",
-        "-DLOG_TAG=\"android.hardware.vibrator.service.tetris\"",
-        "-DUSE_RICHTAP_EFFECT_REMAP", 
     ],
     relative_install_path: "hw",
     init_rc: ["android.hardware.vibrator.service.tetris.rc"],
