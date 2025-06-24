@@ -5,3 +5,8 @@ service vendor.fps_hal.tetris /vendor/bin/hw/android.hardware.biometrics.fingerp
     class late_start
     user system
     group system input uhid
+
+on fs
+    chmod 0666 /dev/goodix_fp
+	mkdir /data/vendor/goodix 0770 system system
+	mkdir /mnt/vendor/persist/goodix 0770 system system
