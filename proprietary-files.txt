@@ -1330,11 +1330,6 @@ vendor/lib64/android.hardware.biometrics.fingerprint-V3-ndk.so
 vendor/lib64/android.hardware.biometrics.common-V3-ndk.so
 vendor/etc/init/vendor.noth.fingerprint.goodix.config.rc
 
-# Fingerprint service - from Tetris_U2.6-241204-2338_2.6Add commentMore actions
-vendor/bin/hw/vendor.nothing.hardware.biometrics.fingerprint-service|3c2382a9cfbf97125ea87ec4e8817e1b258a0efd
-vendor/etc/init/vendor.nothing.hardware.biometrics.fingerprint-service.rc
-vendor/etc/vintf/manifest/vendor.nothing.hardware.biometrics.fingerprint-service.xml
-
 # Firmware
 vendor/etc/init/init.bt_drv.rc
 vendor/firmware/BT_FW.cfg
