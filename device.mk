@@ -115,6 +115,10 @@ PRODUCT_PACKAGES += \
     libbluetooth_audio_session \
     android.hardware.bluetooth@1.1.vendor
 
+# Biometrics
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.3-service.tetris
+
 # Camera
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor \

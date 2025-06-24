@@ -1,3 +1,0 @@
-type sysfs_pmu, fs_type, sysfs_type;
-
-type proc_dynamic_debug_control, fs_type, proc_type;
