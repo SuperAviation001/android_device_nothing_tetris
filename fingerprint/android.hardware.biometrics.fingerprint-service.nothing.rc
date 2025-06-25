@@ -6,4 +6,3 @@ service vendor.fingerprint-nothing /vendor/bin/hw/android.hardware.biometrics.fi
     class late_start
     user system
     group system input uhid
-    shutdown critical

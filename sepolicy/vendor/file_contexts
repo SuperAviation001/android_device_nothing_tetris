@@ -1,4 +1,5 @@
 # Fingerprint
+<<<<<<< HEAD
 /data/vendor/goodix/gf_data(/.*)?    u:object_r:fingerprint_data_file:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.nothing				u:object_r:hal_fingerprint_default_exec:s0
 /mnt/vendor/persist/goodix(/.*)?   u:object_r:fingerprint_data_file:s0
@@ -7,11 +8,11 @@
 /dev/goodix_fp     u:object_r:fingerprint_device:s0
 
 # Richtap
-/dev/aac_richtap    u:object_r:aac_richtap_dev_device:s0
-/vendor/bin/hw/android.hardware.vibrator.service.tetris         u:object_r:hal_vibrator_default_exec:s0
+/dev/aac_richtap                                                                        u:object_r:aac_richtap_dev_device:s0
+/vendor/bin/hw/android.hardware.vibrator.service.tetris                                 u:object_r:hal_vibrator_default_exec:s0
 
 # Charger
-/sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?              u:object_r:sysfs_ntchg:s0
+/sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?                             u:object_r:sysfs_ntchg:s0
 
 # Power
-/vendor/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr                      u:object_r:hal_power_default_exec:s0
+/vendor/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr                       u:object_r:hal_power_default_exec:s0
