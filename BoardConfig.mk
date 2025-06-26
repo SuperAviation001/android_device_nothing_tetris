@@ -51,7 +51,7 @@ BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_IMAGE_NAME := Image.lz4
 TARGET_KERNEL_SOURCE := kernel/nothing/mt6878
 TARGET_KERNEL_CONFIG += \
-    gki_defconfig \
+    mt6878-tetris_defconfig \
     mgk_64_k61.config
 
 BOARD_KERNEL_BASE := 0x3fff8000
