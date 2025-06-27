@@ -8,6 +8,8 @@
 
 #include <android-base/file.h>
 #include <android-base/stringprintf.h>
+#include <chrono>
+#include <thread>
 
 #include "Session.h"
 #include "Legacy2Aidl.h"
@@ -183,7 +185,10 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
-    setFodHbm(true);
+    std::thread([=] {
+        this_thread::sleep_for(chrono::milliseconds(50)); // 50ms delay
+        setFodHbm(true);
+    }).detach();
 
     return ndk::ScopedAStatus::ok();
 }
