@@ -115,10 +115,6 @@ PRODUCT_PACKAGES += \
     libbluetooth_audio_session \
     android.hardware.bluetooth@1.1.vendor
 
-# Biometrics
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.tetris
-
 # Camera
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor \
@@ -184,13 +180,6 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder \
     libhwbinder.vendor
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint-V4-ndk.vendor \
-    android.hardware.biometrics.common-V4-ndk.vendor \
-    android.hardware.biometrics.common.util.vendor \
-    android.hardware.biometrics.common.thread.vendor
 
 # Keymint
 PRODUCT_PACKAGES += \
