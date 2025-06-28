@@ -186,7 +186,7 @@ ndk::ScopedAStatus Session::onUiReady() {
 
     // TODO: stub
     std::thread([=] {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        this_thread::sleep_for(chrono::milliseconds(100)); // 100ms delay
         setFodHbm(true);
     }).detach();
 
@@ -403,11 +403,6 @@ void Session::notify(const fingerprint_msg_t* msg) {
                   msg->data.enroll.finger.gid, msg->data.enroll.samples_remaining);
             mCb->onEnrollmentProgress(msg->data.enroll.finger.fid,
                                       msg->data.enroll.samples_remaining);
-            if (msg->data.enroll.samples_remaining == 0) {
-                setFodHbm(false);
-                mDevice->goodix_extCmd(mDevice, 0, 0);
-                setFodStatus(false);
-            }
         } break;
         case FINGERPRINT_TEMPLATE_REMOVED: {
             ALOGD("onRemove(fid=%d, gid=%d, rem=%d)", msg->data.removed.finger.fid,
