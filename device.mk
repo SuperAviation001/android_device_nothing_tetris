@@ -187,12 +187,6 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint-V4-ndk.vendor \
-    android.hardware.biometrics.common.util.vendor \
-    android.hardware.biometrics.common.thread.vendor
-
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.secure_element-V1-ndk.vendor \
