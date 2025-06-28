@@ -8,6 +8,8 @@
 
 #include <android-base/file.h>
 #include <android-base/stringprintf.h>
+#include <chrono>
+#include <thread>
 
 #include "Session.h"
 #include "Legacy2Aidl.h"
@@ -162,7 +164,7 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
                                           float major) {
     ALOGI("onPointerDown");
 
-    mDevice->goodix_extCmd(mDevice, 1, 1);
+    mDevice->goodix_extCmd(mDevice, 1, 6);
     setFodStatus(true);
 
     checkSensorLockout();
@@ -183,8 +185,10 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
-    std::this_thread::sleep_for(std::chrono::milliseconds(60));
-    setFodHbm(true);
+    std::thread([=] {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        setFodHbm(true);
+    }).detach();
 
     return ndk::ScopedAStatus::ok();
 }
