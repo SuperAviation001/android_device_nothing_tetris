@@ -22,7 +22,7 @@ namespace fingerprint {
 
 #define FOD_HBM_PATH "/sys/panel_feature/hbm_node"
 #define FOD_UI_STATUS "/sys/panel_feature/ui_status"
-#define FOD_HBM_DELAY 15
+#define FOD_HBM_DELAY 60
 
 void setFodHbm(bool status) {
     ::android::base::WriteStringToFile(status ? "1" : "0", FOD_HBM_PATH);
@@ -77,6 +77,11 @@ ndk::ScopedAStatus Session::enroll(const HardwareAuthToken& hat,
     if (error) {
         ALOGE("enroll failed: %d", error);
         mCb->onError(Error::UNABLE_TO_PROCESS, error);
+    } else {
+        std::thread([this]() {
+            std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
+            setFodHbm(true);
+        }).detach();
     }
 
     *out = SharedRefBase::make<CancellationSignal>(this);
@@ -91,6 +96,11 @@ ndk::ScopedAStatus Session::authenticate(int64_t operationId,
     if (error) {
         ALOGE("authenticate failed: %d", error);
         mCb->onError(Error::UNABLE_TO_PROCESS, error);
+    } else {
+        std::thread([this]() {
+            std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
+            setFodHbm(true);
+        }).detach();
     }
 
     *out = SharedRefBase::make<CancellationSignal>(this);
@@ -174,7 +184,6 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
 ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
     ALOGI("onPointerUp");
 
-    setFodHbm(false);
     mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
 
@@ -185,8 +194,6 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
-    std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
-    setFodHbm(true);
 
     return ndk::ScopedAStatus::ok();
 }
