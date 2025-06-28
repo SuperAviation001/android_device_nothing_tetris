@@ -404,6 +404,8 @@ PRODUCT_PACKAGES += \
     libkeystore-wifi-hidl \
     libkeystore-engine-wifi-hidl \
     libwifi-hal-wrapper \
+    libnetutils \
+    libnetutils.vendor \
     wifi_legacy \
     wpa_supplicant
 
