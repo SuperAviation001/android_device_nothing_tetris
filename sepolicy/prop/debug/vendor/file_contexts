@@ -1,0 +1,72 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+##########################
+# Data files
+#
+/data/aee_exp(/.*)?                 u:object_r:aee_exp_data_file:s0
+/data/connsyslog(/.*)?              u:object_r:consyslog_data_file:s0
+/data/vendor/aee_exp(/.*)?          u:object_r:aee_exp_vendor_file:s0
+/data/aee_exp/perfetto_configs      u:object_r:trace_data_file:s0
+/data/aee_exp/traces                u:object_r:trace_data_file:s0
+/data/log_temp(/.*)?                u:object_r:logtemp_data_file:s0
+/data/log_wifi_temp(/.*)?           u:object_r:logtemp_data_file:s0
+/data/misc/mblog(/.*)?              u:object_r:logmisc_data_file:s0
+/data/vendor/irqmon(/.*)?           u:object_r:irqmon_vendor_file:s0
+/data/vendor/netlog(/.*)?           u:object_r:net_log_data_file:s0
+
+##########################
+# Devices
+#
+/dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
+
+/dev/aed[0-9]+      u:object_r:aed_device:s0
+
+# Date:2023/03/10
+# Purpose: permission for pstore
+/dev/block/platform/mtk-\b(msdc|ufs)\b\.0/[0-9]+\.\b(msdc0|ufs0)\b/by-name/pstore      u:object_r:pstore_block_device:s0
+/dev/block/by-name/pstore     u:object_r:pstore_block_device:s0
+
+# Date:2021/07/27
+# Purpose: permission for emdlogger
+/dev/ccci_md_log_ctrl  u:object_r:ccci_mdl_device:s0
+/dev/ccci_ccb_dhl      u:object_r:ccci_mdl_device:s0
+/dev/ccci_raw_dhl      u:object_r:ccci_mdl_device:s0
+
+# Purpose: permission for mdlogger
+/dev/ccci_md_log_tx    u:object_r:ccci_mdl_device:s0
+/dev/ccci_md_log_rx    u:object_r:ccci_mdl_device:s0
+
+##########################
+# Vendor files
+#
+/vendor/bin/loghidlvendorservice    u:object_r:loghidlvendorservice_exec:s0
+
+/(vendor|system/vendor)/bin/aee_aedv         u:object_r:aee_aedv_exec:s0
+/(vendor|system/vendor)/bin/aee_aedv64       u:object_r:aee_aedv_exec:s0
+/(vendor|system/vendor)/bin/aee_aedv64_v2    u:object_r:aee_aedv_exec:s0
+
+/vendor/bin/hw/vendor\.mediatek\.hardware\.aee@1\.0-service u:object_r:aee_hal_exec:s0
+/vendor/bin/hw/vendor\.mediatek\.hardware\.aee@1\.1-service u:object_r:aee_hal_exec:s0
+
+/vendor/bin/irqmon\.graphtracer\.sh    u:object_r:irqmon_graphtracer_exec:s0
+/vendor/bin/hw/vendor\.mediatek\.hardware\.aee@V1-service u:object_r:aee_hal_exec:s0
+
+# Date:2022/05/16
+# add permission for vendor emdlogger
+/data/vendor/mdlog(/.*)?          u:object_r:mdlog_data_vendor_file:s0
+/vendor/bin/emdloggerv            u:object_r:emdloggerv_exec:s0
+
+# Date: 2023/03/10
+# Purpose: insmod pstore_blk.ko
+/vendor/bin/init\.pstore_blk\.sh u:object_r:init_pstore_blk_sh_exec:s0
+
+# Date:2023/02/06
+# Purpose: permission for mobilelogD
+/dev/sa_log_wifi    u:object_r:sa_log_wifi_device:s0
+
+# Date: WK23.07
+# Add permission for vendor firmware conninfra.cfg
+/vendor/firmware/conninfra.cfg    u:object_r:connsys_vendor_file:s0
+/vendor/firmware/connfem.cfg      u:object_r:connsys_vendor_file:s0

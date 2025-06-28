@@ -1,0 +1,20 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init.svc.aee_aedv       u:object_r:system_mtk_init_svc_aee_aedv_prop:s0
+persist.vendor.mtk.aee. u:object_r:system_mtk_persist_mtk_aee_prop:s0
+persist.vendor.aee.     u:object_r:system_mtk_persist_aee_prop:s0
+ro.vendor.aee.basic     u:object_r:system_mtk_aee_basic_prop:s0
+vendor.debug.mtk.aee.   u:object_r:system_mtk_debug_mtk_aee_prop:s0
+
+persist.vendor.video.ss_dbg u:object_r:system_mtk_dbg_video_ss_prop:s0
+
+# android log much detect
+persist.vendor.logmuch u:object_r:system_mtk_logmuch_prop:s0
+
+
+vendor.mbrain.battery u:object_r:system_mtk_mbrain_prop:s0
+
+#charge pstore
+persist.vendor.pstore.model u:object_r:system_mtk_pstore_prop:s0

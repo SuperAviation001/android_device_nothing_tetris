@@ -1,0 +1,13 @@
+# ==============================================
+# MTK Attribute declarations
+# ==============================================
+
+# Date: 2018/03/23
+# log hidl
+attribute hal_mtk_log;
+attribute hal_mtk_log_client;
+attribute hal_mtk_log_server;
+
+attribute hal_mtk_aee;
+attribute hal_mtk_aee_client;
+attribute hal_mtk_aee_server;

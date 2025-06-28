@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# This is for trustonic tui-service
+user=_app seinfo=platform name=com.trustonic.tuiservice domain=mobicore_app type=app_data_file levelFrom=user
+

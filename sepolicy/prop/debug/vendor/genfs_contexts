@@ -1,0 +1,188 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+##########################
+# proc files
+#
+genfscon proc /aed       u:object_r:proc_aed:s0
+
+# Date : 2019/08/29
+# Purpose: allow rild to access /proc/aed/reboot-reason
+genfscon proc /aed/reboot-reason u:object_r:proc_aed_reboot_reason:s0
+
+# 2021/06/24
+# Purpose: add iommu debug info into db
+genfscon proc /iommu_debug u:object_r:proc_iommu_debug:s0
+
+# Date : 2022/12/27
+# Purpose: add apusys debug info into db
+genfscon proc /apusys_rv u:object_r:proc_apusys_rv_debug:s0
+genfscon proc /apusys_logger u:object_r:proc_apusys_rv_debug:s0
+genfscon proc /aputag/apusys_rv u:object_r:proc_apusys_rv_debug:s0
+
+# Date : 2021/08/10
+# Purpose: add apusys MDW debug info into db
+genfscon proc /aputag/mdw u:object_r:proc_aputag_mdw_debug:s0
+
+# Date : 2022/06/08
+# Purpose: add apusys mdla debug info into db
+genfscon proc /mdla/mdla_memory u:object_r:proc_mdla_mdla_memory_debug:s0
+
+# Date : 2021/10/13
+# Purpose: allow vendor_init to access /proc/mtmon
+genfscon proc /mtmon u:object_r:proc_mtmon:s0
+
+# Date : 2022/01/19
+# Purpose: add lockdep debug info into db
+genfscon proc /lockdep u:object_r:proc_lockdep:s0
+genfscon proc /lockdep_chains u:object_r:proc_lockdep:s0
+genfscon proc /lockdep_stats u:object_r:proc_lockdep:s0
+
+# Date : 2022/04/08
+# Purpose: Add Camera P2 Drv Debug Information into DB
+genfscon proc /mtk_img_debug/daemon u:object_r:proc_img_daemon:s0
+genfscon proc /mtk_img_debug/kernel u:object_r:proc_img_kernel:s0
+genfscon proc /mtk_img_debug/stream u:object_r:proc_img_stream:s0
+
+genfscon proc  /vpu/vpu_memory u:object_r:proc_vpu_memory:s0
+
+# Date : 2023/10/11
+# Purpose: Add GZ debug info into db
+genfscon proc /gz_log_full u:object_r:proc_gz_log_full:s0
+
+# Date : 2022/05/27
+# Purpose: Add GPU debug info into db
+genfscon proc /mtk_mali/logbuf_exception u:object_r:proc_mtk_mali_log:s0
+genfscon proc /mtk_mali/logbuf_critical u:object_r:proc_mtk_mali_log:s0
+genfscon proc /mtk_mali/logbuf_regular u:object_r:proc_mtk_mali_log:s0
+genfscon proc /mtk_mali/fwlog u:object_r:proc_mtk_mali_log:s0
+
+# Date : 2022/07/19
+# Purpose: Add MMDVFS debug info into db
+genfscon proc /mmdvfs/mmdvfs_opp u:object_r:proc_mmdvfs_mmdvfs_opp:s0
+
+# Date : 2022/08/02
+# Purpose: Allow mobile log to read dpmaif log
+genfscon proc /dpmaif_debug u:object_r:proc_dpmaif_debug:s0
+
+# Date : 2022/08/16
+# Purpose: Add MMQoS debug info into db
+genfscon proc /mmqos/mmqos_bw u:object_r:proc_mmqos_mmqos_bw:s0
+
+# Date : 2023/07/21
+# Purpose: Add gpufreq_status into db
+genfscon proc /gpufreqv2/gpufreq_status u:object_r:proc_gpufreqv2_gpufreq_status:s0
+
+# Date : 2023/08/23
+# Purpose: Add GPU OPP table into db
+genfscon proc /gpufreqv2/gpu_working_opp_table u:object_r:proc_gpufreqv2_gpu_working_opp_table:s0
+genfscon proc /gpufreqv2/stack_working_opp_table u:object_r:proc_gpufreqv2_stack_working_opp_table:s0
+
+# Date : 2023/11/06
+# Purpose: Add AOV Drv Debug Information into DB
+genfscon proc /mtk_aov_debug/kernel u:object_r:proc_aov_kernel:s0
+
+##########################
+# sysfs files
+#
+# Date : 2021/07/06
+# Purpose: allow emdlogger to access /proc/device-tree/soc/mddriver
+genfscon sysfs /firmware/devicetree/base/soc/mddriver/md1_ccb_gear_list u:object_r:sysfs_soc_ccb_gear:s0
+genfscon sysfs /firmware/devicetree/base/soc/mddriver/md1_ccb_cap_gear u:object_r:sysfs_soc_ccb_gear:s0
+
+# Date : 2021/07/06
+# Purpose: allow emdlogger to access /proc/device-tree/mddriver
+genfscon sysfs /firmware/devicetree/base/mddriver/md1_ccb_cap_gear u:object_r:sysfs_ccb_gear:s0
+genfscon sysfs /firmware/devicetree/base/mddriver/md1_ccb_gear_list u:object_r:sysfs_ccb_gear:s0
+
+# Date : 2023/10/20
+# Purpose: allow emdlogger to access /proc/device-tree/mdproperties
+genfscon sysfs /firmware/devicetree/base/mdproperties/md1_ccb_cap_gear u:object_r:sysfs_ccb_gear:s0
+genfscon sysfs /firmware/devicetree/base/mdproperties/md1_ccb_gear_list u:object_r:sysfs_ccb_gear:s0
+
+genfscon sysfs /devices/platform/emiisu/emi_isu_buf u:object_r:sysfs_emiisu:s0
+genfscon sysfs /devices/platform/soc/soc:emiisu/emi_isu_buf u:object_r:sysfs_emiisu:s0
+
+genfscon sysfs /devices/platform/14000000.dispsys-config/disp_plat_dbg_buf u:object_r:sysfs_disp_plat_dbg:s0
+genfscon sysfs /devices/platform/soc/soc:14000000.dispsys-config/disp_plat_dbg_buf u:object_r:sysfs_disp_plat_dbg:s0
+genfscon sysfs /devices/platform/soc/14000000.dispsys-config/disp_plat_dbg_buf u:object_r:sysfs_disp_plat_dbg:s0
+
+genfscon sysfs /firmware/devicetree/base/chosen/aee,enable              u:object_r:sysfs_aee_enable:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,encrypt_enable      u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,DB_PUBKEY           u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,DB_PLATFORM_NAME    u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,support_usb         u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,encrypt_version     u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,load_type           u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,split_mode          u:object_r:sysfs_aee_encrypt:s0
+genfscon sysfs /firmware/devicetree/base/chosen/aee,DB_CUSTOMER_PUBKEY  u:object_r:sysfs_aee_encrypt:s0
+
+##########################
+# debugfs files
+#
+genfscon debugfs /blockio            u:object_r:debugfs_blockio:s0
+genfscon debugfs /cpuhvfs            u:object_r:debugfs_cpuhvfs:s0
+genfscon debugfs /dmlog              u:object_r:debugfs_dmlog_debug:s0
+genfscon debugfs /dynamic_debug      u:object_r:debugfs_dynamic_debug:s0
+genfscon debugfs /emi_mbw/dump_buf   u:object_r:debugfs_emi_mbw_buf:s0
+genfscon debugfs /fuseio             u:object_r:debugfs_fuseio:s0
+genfscon debugfs /ion/client_history u:object_r:debugfs_ion_mm_heap:s0
+genfscon debugfs /ion/heaps          u:object_r:debugfs_ion_mm_heap:s0
+genfscon debugfs /ion/ion_mm_heap    u:object_r:debugfs_ion_mm_heap:s0
+genfscon debugfs /kmemleak           u:object_r:debugfs_kmemleak:s0
+genfscon debugfs /page_owner_slim    u:object_r:debugfs_page_owner_slim_debug:s0
+genfscon debugfs /rcu                u:object_r:debugfs_rcu:s0
+genfscon debugfs /shrinker           u:object_r:debugfs_shrinker_debug:s0
+
+# 2019/08/15
+genfscon debugfs /smi_mon u:object_r:debugfs_smi_mon:s0
+
+genfscon debugfs /cmdq/cmdq-status u:object_r:debugfs_cmdq:s0
+genfscon debugfs /cmdq/cmdq-record u:object_r:debugfs_cmdq:s0
+
+genfscon debugfs /mml/mml-record u:object_r:debugfs_mml:s0
+genfscon debugfs /mml/mml-frame-dump-in u:object_r:debugfs_mml:s0
+
+# Date: 2021/08/24
+# allow aee to get camsys dump: debugfs
+genfscon debugfs /mtk_cam_dbg_dump u:object_r:debugfs_cam_dbg:s0
+genfscon debugfs /mtk_cam_exp_dump u:object_r:debugfs_cam_exception:s0
+
+# Date: 2022/07/27
+# allow aee to get camsys dump: procfs
+genfscon proc /mtk_cam_dbg_dump u:object_r:procfs_cam_dbg:s0
+genfscon proc /mtk_cam_exp_dump u:object_r:procfs_cam_exception:s0
+
+# Date : 2022/04/13
+# allow aee to get mfgsys dump
+genfscon debugfs /gpufreqv2/history u:object_r:debugfs_gpufreqv2_history:s0
+
+# Date : 2022/05/12
+# allow aee to get /mali0/mem_dump
+genfscon debugfs /mali0/mem_dump u:object_r:debugfs_mali_mem_dump:s0
+
+# Date : 2022/05/31
+# allow aee to get /mali0/active_groups
+genfscon debugfs /mali0/active_groups u:object_r:debugfs_mali_active_groups:s0
+
+# Date : 2022/05/31
+# allow aee to get /mali0/ctx/cpu_queues
+genfscon debugfs /mali0/ctx/cpu_queues u:object_r:debugfs_mali_ctx_cpu_queues:s0
+
+# Date : 2022/05/31
+# allow aee to get /mali0/ctx/kcpu_queues
+genfscon debugfs /mali0/ctx/kcpu_queues u:object_r:debugfs_mali_ctx_kcpu_queues:s0
+
+# Date : 2022/06/28
+# allow aee to get mali0/fw_traces
+genfscon debugfs /mali0/fw_traces u:object_r:debugfs_mali_fw_traces:s0
+
+# Date : 2022/06/28
+# allow aee to get tracer/etb
+genfscon debugfs /tracer/etb u:object_r:debugfs_tracer_etb:s0
+
+# Date : 2022/08/02
+# allow aee to get smi dump
+genfscon debugfs /smi/smi-status u:object_r:debugfs_smi:s0
+

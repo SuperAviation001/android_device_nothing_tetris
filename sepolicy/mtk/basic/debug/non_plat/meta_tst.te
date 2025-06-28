@@ -1,0 +1,7 @@
+# ==============================================
+# Policy File of /vendor/bin/meta_tst Executable File
+
+# Date: W18.29
+# Operation: Catch log
+# Purpose : meta connect with loghidlserver by socket.
+allow meta_tst loghidlvendorservice:unix_stream_socket connectto;

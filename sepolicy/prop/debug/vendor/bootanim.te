@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Data: 2023/09/04
+# Operation: Add for MBrain
+get_prop(bootanim, vendor_mtk_mbrain_prop)

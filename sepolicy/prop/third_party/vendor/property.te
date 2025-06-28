@@ -1,0 +1,18 @@
+# MICROTRUST Policy Rule
+vendor_restricted_prop(vendor_mtk_soter_teei_prop)
+vendor_restricted_prop(vendor_mtk_microtrust_tee_prop)
+typeattribute vendor_mtk_soter_teei_prop              mtk_core_property_type;
+typeattribute vendor_mtk_microtrust_tee_prop          mtk_core_property_type;
+
+
+#Trustonic Policy Rules
+vendor_restricted_prop(vendor_mtk_trustonic_tee_prop)
+typeattribute vendor_mtk_trustonic_tee_prop           mtk_core_property_type;
+
+# Property set by Trustonic Daemon to indicate TEE is ready
+vendor_internal_prop(vendor_trustonic_prop)
+
+# Trust kernel Policy Rule
+vendor_restricted_prop(vendor_mtk_trustkernel_tee_prop)
+typeattribute vendor_mtk_trustkernel_tee_prop         mtk_core_property_type;
+

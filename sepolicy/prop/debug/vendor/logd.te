@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# purpose: allow logd to access aee socket
+allow logd crash_dump:unix_stream_socket connectto;
+
+# Date: W18.26
+# Allow logmuch related property
+get_prop(logd, vendor_mtk_logmuch_prop)

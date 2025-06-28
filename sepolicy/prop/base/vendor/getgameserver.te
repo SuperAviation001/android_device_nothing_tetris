@@ -1,0 +1,18 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/getgameserver Executable File
+
+type getgameserver, domain;
+type getgameserver_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(getgameserver)
+net_domain(getgameserver)
+
+allow getgameserver self:capability net_raw;
+allow getgameserver self:packet_socket { create_socket_perms };
+allow getgameserver self:udp_socket { create_socket_perms };
+
+allowxperm getgameserver self:packet_socket ioctl {SIOCGIFINDEX SIOCGSTAMP };
+allowxperm getgameserver self:udp_socket ioctl {SIOCGIFINDEX SIOCGSTAMP };
+set_prop(getgameserver, vendor_mtk_netdagent_gameserver_prop)

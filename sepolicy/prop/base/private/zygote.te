@@ -1,0 +1,20 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : 2019/11/19
+# Operation : Q Migration split build
+# Purpose : allow to get system_mtk_rsc_sys_prop
+get_prop(zygote, system_mtk_rsc_sys_prop)
+
+# Date : 2022/4/13
+# Purpose : dontaudit zygote to read vendor_file when preload
+dontaudit zygote vendor_file:dir read;
+dontaudit zygote self:capability sys_nice;
+dontaudit zygote system_file:dir write;
+dontaudit zygote vendor_apex_file:dir read;
+dontaudit zygote vendor_apex_file:file read;
+
+# Date : 2022/8/15
+# Purpose : allow to get system_mtk_app32_boost_prop
+get_prop(zygote, system_mtk_app32_boost_prop)

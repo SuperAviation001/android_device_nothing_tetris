@@ -1,0 +1,31 @@
+# ==============================================
+# Policy File of /vendor/bin/kisd Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type kisd, domain;
+type kisd_exec, exec_type, file_type, vendor_file_type;
+typeattribute kisd mlstrustedsubject;
+
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+init_daemon_domain(kisd)
+
+allow kisd tee_device:chr_file rw_file_perms;
+allow kisd provision_file:dir rw_dir_perms;
+allow kisd provision_file:file create_file_perms;
+allow kisd kb_block_device:blk_file rw_file_perms;
+allow kisd kb_block_device:chr_file rw_file_perms;
+allow kisd dkb_block_device:blk_file rw_file_perms;
+allow kisd dkb_block_device:chr_file rw_file_perms;
+allow kisd key_install_data_file:dir w_dir_perms;
+allow kisd key_install_data_file:file create_file_perms;
+allow kisd key_install_data_file:dir search;
+allow kisd mtd_device:chr_file rw_file_perms;
+allow kisd mtd_device:blk_file rw_file_perms;
+allow kisd mtd_device:dir search;
+allow kisd block_device:dir search;

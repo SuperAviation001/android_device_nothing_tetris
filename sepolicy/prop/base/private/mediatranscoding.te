@@ -1,0 +1,13 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK21.31
+# Operation : Migration
+# Purpose : Allow mediatranscoding service to access the GPU
+allow mediatranscoding gpu_device:chr_file rw_file_perms;
+
+# Date : WK23.19
+# Operation : Migration
+# Purpose : Allow mediatranscoding service to access surfacefligner
+allow mediatranscoding surfaceflinger_service:service_manager find;

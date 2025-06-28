@@ -1,0 +1,12 @@
+# MICROTRUST Policy Rule
+# Date : 2016/06/01
+# Operation: TEEI integration
+# Purpose: Microtrust HW-backed Keymaster
+allow hal_keymaster_default ut_keymaster_device:chr_file rw_file_perms;
+allow hal_keymaster_default teei_client_device:chr_file rw_file_perms;
+set_prop(hal_keymaster_default, vendor_mtk_soter_teei_prop)
+hal_client_domain(hal_keymaster_default, hal_teei_capi)
+hal_client_domain(hal_keymaster_default, hal_allocator)
+
+# Purpose: TrustKernel HW-backed Keymaster
+allow hal_keymaster_default tkcore_admin_device:chr_file rw_file_perms;

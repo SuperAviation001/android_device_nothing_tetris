@@ -1,0 +1,4 @@
+# Date : 2019/05/09
+# Operation: TrustKernel integration
+# Purpose: access for client device of TKCore
+allow system_app tkcore_admin_device:chr_file rw_file_perms;

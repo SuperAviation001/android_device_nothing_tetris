@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/priv-app/EngineerMode/EngineerMode.apk Executable File
+
+type em_app, domain, coredomain;

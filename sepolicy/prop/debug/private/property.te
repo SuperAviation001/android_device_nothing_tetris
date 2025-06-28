@@ -1,0 +1,30 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# system_internal_prop      -- Properties used only in /system
+# system_restricted_prop    -- Properties which can't be written outside system
+# system_public_prop        -- Properties with no restrictions
+# system_vendor_config_prop -- Properties which can be written only by vendor_init
+# vendor_internal_prop      -- Properties used only in /vendor
+# vendor_restricted_prop    -- Properties which can't be written outside vendor
+# vendor_public_prop        -- Properties with no restrictions
+
+system_internal_prop(system_mtk_aee_basic_prop)
+system_internal_prop(system_mtk_debug_mtk_aee_prop)
+system_internal_prop(system_mtk_persist_aee_prop)
+system_internal_prop(system_mtk_dbg_video_ss_prop)
+system_internal_prop(system_mtk_logmuch_prop)
+system_internal_prop(system_mtk_mbrain_prop)
+
+system_vendor_config_prop(system_mtk_pstore_prop)
+
+
+typeattribute system_mtk_aee_basic_prop             extended_core_property_type;
+typeattribute system_mtk_debug_mtk_aee_prop         extended_core_property_type;
+typeattribute system_mtk_persist_aee_prop           extended_core_property_type;
+typeattribute system_mtk_persist_mtk_aee_prop       extended_core_property_type;
+typeattribute system_mtk_dbg_video_ss_prop          extended_core_property_type;
+typeattribute system_mtk_logmuch_prop               extended_core_property_type;
+typeattribute system_mtk_mbrain_prop                extended_core_property_type;
+typeattribute system_mtk_pstore_prop                extended_core_property_type;

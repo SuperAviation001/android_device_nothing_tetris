@@ -1,0 +1,4 @@
+hal_attribute_service(hal_mtk_batching, mtk_hal_batching_service)
+
+binder_call(hal_mtk_batching_client, hal_mtk_batching_server)
+binder_call(hal_mtk_batching_server, hal_mtk_batching_client)

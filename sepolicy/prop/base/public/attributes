@@ -1,0 +1,257 @@
+# ==============================================
+# MTK Attribute declarations
+# ==============================================
+
+# Attribute that represents all mtk property types (except those with ctl_xxx prefix)
+attribute mtk_core_property_type;
+
+# attribute that represents all MTK IMS types. It should be used by AP side module only.
+attribute mtkimsapdomain;
+
+# attribute that represents all MTK IMS types. It should be used by MD side module only.
+attribute mtkimsmddomain;
+
+# DMC HIDL
+attribute hal_mtk_dmc;
+attribute hal_mtk_dmc_client;
+attribute hal_mtk_dmc_server;
+
+# APM HIDL
+attribute hal_mtk_apm;
+attribute hal_mtk_apm_client;
+attribute hal_mtk_apm_server;
+
+# jxnosfastswitch aidl
+attribute hal_mtk_jxnosfastswitch;
+attribute hal_mtk_jxnosfastswitch_client;
+attribute hal_mtk_jxnosfastswitch_server;
+
+# netdagent HIDL
+attribute mtk_hal_netdagent;
+attribute mtk_hal_netdagent_client;
+attribute mtk_hal_netdagent_server;
+
+attribute hal_presence;
+attribute hal_presence_client;
+attribute hal_presence_server;
+
+attribute hal_videotelephony;
+attribute hal_videotelephony_client;
+attribute hal_videotelephony_server;
+
+attribute hal_mtk_rcs;
+attribute hal_mtk_rcs_client;
+attribute hal_mtk_rcs_server;
+
+attribute hal_dfps;
+attribute hal_dfps_client;
+attribute hal_dfps_server;
+
+attribute hal_dplanner;
+attribute hal_dplanner_client;
+attribute hal_dplanner_server;
+
+attribute hal_clientapi;
+attribute hal_clientapi_client;
+attribute hal_clientapi_server;
+
+# Trustonic Attribute declarations
+attribute hal_tee_client;
+attribute hal_tee_server;
+attribute hal_tee;
+
+attribute hal_teeregistry_client;
+attribute hal_teeregistry_server;
+attribute hal_teeregistry;
+
+# MDM HIDL
+attribute md_monitor_hal_client;
+attribute md_monitor_hal_server;
+attribute md_monitor_hal;
+
+# MDM AIDL
+attribute hal_mtk_mdm_client;
+attribute hal_mtk_mdm_server;
+attribute hal_mtk_mdm;
+
+# OMADM AIDL
+attribute hal_mtk_omadm;
+attribute hal_mtk_omadm_client;
+attribute hal_mtk_omadm_server;
+
+# touch HIDL
+attribute hal_mtk_nwk_opt;
+attribute hal_mtk_nwk_opt_client;
+attribute hal_mtk_nwk_opt_server;
+
+# touchll HIDL
+attribute hal_mtk_touchll;
+attribute hal_mtk_touchll_client;
+attribute hal_mtk_touchll_server;
+
+# thp HIDL
+attribute hal_mtk_thp;
+attribute hal_mtk_thp_client;
+attribute hal_mtk_thp_server;
+
+# Date: 2017/06/12
+# LBS HIDL
+attribute hal_mtk_lbs;
+attribute hal_mtk_lbs_client;
+attribute hal_mtk_lbs_server;
+
+# Date: 2017/07/13
+# NVRAM AGENT HIDL/AIDL
+attribute hal_mtk_nvramagent;
+attribute hal_mtk_nvramagent_client;
+attribute hal_mtk_nvramagent_server;
+
+# Date: 2017/07/19
+# PQ HIDL
+attribute hal_mtk_pq;
+attribute hal_mtk_pq_client;
+attribute hal_mtk_pq_server;
+
+# Date: 2022/03/03
+# MMLPQ AIDL
+attribute hal_mtk_mmlpq;
+attribute hal_mtk_mmlpq_client;
+attribute hal_mtk_mmlpq_server;
+
+# Date: 2022/10/10
+# MTKPOWER AIDL
+attribute hal_mtk_power;
+attribute hal_mtk_power_client;
+attribute hal_mtk_power_server;
+
+# Date: 2022/06/07
+# MTKPOWER_APPLIST AIDL
+attribute hal_mtk_applist;
+attribute hal_mtk_applist_client;
+attribute hal_mtk_applist_server;
+
+# Date: 2017/07/28
+# KEY ATTESTATION HIDL
+attribute hal_mtk_keyattestation;
+attribute hal_mtk_keyattestation_client;
+attribute hal_mtk_keyattestation_server;
+
+# Date: 2018/05/25
+# FM HIDL
+attribute hal_mtk_fm;
+attribute hal_mtk_fm_client;
+attribute hal_mtk_fm_server;
+
+# Date: 2018/07/02
+# MDP HIDL
+attribute hal_mtk_mms;
+attribute hal_mtk_mms_client;
+attribute hal_mtk_mms_server;
+
+# Date: 2019/06/12
+# modem db filter hidl
+attribute hal_mtk_md_dbfilter;
+attribute hal_mtk_md_dbfilter_client;
+attribute hal_mtk_md_dbfilter_server;
+
+# Date: 2019/07/16
+# HDMI HIDL
+attribute hal_mtk_hdmi;
+attribute hal_mtk_hdmi_client;
+attribute hal_mtk_hdmi_server;
+
+# Date: 2022/12/30
+# BGService HIDL/AIDL
+attribute hal_mtk_bgs;
+attribute hal_mtk_bgs_client;
+attribute hal_mtk_bgs_server;
+
+# Date: 2023/03/02
+# ATMs HIDL/AIDL
+attribute hal_mtk_atms;
+attribute hal_mtk_atms_client;
+attribute hal_mtk_atms_server;
+
+# Date: 2019/11/18
+# em hidl
+attribute hal_mtk_em;
+attribute hal_mtk_em_client;
+attribute hal_mtk_em_server;
+
+attribute hal_mtk_atci;
+attribute hal_mtk_atci_client;
+attribute hal_mtk_atci_server;
+
+# All types used for mtk's safe hwservice
+attribute mtk_safe_hwservice_manager_type;
+
+# All types used for mtk's safe service
+attribute mtk_safe_service_manager_type;
+
+# All types used for mtk's safe halserver
+attribute mtk_safe_halserverdomain_type;
+
+# Date: 2020/12/30
+attribute hal_mtk_mmagent;
+attribute hal_mtk_mmagent_client;
+attribute hal_mtk_mmagent_server;
+
+# Date: 2022/05/04
+# AovService AIDL
+attribute hal_mtk_aov;
+attribute hal_mtk_aov_client;
+attribute hal_mtk_aov_server;
+
+# Date: 2022/11/21
+# Isphal AIDL
+attribute hal_mtk_isphal;
+attribute hal_mtk_isphal_client;
+attribute hal_mtk_isphal_server;
+
+# Date: 2022/05/23
+# BATCHING HIDL
+attribute hal_mtk_batching;
+attribute hal_mtk_batching_client;
+attribute hal_mtk_batching_server;
+
+# Date: 2022/05/13
+# SurfaceFlinger AIDL
+attribute hal_mtk_sf;
+attribute hal_mtk_sf_client;
+attribute hal_mtk_sf_server;
+
+# Date: 2022/07/26
+# GPU AIDL
+attribute hal_mtk_mali_platform_default;
+attribute hal_mtk_mali_platform_default_client;
+attribute hal_mtk_mali_platform_default_server;
+
+# Date: 2022/12/26
+# vtservice AIDL
+attribute hal_mtk_videotelephony;
+attribute hal_mtk_videotelephony_client;
+attribute hal_mtk_videotelephony_server;
+
+# Date: 2022/12/28
+# ComposerExt AIDL
+attribute hal_mtk_composer_ext;
+attribute hal_mtk_composer_ext_client;
+attribute hal_mtk_composer_ext_server;
+
+# Date 2023/01/03
+# mtk audio AIDL
+attribute hal_mtk_audio;
+attribute hal_mtk_audio_client;
+attribute hal_mtk_audio_server;
+
+# Date: 2022/09/05
+# mbrain AIDL
+attribute hal_mtk_mbrain;
+attribute hal_mtk_mbrain_client;
+attribute hal_mtk_mbrain_server;
+
+# Data: 2023/03/22
+# MTK GPU Extra AIDL
+attribute hal_mtk_gpuserv;
+attribute hal_mtk_gpuserv_client;
+attribute hal_mtk_gpuserv_server;

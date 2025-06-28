@@ -1,0 +1,41 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/mtk_remotefsd Executable File
+
+type mtk_remotefsd, domain;
+type mtk_remotefsd_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_remotefsd)
+wakelock_use(mtk_remotefsd)
+
+# Uevent via netlink
+allow mtk_remotefsd self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+allow mtk_remotefsd mtk_wwan_device:chr_file rw_file_perms_no_map;
+
+# sAP root directory
+# /data/vendor/sap
+allow mtk_remotefsd sap_remotefs_data_file:dir create_dir_perms;
+allow mtk_remotefsd sap_remotefs_data_file:file create_file_perms;
+
+# Gpsdump/GNSS/CONNSYS_LOG
+# /data/vendor/connsyslog/gps
+# /data/vendor/connsyslog/fw
+allow mtk_remotefsd connsyslog_data_vendor_file:dir create_dir_perms;
+allow mtk_remotefsd connsyslog_data_vendor_file:file create_file_perms;
+
+# allow mtk_remotefsd to read/write aee_exp
+# /data/vendor/thinmd
+allow mtk_remotefsd thinmd_data_vendor_file:dir create_dir_perms;
+allow mtk_remotefsd thinmd_data_vendor_file:file create_file_perms;
+
+# AGPS
+# /data/vendor/agps_supl
+allow mtk_remotefsd agpsd_data_file:dir create_dir_perms;
+allow mtk_remotefsd agpsd_data_file:file create_file_perms;
+
+# sAP config setting directory
+# /data/vendor/config
+allow mtk_remotefsd sap_config_data_file:dir create_dir_perms;
+allow mtk_remotefsd sap_config_data_file:file create_file_perms;

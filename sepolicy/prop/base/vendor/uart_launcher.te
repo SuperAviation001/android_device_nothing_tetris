@@ -1,0 +1,24 @@
+# ==============================================
+# Policy File of /vendor/bin/uart_launcher Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type uart_launcher, domain;
+type uart_launcher_exec, exec_type, file_type, vendor_file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(uart_launcher)
+
+# Set the property
+set_prop(uart_launcher, vendor_mtk_wmt_prop)
+
+# add ioctl/open/read/write permission for uart_launcher with /dev/ttyS3
+allow uart_launcher stpbt_device:chr_file rw_file_perms_no_map;
+allow uart_launcher ttyS_device:chr_file rw_file_perms_no_map;
+
+# add read /proc/stpbt
+allow uart_launcher proc_stpbt:file r_file_perms;
+allow uart_launcher proc_stpbt:dir search;

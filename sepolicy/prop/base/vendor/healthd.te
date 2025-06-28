@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow healthd sysfs_vcorefs_pwrctrl:file write;

@@ -1,0 +1,2 @@
+# purpose: allow logd to access aee socket
+allow logd crash_dump:unix_stream_socket connectto;

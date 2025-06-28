@@ -1,0 +1,24 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type mtk_hal_dplanner, domain;
+type mtk_hal_dplanner_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_dplanner)
+
+userdebug_or_eng(`
+
+    hwbinder_use(mtk_hal_dplanner)
+
+    hal_server_domain(mtk_hal_dplanner, hal_dplanner)
+
+    allow mtk_hal_dplanner platform_app:binder { call transfer };
+
+    # Give permissions of dconfig
+    domain_auto_trans(mtk_hal_dplanner, mtk_dconfig_exec, mtk_dconfig)
+
+    # allow store data
+    allow mtk_hal_dplanner doe_vendor_data_file:dir create_dir_perms;
+    allow mtk_hal_dplanner doe_vendor_data_file:file create_file_perms;
+')

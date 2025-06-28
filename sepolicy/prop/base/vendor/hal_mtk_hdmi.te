@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_hwservice(hal_mtk_hdmi, mtk_hal_hdmi_hwservice)
+
+hal_attribute_service(hal_mtk_hdmi, mtk_hal_hdmi_service)
+binder_call(hal_mtk_hdmi_client, hal_mtk_hdmi_server)
+binder_call(hal_mtk_hdmi_server, hal_mtk_hdmi_client)
+binder_call(hal_mtk_hdmi_server, servicemanager)

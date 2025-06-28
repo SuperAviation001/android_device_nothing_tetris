@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK23.11
+# Purpose: Add permission to access init_pstore_blk_sh
+allow vtservice init_pstore_blk_sh:fd use;
+allow vtservice pstore_block_device:blk_file write;

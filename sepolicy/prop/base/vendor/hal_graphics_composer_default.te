@@ -1,0 +1,154 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+vndbinder_use(hal_graphics_composer_default)
+
+allow hal_graphics_composer_default proc_ged:file r_file_perms;
+allow hal_graphics_composer_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# Date : WK17.21
+# Purpose: GPU driver required
+allow hal_graphics_composer_default sw_sync_device:chr_file rw_file_perms;
+
+# Date : W17.24
+# Purpose: GPU driver required
+allow hal_graphics_composer_default gpu_device:dir search;
+
+allow hal_graphics_composer_default debugfs_ion:dir search;
+allow hal_graphics_composer_default debugfs_tracing:file w_file_perms;
+
+# Date : WK17.30
+# Operation : O Migration
+# Purpose: Allow to access cmdq driver
+allow hal_graphics_composer_default mtk_cmdq_device:chr_file r_file_perms;
+
+# Date : W17.30
+# Add for control PowerHAL
+hal_client_domain(hal_graphics_composer_default, hal_power)
+hal_client_domain(hal_graphics_composer_default, hal_mtk_power)
+
+# Date : WK17.32
+# Operation : O Migration
+# Purpose: Allow to access property
+set_prop(hal_graphics_composer_default, vendor_mtk_graphics_hwc_hdr_prop)
+set_prop(hal_graphics_composer_default, vendor_mtk_graphics_hwc_validate_separate_prop)
+
+# Date : WK18.03
+# Purpose: Allow to access property dev/mdp_sync
+allow hal_graphics_composer_default mtk_mdp_sync_device:chr_file r_file_perms;
+allow hal_graphics_composer_default mtk_mdp_device:chr_file r_file_perms;
+allow hal_graphics_composer_default mdp_device:chr_file rw_file_perms;
+allow hal_graphics_composer_default tee_device:chr_file rw_file_perms;
+allowxperm hal_graphics_composer_default proc_ged:file ioctl proc_ged_ioctls;
+
+# Date: 2018/11/08
+# Operation : JPEG
+# Purpose : JPEG need to use PQ via MMS HIDL
+allow hal_graphics_composer_default sysfs_boot_mode:file r_file_perms;
+
+# Data: 2019/09/04
+# Purpose: Display architecture chage to DRM, so HWC has to access
+#          the DRM device node "/dev/dri/card0".
+allow hal_graphics_composer_default dri_device:chr_file rw_file_perms;
+
+# Data: 2020/03/25
+# Purpose: HWC has to access allocator for dbq
+hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator)
+
+# Data: 2021/04/01
+# Purpose: HWC needs to check whether AppGamePQ is supported or not
+get_prop(hal_graphics_composer_default, vendor_mtk_pq_ro_prop)
+
+# Data: 2021/02/24
+# Purpose: HWC has to access to open m4u for m4u_sec_init
+allow hal_graphics_composer_default proc_m4u:file r_file_perms;
+allowxperm hal_graphics_composer_default proc_m4u:file ioctl { MTK_M4U_T_SEC_INIT MTK_M4U_GZ_SEC_INIT };
+
+# Data: 2021/09/16
+# Purpose: HWC has to access to open debug log for mtk_hwc_debug_log
+set_prop(hal_graphics_composer_default, vendor_mtk_hwc_debug_log_prop)
+
+# Date : WK17.25
+# Stage: O Migration, SQC
+# Purpose: Allow to use HAL PQ
+hal_client_domain(hal_graphics_composer_default, hal_mtk_pq)
+
+# Date : WK17.25
+# Stage: O Migration, SQC
+# Purpose: Allow to use shared memory for HAL PQ
+hal_client_domain(hal_graphics_composer_default, hal_allocator)
+
+# Date : WK19.45
+# Operation : WFD
+# Purpose : HWC verify secure WFD
+get_prop(hal_graphics_composer_default, vendor_mtk_secure_venc_prop)
+
+# Date : WK20.40
+# Purpose : wifidisplay notify
+get_prop(hal_graphics_composer_default, vendor_mtk_wfd_enable_prop)
+
+# Date : WK21.01
+# Purpose : Allow to use MMAgent
+hal_client_domain(hal_graphics_composer_default, hal_mtk_mmagent)
+allow hal_graphics_composer_default ion_device:chr_file w_file_perms;
+
+# Date : WK21.25
+# Purpose : Allow to use DAM buffer
+allow hal_graphics_composer_default dmabuf_system_heap_device:chr_file rw_file_perms;
+
+# Data: WK21.26
+# Purpose: HWC needs to check whether mtk_svp_on_mtee is supported or not
+get_prop(hal_graphics_composer_default, vendor_mtk_svp_on_mtee_support_prop)
+
+# Data: WK21.35
+# Purpose: Call NpAgent
+hal_client_domain(hal_graphics_composer_default, hal_neuralnetworks)
+
+# Data: WK22.11
+# Purpose: Set the ro.vendor.mtk_backlight_hwc_support property
+get_prop(hal_graphics_composer_default, vendor_mtk_backlight_ro_prop)
+
+# Data: WK22.11
+# Purpose: access the led device node to adjust the brightness
+allow hal_graphics_composer_default sysfs_leds:file rw_file_perms;
+
+# Date: WK22.11
+# Purpose: HWC needs to check platform switch configuraition from project's device-vext.mk
+get_prop(hal_graphics_composer_default, vendor_mtk_hwc_prop)
+
+# Date : WK22.14
+# Stage: T Migration, SQC
+# Purpose: Allow to use HAL MMLPQ
+hal_client_domain(hal_graphics_composer_default, hal_mtk_mmlpq)
+
+# Date : WK22.21
+# Operation: Allow 'r_file_perms_no_map' for dmabuf_system_secure_heap_device:chr_file
+allow hal_graphics_composer_default dmabuf_system_secure_heap_device:chr_file r_file_perms_no_map;
+
+# Date : WK22.29
+# Operation: Allow HWC read '/sys/class/switch/hdmi/state' to check hdmi init state
+allow hal_graphics_composer_default sysfs_switch:dir {search};
+allow hal_graphics_composer_default sysfs_switch:file r_file_perms;
+
+# Date : WK22.53
+# Purpose: let hwcomposer to access composer_ext service(AIDL)
+hal_server_domain(hal_graphics_composer_default, hal_mtk_composer_ext)
+
+# Date: 2022/08/17
+# Purpose: HWC needs to check whether dsi switch support or not
+get_prop(hal_graphics_composer_default, vendor_mtk_hwc_dsi_switch_prop)
+
+# Data: 2022/09/21
+# Purpose: allow hwcomposer to parse led folder for multi led devices
+allow hal_graphics_composer_default sysfs_leds:dir r_dir_perms;
+
+# Date : WK23.09
+# Purpose : This property use to check the platform whether it support mml or not, but VP grouping
+#           task change the permission of this property. Add the new police for it.
+get_prop(hal_graphics_composer_default, vendor_mtk_mml_support_prop)
+
+# Date: 2023/03/22
+# Purpose: allow hwcomposer to set and get boot display config
+set_prop(hal_graphics_composer_default, vendor_mtk_hwc_boot_display_config_prop)
+

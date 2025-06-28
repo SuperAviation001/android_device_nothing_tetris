@@ -1,0 +1,20 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+wakelock_use(tee)
+
+# persist
+allow tee protect_f_data_file:dir search;
+
+# rpmb
+set_prop(tee, vendor_mtk_rpmb_ready_prop)
+
+allow tee rpmb_device:blk_file rw_file_perms;
+allowxperm tee rpmb_device:blk_file ioctl { MMC_IOCTLCMD MMC_IOC_MULTI_CMD UFS_IOCTLCMD UFS_IOCTL_RPMB };
+allow tee rpmb_device:chr_file rw_file_perms;
+allowxperm tee rpmb_device:chr_file ioctl { MMC_IOCTLCMD MMC_IOC_MULTI_CMD UFS_IOCTLCMD UFS_IOCTL_RPMB SG_IO SG_GET_VERSION_NUM };
+
+allow tee bootdevice_block_device:blk_file rw_file_perms;
+allowxperm tee bootdevice_block_device:blk_file ioctl { MMC_IOC_MULTI_CMD UFS_IOCTL_RPMB};
+allow tee tee_data_file:dir create_dir_perms;

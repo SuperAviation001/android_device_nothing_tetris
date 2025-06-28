@@ -1,0 +1,14 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK21.33
+# Purpose: Add policy to support get modem status
+allow atcid ccci_device:chr_file rw_file_perms_no_map;
+allow atcid self:unix_stream_socket ioctl;
+allowxperm atcid self:unix_stream_socket ioctl unpriv_tty_ioctls;
+
+# Date : WK22.52
+# Purpose: Add policy to thin MD host driver MD status access
+allow atcid mtk_wwan_device:chr_file rw_file_perms_no_map;
+allow atcid sysfs_wwan_fsm_state:file r_file_perms_no_map;

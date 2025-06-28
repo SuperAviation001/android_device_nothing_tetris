@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/loghidlsysservice Executable File
+
+type loghidlsysservice, domain;

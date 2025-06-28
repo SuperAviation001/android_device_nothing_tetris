@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/netdiag Executable File
+
+type netdiag, domain;

@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+##########################
+# File types
+# Core domain data file types
+#
+# teeservice app data file types
+#
+# for teeservice to access own app files
+type teed_app_data_file, file_type, data_file_type, core_data_file_type, app_data_file_type, mlstrustedobject;

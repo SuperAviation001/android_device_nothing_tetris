@@ -1,0 +1,14 @@
+# For vendor.mbrain.enabled
+get_prop(mtk_hal_mbrain, vendor_mtk_mbrain_prop)
+
+# For AEE
+get_prop(mtk_hal_mbrain, system_mtk_init_svc_aee_aedv_prop)
+
+# For GPU Freq
+allow mtk_hal_mbrain proc_gpufreqv2_gpufreq_status:file r_file_perms;
+allow mtk_hal_mbrain proc_gpufreqv2_gpufreq_status:dir search;
+
+# For IRQ
+allow mtk_hal_mbrain proc_mtmon:file { r_file_perms };
+allow mtk_hal_mbrain proc_mtmon:dir { search };
+

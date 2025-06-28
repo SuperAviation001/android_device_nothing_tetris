@@ -1,0 +1,14 @@
+# ==============================================================================
+# Type Declaration
+# ==============================================================================
+type mtk_hal_light, domain;
+type mtk_hal_light_exec, exec_type, file_type, vendor_file_type;
+
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+init_daemon_domain(mtk_hal_light)
+
+hal_server_domain(mtk_hal_light, hal_light)
+

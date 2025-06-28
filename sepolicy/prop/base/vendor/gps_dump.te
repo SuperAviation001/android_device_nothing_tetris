@@ -1,0 +1,22 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/gps_dump Executable File
+
+type gps_dump, domain;
+type gps_dump_exec, vendor_file_type, exec_type, file_type;
+
+init_daemon_domain(gps_dump)
+
+allow gps_dump self:netlink_socket create_socket_perms_no_ioctl;
+allow gps_dump self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow gps_dump conninfra_device:chr_file rw_file_perms;
+allow gps_dump tmpfs:lnk_file r_file_perms;
+allow gps_dump mnt_user_file:dir search;
+allow gps_dump mnt_user_file:lnk_file r_file_perms;
+allow gps_dump storage_file:lnk_file r_file_perms;
+allow gps_dump stp_dump_data_file:dir create_dir_perms;
+allow gps_dump stp_dump_data_file:file create_file_perms;
+allow gps_dump connsyslog_data_vendor_file:dir create_dir_perms;
+allow gps_dump connsyslog_data_vendor_file:file create_file_perms;
+get_prop(gps_dump, vendor_mtk_coredump_prop)

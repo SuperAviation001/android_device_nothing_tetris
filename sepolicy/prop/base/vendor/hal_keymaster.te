@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+add_hwservice(hal_keymaster_server, mtk_hal_keymanage_hwservice)
+allow hal_keymaster_client mtk_hal_keymanage_hwservice:hwservice_manager find;

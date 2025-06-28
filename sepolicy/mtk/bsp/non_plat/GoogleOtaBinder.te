@@ -1,0 +1,10 @@
+# ==============================================
+# Policy File of /system/bin/GoogleOtaBinder Executable File
+
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+#/dev/misc
+allow GoogleOtaBinder misc_device:chr_file rw_file_perms;
+

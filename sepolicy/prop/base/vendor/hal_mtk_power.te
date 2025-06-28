@@ -1,0 +1,5 @@
+hal_attribute_service(hal_mtk_power, mtk_hal_power_service)
+
+binder_call(hal_mtk_power_client, hal_mtk_power_server)
+binder_call(hal_mtk_power_server, hal_mtk_power_client)
+binder_call(hal_mtk_power_server, servicemanager)

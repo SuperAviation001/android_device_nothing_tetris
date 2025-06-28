@@ -1,0 +1,17 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : 2019/08/29
+# Purpose: Allow rild to access proc/aed/reboot-reason
+allow rild proc_aed_reboot_reason:file rw_file_perms;
+
+# Date: 2021/05/25
+# Operation: Engineer mode send AT command
+# Purpose: allow rild callback to CDS_INFO app
+binder_call(rild, platform_app)
+
+# Date : WK23.11
+# Purpose: Add permission to access init_pstore_blk_sh
+allow rild init_pstore_blk_sh:fd use;
+allow rild pstore_block_device:blk_file w_file_perms_no_map;

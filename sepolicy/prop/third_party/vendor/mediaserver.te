@@ -1,0 +1,4 @@
+# Date : 2023/05/22
+# Operation : HDCP
+# Purpose : Allow to connect HDCP HIDL server
+hal_client_domain(mediaserver, hal_tsa_hdcp)

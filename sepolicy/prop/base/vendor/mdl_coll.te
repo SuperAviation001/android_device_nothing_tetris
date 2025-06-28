@@ -1,0 +1,48 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/mdl_coll Executable File
+
+# ==============================================
+# type Declaration
+# ==============================================
+type mdl_coll_exec, exec_type, file_type, vendor_file_type;
+type mdl_coll, domain;
+
+init_daemon_domain(mdl_coll)
+
+# Add permission to access usb device ttyGSx
+allow mdl_coll ttyGS_device:chr_file rw_file_perms;
+
+# Add permission to access pcie port
+allow mdl_coll mtk_wwan_device:chr_file rw_file_perms_no_map;
+
+# Add permission to access on /data/vendor/mdlog
+allow mdl_coll mdl_coll_data_vendor_file:dir { create_dir_perms relabelto };
+allow mdl_coll mdl_coll_data_vendor_file:fifo_file create_file_perms;
+allow mdl_coll mdl_coll_data_vendor_file:file create_file_perms;
+
+# Add permission to access socket
+allow mdl_coll node:tcp_socket node_bind;
+allow mdl_coll port:tcp_socket { name_connect name_bind };
+allow mdl_coll mdl_coll:tcp_socket {create_stream_socket_perms};
+allow mdl_coll fwmarkd_socket:sock_file {write};
+
+# Add permission to access persist.vendor.radio.port_index
+set_prop(mdl_coll, system_mtk_atci_sys_prop)
+
+# Add permission to access persist.vendor.tool.ipaddress
+get_prop(mdl_coll, vendor_mtk_tool_ipaddr_prop)
+
+# Add permission to access /mnt/vendor/firmware/md/
+allow mdl_coll mnt_vendor_file:dir search;
+allow mdl_coll thinmd_fw_file:dir r_dir_perms;
+allow mdl_coll thinmd_fw_file:file r_file_perms;
+
+# Add permission to access vendor.debug.meta_daemon
+get_prop(mdl_coll, vendor_mtk_meta_daemon_type_prop)
+
+# Add permission to access device boot mode
+allow mdl_coll sysfs_boot_mode:file rw_file_perms;
+allow mdl_coll sysfs_boot_info:file r_file_perms;
+

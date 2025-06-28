@@ -1,0 +1,10 @@
+# MICROTRUST Policy Rule
+# Date : WK19.39
+# Stage: Q Migration
+# Purpose: Microtrust TEE access
+allow mtk_hal_camera teei_client_device:chr_file rw_file_perms;
+
+# Date : WK18.29
+# Stage: P Migration
+# Purpose: Trustonic TEE access
+allow mtk_hal_camera mobicore_user_device:chr_file rw_file_perms;

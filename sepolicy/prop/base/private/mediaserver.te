@@ -1,0 +1,33 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK15.32
+# Operation : Migration
+# Purpose : for control CPU during camera working flow
+allow mediaserver mtk_perf_service:service_manager find;
+
+# Date : WK16.29
+# Operation : Migration
+# Purpose : Add permission for gpu access
+allow mediaserver gas_srv_service:service_manager find;
+
+# Date : WK17.50
+# Operation : CMCC
+# Purpose: Allow set property to notify rtsp server timeout
+set_prop(mediaserver, system_prop)
+
+# Date : WK21.14
+# Operation : WFD
+# Purpose: Allow property set for HDR10 cast and EM setting
+set_prop(mediaserver, system_mtk_media_wfd_prop)
+
+# Date : WK21.31
+# Operation : 64-bit support
+# Purpose : Allow mediahelper exec mediaserver
+allow mediaserver mediahelper:fd use;
+
+#Date : WK23.29
+# Operation : video thumbnail
+# Purpose : Allow mediaserver to read system_video_framework_prop
+get_prop(mediaserver, system_video_framework_prop)

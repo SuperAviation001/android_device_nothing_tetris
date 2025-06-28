@@ -1,0 +1,15 @@
+# MICROTRUST Policy Rule
+# microtrust THH service manager type
+type teei_hal_thh_hwservice, hwservice_manager_type, protected_hwservice;
+
+# microtrust TUI service manager type
+type teei_hal_tui_hwservice, hwservice_manager_type, protected_hwservice;
+
+# microtrust IFAA service manager type
+type teei_hal_ifaa_hwservice, hwservice_manager_type, protected_hwservice;
+
+# microtrust CAPI service manager type
+type teei_hal_capi_hwservice, hwservice_manager_type, protected_hwservice;
+
+# microtrust WECHAT service manager type
+type teei_hal_wechat_hwservice, hwservice_manager_type, protected_hwservice;

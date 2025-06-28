@@ -1,0 +1,15 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+add_hwservice(hal_clientapi_server, volte_clientapi_ua_hwservice)
+allow hal_clientapi_client volte_clientapi_ua_hwservice:hwservice_manager find;
+
+#For aidl
+hal_attribute_service(hal_clientapi, mtk_hal_clientapi_service)
+
+binder_call(hal_clientapi_client, hal_clientapi_server)
+binder_call(hal_clientapi_server, hal_clientapi_client)
+
+#For aidl
+binder_call(hal_clientapi_server, servicemanager)

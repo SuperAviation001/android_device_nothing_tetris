@@ -1,0 +1,9 @@
+# MICROTRUST Policy Rule
+set_prop(vendor_init, vendor_mtk_soter_teei_prop)
+set_prop(vendor_init, vendor_mtk_microtrust_tee_prop)
+
+# TRUSTONIC Policy Rules
+set_prop(vendor_init, vendor_mtk_trustonic_tee_prop)
+
+# Trust Kernel Policy Rules
+set_prop(vendor_init, vendor_mtk_trustkernel_tee_prop)

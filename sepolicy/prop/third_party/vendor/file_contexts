@@ -1,0 +1,138 @@
+# MICROTRUST Policy Rule
+# Microtrust data files
+/data/vendor/thh(/.*)? u:object_r:teei_data_file:s0
+
+# Microtrust TEEI devices
+/dev/teei_config u:object_r:teei_config_device:s0
+/dev/teei_client u:object_r:teei_client_device:s0
+/dev/isee_tee0   u:object_r:teei_client_device:s0
+/dev/tz_vfs      u:object_r:teei_vfs_device:s0
+
+# rpmb char device
+/dev/rpmb0       u:object_r:teei_rpmb_device:s0
+
+# legacy char device for cross-platform compatibility
+/dev/emmcrpmb0    u:object_r:teei_rpmb_device:s0
+/dev/teei_fp      u:object_r:teei_fp_device:s0
+/dev/ut_keymaster u:object_r:ut_keymaster_device:s0
+/dev/utr_tui      u:object_r:utr_tui_device:s0
+
+# microtrust lite version use start
+/dev/teei_loader u:object_r:tee_device:s0
+
+# microtrust lite version use end
+/dev/dri/card0 u:object_r:dri_device:s0
+# Microtrust TEEI system files
+/(vendor|system/vendor)/bin/init_thh    u:object_r:init_thh_service_exec:s0
+/(vendor|system/vendor)/bin/teei_daemon u:object_r:tee_exec:s0
+
+# microtrust THH daemon
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.thh@2\.0-service u:object_r:teei_hal_thh_exec:s0
+
+# microtrust TUI daemon
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.tui@2\.0-service u:object_r:teei_hal_tui_exec:s0
+
+# microtrust IFAA hidl service
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.ifaa@1\.0-service u:object_r:teei_hal_ifaa_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.ifaa@2\.0-service u:object_r:teei_hal_ifaa_exec:s0
+
+# ST NFC
+/(vendor|system/vendor)/bin/STFlashTool                                           u:object_r:stflashtool_exec:s0
+
+# microtrust WECHAT hidl service
+/(vendor|system/vendor)/bin/bp_kmsetkey_ca u:object_r:bp_kmsetkey_ca_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.beanpod    u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.beanpod\.lite  u:object_r:hal_gatekeeper_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.beanpod\.lite   u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.beanpod         u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.beanpod\.lite   u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.beanpod         u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@1\.0-service\.beanpod u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@2\.0-service\.beanpod u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@3\.0-service\.beanpod u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.capi@2\.0-service            u:object_r:teei_hal_capi_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.microtrust\.hardware\.soter@1\.0-service           u:object_r:teei_hal_wechat_exec:s0
+/(vendor|system/vendor)/bin/istorageproxyd                                                u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/teei_loader                                                   u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/bp_id_attestation u:object_r:bp_id_attestation_exec:s0
+
+#Microtrust identity daemon
+/(vendor|system/vendor)/bin/hw/android\.hardware\.identity-service\.beanpod u:object_r:hal_identity_default_exec:s0
+
+# Trustonic data files
+/data/vendor/mcRegistry(/.*)? u:object_r:mobicore_data_file:s0
+
+# TrustKernel add
+/data/vendor/t6(/.*)?      u:object_r:tkcore_data_file:s0
+/data/vendor/t6/app(/.*)?  u:object_r:tkcore_spta_file:s0
+/data/vendor/t6/tkcore.log u:object_r:tkcore_log_file:s0
+
+# TrustKernel add
+/dev/tkcoredrv u:object_r:tkcore_admin_device:s0
+
+# Trustonic TEE devices
+/dev/mobicore      u:object_r:mobicore_admin_device:s0
+/dev/mobicore-user u:object_r:mobicore_user_device:s0
+/dev/t-base-tui    u:object_r:mobicore_tui_device:s0
+
+# Trustonic TEE
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint-service\.trustonic u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@2\.0-service\.trustonic u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@3\.0-service\.trustonic u:object_r:hal_keymint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.identity@1\.0-service\.trustonic u:object_r:hal_identity_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.trustonic u:object_r:hal_gatekeeper_default_exec:s0
+
+# softgatekeeper
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper\.libSoftGatekeeper u:object_r:hal_gatekeeper_default_exec:s0
+
+# TrustKernel add
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.trustkernel u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.trustkernel u:object_r:hal_keymaster_default_exec:s0
+
+# Trustonic TEE
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@3\.0-service\.trustonic u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.trustonic u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.1-service\.trustonic u:object_r:hal_keymaster_default_exec:s0
+
+# Trustonic TEE system files
+/(vendor|system/vendor)/app/mcRegistry(/.*)?                       u:object_r:mobicore_vendor_file:s0
+/(vendor|system/vendor)/bin/mcDriverDaemon                         u:object_r:mobicore_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.trustonic\.tee@1\.1-service u:object_r:hal_tee_default_exec:s0
+
+# TrustKernel add
+/vendor/bin/teed u:object_r:tee_exec:s0
+
+/vendor/app/t6(/.*)? u:object_r:tkcore_systa_file:s0
+
+# protected data file
+/mnt/vendor/persist/t6(/.*)?                u:object_r:tkcore_protect_data_file:s0
+/mnt/vendor/protect_f/tee(/.*)?             u:object_r:tkcore_protect_data_file:s0
+/mnt/vendor/persist/keybox(/.*)?            u:object_r:tkcore_protect_data_file:s0
+
+# HBT
+/vendor/lib(/.*)?\.hbtf u:object_r:same_process_hal_file:s0
+
+# Date: 2023/05/17
+# OP-TEE data
+/data/vendor/tee(/.*)? u:object_r:tee_data_file:s0
+
+# OP-TEE device node
+/dev/tee0     u:object_r:tee_device:s0
+/dev/teepriv0 u:object_r:tee_device:s0
+
+# OP-TEE supplicant
+/vendor/bin/tee-supplicant u:object_r:tee_exec:s0
+
+# OP-TEE client libraries
+/vendor/lib(64)?/libtz_uree\.so   u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libopenteec\.so      u:object_r:same_process_hal_file:s0
+
+# Date: 2023/05/17
+# OPTEE keymint service
+# Keymint
+/(vendor|system\/vendor)/bin/hw/android\.hardware\.security\.keymint-service.tee u:object_r:hal_keymint_default_exec:s0
+/(vendor|system\/vendor)/bin/hw/android\.hardware\.security\.keymint@3\.0-service\.tee u:object_r:hal_keymint_default_exec:s0
+
+#Data: 2023/05/22
+# HDCP AIDL service
+/(vendor|system/vendor)/bin/hw/tsa_hdcp_service-service u:object_r:tsa_hal_hdcp_exec:s0

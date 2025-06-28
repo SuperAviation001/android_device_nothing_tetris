@@ -1,0 +1,92 @@
+type mtk_hal_mbrain, domain, mlstrustedsubject;
+type mtk_hal_mbrain_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_mbrain)
+
+hal_server_domain(mtk_hal_mbrain, hal_mtk_mbrain)
+
+# Read /proc/pid files clients.
+r_dir_file(mtk_hal_mbrain, domain)
+r_dir_file(mtk_hal_mbrain, binderservicedomain)
+r_dir_file(mtk_hal_mbrain, appdomain)
+
+# Read /sys/kernel/wakeup_reasons
+r_dir_file(mtk_hal_mbrain, sysfs_wakeup_reasons)
+
+# Read /sys/block/zram0/mm_stat
+r_dir_file(mtk_hal_mbrain, sysfs_zram)
+
+allow mtk_hal_mbrain data_vendor_mbrain:dir create_dir_perms;
+allow mtk_hal_mbrain data_vendor_mbrain:file create_file_perms;
+allow mtk_hal_mbrain mtk_mbrainj_service:service_manager { find };
+
+get_prop(mtk_hal_mbrain, boot_status_prop)
+
+allow mtk_hal_mbrain sysfs_cpu_map:dir r_dir_perms;
+allow mtk_hal_mbrain debugfs_tracing_instances:dir create_dir_perms;
+allow mtk_hal_mbrain debugfs_tracing_instances:file rw_file_perms;
+allow mtk_hal_mbrain proc_stat:file r_file_perms;
+allow mtk_hal_mbrain proc_uid_cputime_showstat:file r_file_perms;
+allow mtk_hal_mbrain proc_meminfo:file r_file_perms;
+
+# For fpsgo usage.
+allow mtk_hal_mbrain sysfs_fpsgo:file r_file_perms;
+allow mtk_hal_mbrain sysfs_fpsgo:dir { search };
+
+# For thermal usage
+allow mtk_hal_mbrain sysfs_therm:file { r_file_perms };
+allow mtk_hal_mbrain sysfs_therm:dir { r_dir_perms };
+
+# For swpm
+allow mtk_hal_mbrain proc_swpm:file r_file_perms;
+
+# For power info
+allow mtk_hal_mbrain proc_power:file { r_file_perms };
+allow mtk_hal_mbrain proc_power:dir { r_dir_perms };
+
+# For battery info
+allow mtk_hal_mbrain sysfs_batteryinfo:file { r_file_perms };
+allow mtk_hal_mbrain sysfs_batteryinfo:dir { r_dir_perms };
+
+# For CPU uptime
+allow mtk_hal_mbrain proc_uptime:file r_file_perms;
+
+# For GPU Freq
+#allow mtk_hal_mbrain debugfs_gpufreqv2_history:file r_file_perms;
+#allow mtk_hal_mbrain debugfs_gpufreqv2_history:dir { search };
+allow mtk_hal_mbrain proc_gpufreqv2:file r_file_perms;
+allow mtk_hal_mbrain proc_gpufreqv2:dir search;
+
+# For DMA HEAP
+allow mtk_hal_mbrain proc_dmaheap:file r_file_perms;
+allow mtk_hal_mbrain proc_dmaheap:dir search;
+
+allow mtk_hal_mbrain proc_gpu_memory:file r_file_perms;
+
+# For wakeup source
+#allow mtk_hal_mbrain debugfs_wakeup_sources:file r_file_perms;
+
+allow mtk_hal_mbrain self:capability sys_nice;
+
+get_prop(mtk_hal_mbrain, vendor_mtk_mbrain_support_prop)
+
+# For MBrainK
+allow mtk_hal_mbrain self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow mtk_hal_mbrain mtk_mbraink_device:chr_file rw_file_perms_no_map;
+
+# For FRS info
+allow mtk_hal_mbrain sysfs_thermal_sram:file r_file_perms;
+allow mtk_hal_mbrain sysfs_thermal_sram:dir search;
+
+# For SF
+hal_client_domain(mtk_hal_mbrain, hal_mtk_sf)
+
+# For IRQ
+allow mtk_hal_mbrain proc_interrupts:file { r_file_perms };
+allow mtk_hal_mbrain proc_timer:file { r_file_perms };
+
+# For MBRAINK GPU
+allow mtk_hal_mbrain sysfs_mbraink_gpu:file { r_file_perms };
+
+# For TCP info
+allow mtk_hal_mbrain proc_net_tcp_udp:file { r_file_perms };

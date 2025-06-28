@@ -1,0 +1,23 @@
+# MICROTRUST Policy Rule
+# TEEI data file
+type teei_control_file, fs_type, sysfs_type;
+
+# TEEI data file
+type teei_data_file, file_type, data_file_type;
+
+# mobicore device type and file type
+type mobicore_vendor_file, file_type, vendor_file_type;
+
+type tkcore_systa_file, file_type, vendor_file_type;
+
+# mobicore file type
+type mobicore_data_file, file_type, data_file_type;
+
+type tkcore_spta_file, file_type, data_file_type, mlstrustedobject;
+type tkcore_data_file, file_type, data_file_type, mlstrustedobject;
+
+type tkcore_protect_data_file, file_type, data_file_type;
+type tkcore_log_file, file_type, data_file_type;
+
+# TKCore proc file
+type proc_tkcore, fs_type, proc_type;

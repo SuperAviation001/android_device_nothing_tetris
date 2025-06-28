@@ -1,0 +1,20 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/hw/mtk_hal_videotelephony Executable File
+
+# "mtkimsapdomain" is for IMS repo phase 3, mean all permiton for IMCB/UA
+type mtk_hal_videotelephony, domain;
+type mtk_hal_videotelephony_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_videotelephony)
+hal_server_domain(mtk_hal_videotelephony, hal_mtk_videotelephony)
+
+binder_use(mtk_hal_videotelephony)
+
+unix_socket_connect(mtk_hal_videotelephony, rild_oem, mtkrild)
+allow mtk_hal_videotelephony volte_imsvt1_socket:sock_file w_file_perms;
+
+# 2017/07/
+# AIDL porting
+allow mtk_hal_videotelephony rild:unix_stream_socket connectto;

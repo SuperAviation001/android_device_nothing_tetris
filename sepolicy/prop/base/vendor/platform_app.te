@@ -1,0 +1,142 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow platform_app self:netlink_kobject_uevent_socket {create bind read setopt};
+
+# Date : 2015/09/12
+# Operation : SQC
+# Purpose : allow settings get file of ntfs device
+# Package: com.android.settings
+allow platform_app fuseblk:dir create_dir_perms;
+
+# Date : 2015/10/15
+# Operation : jg_jinchuanqin
+# Purpose :[ALPS02350168]allow Settings get file of ntfs device
+# Package: com.android.settings
+allow platform_app fuseblk:file create_file_perms;
+
+# Date: 2017/08/24
+# Stage: Migration
+# Purpose: Allow to use lomo effect
+# Package: com.mediatek.camera
+allow platform_app mtk_hal_camera:binder call;
+
+# Date : 2017/10/02
+# Stage: O Migration, SQC
+# Purpose: Allow to use HAL PQ
+hal_client_domain(platform_app, hal_mtk_pq)
+
+# Date : 2017/10/02
+# Stage: O Migration, SQC
+# Purpose: Allow to use shared memory for HAL PQ
+hal_client_domain(platform_app, hal_allocator)
+
+allow platform_app debugfs_ion:dir search;
+
+# Date: 2019/04/27
+# Operation: Migration
+# Purpose : Allow Entitlement to get vendor_mtk_cxp_vendor_prop
+# Package: com.mediatek.entitlement
+get_prop(platform_app, vendor_mtk_cxp_vendor_prop)
+
+# Date: 2018/07/14
+# Operation: Migration
+# Purpose : Allow Dialer to get vendor_mtk_ims_prop
+# Package: com.android.dialer
+get_prop(platform_app, vendor_mtk_ims_prop)
+
+# Date: 2018/04/18
+# Purpose: Allow platform app to use HIDL and access mtk_hal_neuralnetworks
+allow platform_app mtk_hal_neuralnetworks:binder { call transfer };
+
+# Date: 2018/09/17
+# Purpose: Allow platform app to get vendor_mtk_cam_security_prop
+get_prop(platform_app, vendor_mtk_cam_security_prop)
+
+# Date: 2018/09/29
+# Purpose: Allow platform app to use BGService HIDL and access mtk_hal_camera
+binder_call(platform_app, mtk_hal_camera)
+binder_call(mtk_hal_camera, platform_app)
+
+# Date: 2018/11/13
+# Purpose: Allow platform app to use HIDL and access to mtk_hal_dplanner
+userdebug_or_eng(`
+	hal_client_domain(platform_app,hal_dplanner);
+')
+
+# Date : 2019/05/16
+# Operation : IT
+# Purpose : Add for HIDL service
+hal_client_domain(platform_app, hal_mtk_mdm)
+
+# Date : 2019/06/27
+# Operation : platform app need to read vendor_mtk_cta_support_prop property
+# Purpose : allow to get mtk_cta_support property
+get_prop(platform_app, vendor_mtk_cta_support_prop)
+
+# Date: 2018/12/19
+# Purpose: Allow platform app to access mdlactl_device and vpu_device
+allow platform_app mdla_device:chr_file { rw_file_perms };
+allow platform_app vpu_device:chr_file { rw_file_perms };
+
+# Date: 2018/10/25
+# Operation: Clientapi Develope
+# Package: com.android.contacts
+allow platform_app volte_clientapi_ua_hwservice:hwservice_manager find ;
+allow platform_app volte_clientapi_ua:binder { call transfer };
+
+# Date: 2020/06/29
+# Operation : eMBMS Migration
+# Purpose :allow EXPWAY middleware to access the socket
+allow platform_app radio:unix_stream_socket connectto;
+
+# Date : WK18.21
+# Operation : Migration
+# Purpose : Do FM operation via hal_mtk_fm
+hal_client_domain(platform_app, hal_mtk_fm)
+
+# Date: 2019/07/04
+# Stage: Migration
+# Purpose: Allow to use lomo effect
+# Package: com.mediatek.camera
+allow platform_app sw_sync_device:chr_file rw_file_perms;
+
+# Date: 2019/07/04
+# Purpose: Allow platform app to use BGService HIDL and access mtk_hal_camera
+hal_client_domain(platform_app, hal_mtk_bgs)
+binder_call(platform_app, mtk_hal_camera)
+
+# Date: 2020/06/08
+# Purpose: Allow platform app to access mtk jpeg
+allow platform_app proc_mtk_jpeg:file rw_file_perms;
+allowxperm platform_app proc_mtk_jpeg:file ioctl {
+      JPG_BRIDGE_DEC_IO_LOCK
+      JPG_BRIDGE_DEC_IO_WAIT
+      JPG_BRIDGE_DEC_IO_UNLOCK
+};
+
+# DebugLoggerUI can get c2 log properties
+get_prop(platform_app, vendor_mtk_c2_log_prop)
+
+# Date: 2022/04/25
+# Purpose: Camera AOV Bright and Dark Screen Support
+# Package: Camea AOV APK
+get_prop(platform_app, vendor_mtk_aov_app_support_prop)
+
+# Date: 2022/04/29
+# Purpose: Allow platform app to use AOV HIDL
+hal_client_domain(platform_app, hal_mtk_aov)
+
+# Date: 2022/11/21
+# Purpose: Allow platform app to use isphal AIDL
+hal_client_domain(platform_app, hal_mtk_isphal)
+
+# Date:2023/03/29
+# Purpose: Allow LocationEM to use batching service
+hal_client_domain(platform_app, hal_gnss)
+
+# Data: 2023/08/31
+# Operation: Add for MBrain
+hal_client_domain(platform_app, hal_mtk_mbrain)
+get_prop(platform_app, vendor_mtk_mbrain_support_prop)

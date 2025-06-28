@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date :2022/08/22
+# Operation : add installd get_prop for background dex2oat cpu_set
+get_prop(installd, system_mtk_dalvik_prop)

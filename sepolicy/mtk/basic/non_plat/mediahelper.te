@@ -1,0 +1,7 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# get prop to judge use 64-bit or not
+get_prop(mediahelper, vendor_mtk_prefer64_prop)
+

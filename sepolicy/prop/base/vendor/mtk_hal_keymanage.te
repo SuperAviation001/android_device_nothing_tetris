@@ -1,0 +1,20 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type mtk_hal_keymanage, domain;
+
+type mtk_hal_keymanage_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_keymanage)
+
+hal_server_domain(mtk_hal_keymanage, hal_keymaster)
+
+# Give permission for hal_key_manage to access kisd service
+allow mtk_hal_keymanage kisd:unix_stream_socket connectto;
+
+# Allow mtk_hal_keyinstall to access /data/key_provisioning
+allow mtk_hal_keymanage key_install_data_file:dir w_dir_perms;
+allow mtk_hal_keymanage key_install_data_file:file create_file_perms;
+
+allow mtk_hal_keymanage debugfs_tracing:file w_file_perms;

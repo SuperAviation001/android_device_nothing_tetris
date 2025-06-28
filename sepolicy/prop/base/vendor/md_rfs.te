@@ -1,0 +1,57 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/md_rfs Executable File
+
+type md_rfs, domain;
+type md_rfs_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(md_rfs)
+wakelock_use(md_rfs)
+# mdota2
+allow md_rfs md_rfs_mdota2_file:dir create_dir_perms;
+allow md_rfs md_rfs_mdota2_file:file create_file_perms;
+allow md_rfs md_rfs_mdota2_file:lnk_file { r_file_perms unlink };
+# mdlpm
+allow md_rfs md_rfs_mdlpm_file:dir create_dir_perms;
+allow md_rfs md_rfs_mdlpm_file:file create_file_perms;
+allow md_rfs md_rfs_mdlpm_file:lnk_file { r_file_perms unlink };
+# nvdata
+allow md_rfs nvdata_file:dir create_dir_perms;
+allow md_rfs nvdata_file:file create_file_perms;
+allow md_rfs nvdata_file:lnk_file { r_file_perms unlink };
+# nvcfg
+allow md_rfs nvcfg_file:dir create_dir_perms;
+allow md_rfs nvcfg_file:file create_file_perms;
+allow md_rfs nvcfg_file:lnk_file { r_file_perms unlink };
+# protect_f
+allow md_rfs protect_f_data_file:dir create_dir_perms;
+allow md_rfs protect_f_data_file:file create_file_perms;
+allow md_rfs protect_f_data_file:lnk_file { r_file_perms unlink };
+# protect_s
+allow md_rfs protect_s_data_file:dir create_dir_perms;
+allow md_rfs protect_s_data_file:file create_file_perms;
+allow md_rfs protect_s_data_file:lnk_file { r_file_perms unlink };
+# uevent via netlink
+allow md_rfs self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+# audit2allow
+allowxperm md_rfs nvram_device:blk_file ioctl BLKDISCARD;
+allow md_rfs block_device:dir search;
+allow md_rfs mnt_vendor_file:dir {w_dir_perms getattr};
+allow md_rfs proc_bootconfig:file r_file_perms;
+allow md_rfs nvram_device:blk_file rw_file_perms_no_map;
+allow md_rfs mcf_ota_file:dir r_dir_perms;
+allow md_rfs metadata_file:dir r_dir_perms;
+allow md_rfs proc_cmdline:file r_file_perms;
+allow md_rfs sysfs_dt_firmware_android:dir search;
+allow md_rfs gsi_metadata_file:dir search;
+allow md_rfs sysfs_dt_firmware_android:file r_file_perms;
+allow md_rfs mcf_ota_file:file r_file_perms;
+# md_rfs access MDRFS port
+allow md_rfs mtk_wwan_device:chr_file rw_file_perms_no_map;
+# /data/vendor/md_rfs
+allow md_rfs md_rfs_data_vendor_file:dir create_dir_perms;
+allow md_rfs md_rfs_data_vendor_file:file create_file_perms;
+allow md_rfs md_rfs_data_vendor_file:lnk_file { r_file_perms unlink };
+# Property set
+set_prop(md_rfs, vendor_mtk_service_nvram_load_prop)

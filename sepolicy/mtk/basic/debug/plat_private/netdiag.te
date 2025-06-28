@@ -1,0 +1,102 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+type netdiag_exec, system_file_type, exec_type, file_type;
+typeattribute netdiag coredomain;
+typeattribute netdiag mlstrustedsubject;
+
+init_daemon_domain(netdiag)
+
+# Purpose : for access storage file
+allow netdiag sdcard_type:dir create_dir_perms;
+allow netdiag sdcard_type:file create_file_perms;
+allow netdiag domain:dir search;
+allow netdiag domain:file r_file_perms;
+allow netdiag net_data_file:file r_file_perms;
+allow netdiag net_data_file:dir search;
+allow netdiag storage_file:dir search;
+allow netdiag storage_file:lnk_file r_file_perms;
+allow netdiag mnt_user_file:dir search;
+allow netdiag mnt_user_file:lnk_file r_file_perms;
+allow netdiag platform_app:dir search;
+allow netdiag untrusted_app:dir search;
+allow netdiag mnt_media_rw_file:dir search;
+allow netdiag vfat:dir create_dir_perms;
+allow netdiag vfat:file create_file_perms;
+allow netdiag tmpfs:lnk_file r_file_perms;
+allow netdiag system_file:file rx_file_perms;
+
+# Purpose : for shell, set uid and gid
+allow netdiag self:capability { net_admin setuid net_raw setgid};
+allow netdiag shell_exec:file rx_file_perms;
+
+#access /proc/318/net/psched
+allow netdiag proc_net:file r_file_perms;
+
+# Purpose : for ping
+allow netdiag dnsproxyd_socket:sock_file w_file_perms;
+allow netdiag fwmarkd_socket:sock_file w_file_perms;
+allow netdiag netd:unix_stream_socket connectto;
+allow netdiag self:udp_socket create_socket_perms;
+
+# Purpose : for service permission
+allow netdiag connectivity_service:service_manager find;
+allow netdiag netstats_service:service_manager find;
+allow netdiag system_server:binder call;
+allow netdiag servicemanager:binder call;
+binder_use(netdiag)
+
+# Purpose : for dumpsys permission
+allow netdiag connmetrics_service:service_manager find;
+allow netdiag netpolicy_service:service_manager find;
+allow netdiag network_management_service:service_manager find;
+allow netdiag settings_service:service_manager find;
+
+# Purpose : for acess /system/bin/toybox, mmc_prop,proc_net and safemode_prop
+get_prop(netdiag, device_logging_prop)
+get_prop(netdiag, mmc_prop)
+allow netdiag proc_net:dir r_dir_perms;
+get_prop(netdiag, safemode_prop)
+allow netdiag toolbox_exec:file rx_file_perms;
+
+# purpose: allow netdiag to access storage in new version
+allow netdiag media_rw_data_file:file create_file_perms;
+allow netdiag media_rw_data_file:dir create_dir_perms;
+
+# Purpose : for ip spec output
+allow netdiag self:netlink_xfrm_socket { create_socket_perms_no_ioctl nlmsg_read };
+
+# Purpose: for socket error of tcpdump
+allow netdiag self:packet_socket create_socket_perms;
+allowxperm netdiag self:packet_socket ioctl {SIOCGIFINDEX SIOCGSTAMP};
+allow netdiag proc_net_tcp_udp:file r_file_perms;
+
+# Purpose: for ip
+allow netdiag self:netlink_route_socket { create_socket_perms_no_ioctl nlmsg_read };
+
+# Purpose: for iptables
+allow netdiag kernel:system module_request;
+allow netdiag self:rawip_socket create_socket_perms_no_ioctl;
+
+#Purpose : for network log property
+set_prop(netdiag, system_mtk_debug_netlog_prop)
+set_prop(netdiag, system_mtk_persist_mtklog_prop)
+set_prop(netdiag, system_mtk_debug_mtklog_prop)
+
+## Android P migration
+allow netdiag proc_qtaguid_stat:dir r_dir_perms;
+allow netdiag proc_qtaguid_stat:file r_file_perms;
+allow netdiag netd:binder call;
+get_prop(netdiag, apexd_prop)
+
+# Q save log into /data/debuglogger
+allow netdiag debuglog_data_file:dir {relabelto create_dir_perms};
+allow netdiag debuglog_data_file:file create_file_perms;
+
+# add for dump network_stack
+allow netdiag network_stack:binder call;
+allow netdiag network_stack_service:service_manager find;
+
+# add for unlink file_tree.txt
+allow netdiag debuglog_data_file:lnk_file { getattr unlink };

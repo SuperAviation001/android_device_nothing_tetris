@@ -1,0 +1,14 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK15.32
+# Operation : Migration
+# Purpose : for control CPU during camera working flow
+allow cameraserver mtk_perf_service:service_manager find;
+
+# Date : WK16.30
+# Operation : Migration
+set_prop(cameraserver, debug_prop)
+set_prop(cameraserver, system_prop)
+

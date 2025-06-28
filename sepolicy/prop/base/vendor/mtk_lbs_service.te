@@ -1,0 +1,12 @@
+type mtk_lbs_service, domain;
+type mtk_lbs_service_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(mtk_lbs_service)
+hal_server_domain(mtk_lbs_service, hal_mtk_lbs)
+
+unix_socket_connect(mtk_lbs_service, agpsd, mtk_agpsd)
+allow mtk_lbs_service mtk_agpsd:unix_dgram_socket sendto;
+unix_socket_connect(mtk_lbs_service, agpsd, agnss_proxy)
+allow mtk_lbs_service agnss_proxy:unix_dgram_socket sendto;
+allow mtk_lbs_service mnld:unix_dgram_socket sendto;
+allow mtk_lbs_service gnss_daemon:unix_dgram_socket sendto;

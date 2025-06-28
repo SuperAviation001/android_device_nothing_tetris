@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK16.48
+# Purpose: Allow to trigger AEE dump
+allow audioserver crash_dump:unix_stream_socket connectto;
+
+# Date : WK23.18
+# Operation : MBrain
+# Purpose : Allow audioserver get vendor_mtk_mbrain_prop
+get_prop(audioserver, vendor_mtk_mbrain_prop)

@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : 2021/08/12
+# Operation: Keymint 1.0
+# Purpose: Access attestation key in persist partition.
+allow hal_keymint_default mnt_vendor_file:dir search;
+allow hal_keymint_default persist_data_file:dir search;

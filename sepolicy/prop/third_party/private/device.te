@@ -1,0 +1,2 @@
+# /dev/hbt kernel module
+type hbt_device, dev_type, mlstrustedobject;

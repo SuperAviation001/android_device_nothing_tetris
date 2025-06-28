@@ -1,0 +1,9 @@
+# Date : WK18.33
+# Purpose : type=1400 audit(0.0:1592): avc: denied { read }
+#           for comm=4572726F722064756D703A20646174 name=
+#           "u:object_r:system_mtk_persist_mtk_aee_prop:s0" dev="tmpfs"
+#           ino=10312 scontext=u:r:system_server:s0 tcontext=
+#           u:object_r:system_mtk_persist_mtk_aee_prop:s0 tclass=file permissive=0
+get_prop(system_server, system_mtk_persist_mtk_aee_prop)
+
+get_prop(system_server, system_mtk_debug_mtk_aee_prop)

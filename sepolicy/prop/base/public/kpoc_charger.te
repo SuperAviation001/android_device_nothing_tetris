@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/kpoc_charger Executable File
+
+type kpoc_charger, domain;

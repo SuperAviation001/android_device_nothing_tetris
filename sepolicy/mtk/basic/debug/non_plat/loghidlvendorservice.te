@@ -1,0 +1,30 @@
+# ==============================================
+# Policy File of /vendor/bin/loghidlvendorservice Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type loghidlvendorservice, domain;
+type loghidlvendorservice_exec, exec_type, file_type, vendor_file_type;
+typeattribute loghidlvendorservice mlstrustedsubject;
+
+init_daemon_domain(loghidlvendorservice)
+
+hal_server_domain(loghidlvendorservice, hal_mtk_log)
+allow loghidlvendorservice system_app:binder call;
+
+#============= r/w video log properties ==============
+set_prop(loghidlvendorservice, vendor_mtk_c2_log_prop)
+
+#============= r/w gpud properties ==============
+set_prop(loghidlvendorservice, vendor_mtk_gpu_prop)
+
+# allow loghidlvendorservice can access video node
+allow loghidlvendorservice video_device:chr_file rw_file_perms_no_map;
+
+#============= r/w display debug log properties ==============
+set_prop(loghidlvendorservice, vendor_mtk_hwc_debug_log_prop)
+set_prop(loghidlvendorservice, vendor_mtk_mdp_debug_log_prop)
+set_prop(loghidlvendorservice, vendor_mtk_em_dy_debug_ctrl_prop)
+set_prop(loghidlvendorservice, vendor_debug_logger_prop)

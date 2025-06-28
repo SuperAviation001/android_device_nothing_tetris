@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+get_prop(ccci_mdinit, system_mtk_init_svc_aee_aedv_prop)

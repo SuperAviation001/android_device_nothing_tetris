@@ -1,0 +1,7 @@
+# MICROTRUST Policy Rule
+# Microtrust TEEI sysfs files
+genfscon sysfs /devices/platform/utos u:object_r:teei_control_file:s0
+genfscon sysfs /devices/utos          u:object_r:teei_control_file:s0
+
+# TrustKernel TEE proc
+genfscon proc /tkcore u:object_r:proc_tkcore:s0

@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_hwservice(hal_audio, hal_audio_hwservice)
+
+binder_call(hal_audio_client, hal_audio_server)
+binder_call(hal_audio_server, hal_audio_client)
+
+# Date 2023/02/13
+# Purpose: Allow to set/get bluetooth_leaudio_offload_prop
+set_prop(hal_audio, bluetooth_leaudio_offload_prop)

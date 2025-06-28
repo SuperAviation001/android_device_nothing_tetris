@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/mtk_remotefsd Executable File
+
+# sAP netlog directory
+# /data/vendor/netlog
+allow mtk_remotefsd net_log_data_file:dir create_dir_perms;
+allow mtk_remotefsd net_log_data_file:file create_file_perms;

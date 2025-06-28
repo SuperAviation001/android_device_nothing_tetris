@@ -1,0 +1,7 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+userdebug_or_eng(`
+allow osi sysfs_therm:dir search;
+allow osi sysfs_therm:file r_file_perms;
+')

@@ -1,0 +1,86 @@
+# AEE exp
+type aee_exp_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
+type aee_exp_vendor_file, file_type, data_file_type;
+
+# Date : 2019/08/29
+# Purpose: Allow rild access proc/aed/reboot-reason
+type proc_aed_reboot_reason, fs_type, proc_type;
+
+# Date : 2021/06/24
+# Operation: S development
+# Purpose: Add permission for access /proc/iommu_debug
+type proc_iommu_debug, fs_type, proc_type;
+
+type proc_aed, fs_type, proc_type;
+
+type sysfs_soc_ccb_gear, sysfs_type, fs_type;
+type sysfs_ccb_gear, sysfs_type, fs_type;
+
+# Date : 2021/08/09
+# Purpose: Add apusys debug info into db
+type proc_apusys_rv_coredump_debug, fs_type, proc_type;
+type proc_apusys_rv_xfile_debug, fs_type, proc_type;
+type proc_apusys_rv_regdump_debug, fs_type, proc_type;
+type proc_apusys_logger_seq_log_debug, fs_type, proc_type;
+
+# Date : 2021/08/10
+# Purpose: Add apusys MDW debug info into db
+type proc_aputag_mdw_debug, fs_type, proc_type;
+
+# Date : 2021/10/13
+type proc_mtmon, fs_type, proc_type;
+
+# Date : 2022/01/19
+# Purpose: Add lockdep debug info into db
+type proc_lockdep, fs_type, proc_type;
+
+# blockio procfs file
+type debugfs_blockio, fs_type, debugfs_type;
+
+# fuseio debugfs file
+type debugfs_fuseio, fs_type, debugfs_type;
+
+# cpuhvfs debugfs file
+type debugfs_cpuhvfs, fs_type, debugfs_type;
+
+# dynamic_debug debugfs file
+type debugfs_dynamic_debug, fs_type, debugfs_type;
+
+# shrinker debugfs file
+type debugfs_shrinker_debug, fs_type, debugfs_type;
+
+# dmlog debugfs file
+type debugfs_dmlog_debug, fs_type, debugfs_type;
+
+# page_owner_slim debugfs file
+type debugfs_page_owner_slim_debug, fs_type, debugfs_type;
+
+# rcu debugfs file
+type debugfs_rcu, fs_type, debugfs_type;
+
+# /sys/kernel/debug/ion/ion_mm_heap
+type debugfs_ion_mm_heap, fs_type, debugfs_type;
+
+# /sys/kernel/debug/emi_mbw/dump_buf
+type debugfs_emi_mbw_buf, fs_type, debugfs_type;
+
+# /sys/devices/platform/emiisu/emi_isu_buf
+type sysfs_emiisu, sysfs_type, fs_type;
+
+# /sys/kernel/debug/kmemleak
+type debugfs_kmemleak, fs_type, debugfs_type;
+
+# Date : 2019/08/15
+type debugfs_smi_mon, fs_type, debugfs_type;
+
+type debugfs_cmdq, fs_type, debugfs_type;
+type debugfs_mml, fs_type, debugfs_type;
+
+# Date : 2021/08/24
+# camsys debugfs file
+type debugfs_cam_dbg, fs_type, debugfs_type;
+type debugfs_cam_exception, fs_type, debugfs_type;
+
+#vpu proc file
+type proc_vpu_memory, fs_type, proc_type;
+

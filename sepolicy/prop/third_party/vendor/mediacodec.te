@@ -1,0 +1,15 @@
+# MICROTRUST Policy Rule
+# Date : WK18.46
+# Operation : WVL1 IT for TEEI
+# Purpose : SVP module operates TEEI
+hal_client_domain(mediacodec, hal_teei_capi)
+allow mediacodec teei_client_device:chr_file rw_file_perms;
+
+# Date : WK16.25
+# Operation : WVL1 IT
+# Purpose : SVP module operates secmem driver
+allow mediacodec mobicore_data_file:file r_file_perms;
+allow mediacodec mobicore_user_device:chr_file rw_file_perms;
+allow mediacodec mobicore:unix_stream_socket connectto;
+allow mediacodec mobicore_data_file:dir search;
+

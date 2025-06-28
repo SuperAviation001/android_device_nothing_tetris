@@ -1,0 +1,29 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+##########################
+# System files
+#
+/system/bin/mobile_log_d         u:object_r:mobile_log_d_exec:s0
+/system/bin/modemdbfilter_client u:object_r:modemdbfilter_client_exec:s0
+/system/bin/netdiag              u:object_r:netdiag_exec:s0
+/system/bin/loghidlsysservice    u:object_r:loghidlsysservice_exec:s0
+/system/bin/connsyslogger        u:object_r:connsyslogger_exec:s0
+
+##########################
+# SystemExt files
+#
+/(system_ext|system/system_ext)/bin/mdlogger           u:object_r:mdlogger_exec:s0
+/(system_ext|system/system_ext)/bin/emdlogger[0-9]+    u:object_r:emdlogger_exec:s0
+
+/(system_ext|system/system_ext)/bin/aee_core_forwarder u:object_r:aee_core_forwarder_exec:s0
+/(system_ext|system/system_ext)/bin/aeedb              u:object_r:crash_dump_exec:s0
+/(system_ext|system/system_ext)/bin/aee_aed            u:object_r:crash_dump_exec:s0
+/(system_ext|system/system_ext)/bin/aee_aed64          u:object_r:crash_dump_exec:s0
+/(system_ext|system/system_ext)/bin/aee_dumpstate      u:object_r:dumpstate_exec:s0
+/(system_ext|system/system_ext)/bin/aee_aed64_v2          u:object_r:crash_dump_exec:s0
+/(system_ext|system/system_ext)/bin/aee_core_forwarder_v2 u:object_r:aee_core_forwarder_exec:s0
+/(system_ext|system/system_ext)/bin/aee_v2                u:object_r:crash_dump_exec:s0
+/(system_ext|system/system_ext)/bin/aeedb_v2              u:object_r:crash_dump_exec:s0
+/(system_ext|system/system_ext)/bin/aee_dumpstate_v2      u:object_r:dumpstate_exec:s0

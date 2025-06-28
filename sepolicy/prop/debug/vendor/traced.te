@@ -1,0 +1,1 @@
+allow traced crash_dump:fd use;

@@ -1,0 +1,17 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# MSync3
+get_prop(coredomain, system_mtk_msync3_prop)
+
+# Operation : DEBUG
+# Purpose : Allow to get system_mtk_audio_prop
+get_prop(coredomain, system_mtk_audio_prop)
+get_prop(coredomain, system_mtk_boostfwk_version_prop)
+get_prop(coredomain, system_mtk_bluetooth_prop)
+
+# Date:2023/03/02
+# Purpose : Add permission for frameworks log
+get_prop(coredomain, system_video_framework_debug_log_prop)
+

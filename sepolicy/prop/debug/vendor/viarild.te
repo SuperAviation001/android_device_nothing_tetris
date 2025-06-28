@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# For Kryptowire mtklog issue
+allow viarild aee_aedv:unix_stream_socket connectto;

@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/atci_service_sys Executable File
+
+
+# Date : WK18.21
+# Purpose: Allow to use HIDL
+hal_client_domain(atci_service_sys, hal_mtk_atci)

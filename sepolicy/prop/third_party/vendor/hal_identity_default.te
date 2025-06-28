@@ -1,0 +1,18 @@
+# ==============================================
+# # Trustonic Policy Rule
+# ==============================================
+
+# Date : 2022/12/09
+# Operation: Identity 1.0
+# Purpose:
+allow hal_identity_default mobicore_user_device:chr_file rw_file_perms_no_map;
+get_prop(hal_identity_default, vendor_security_patch_level_prop);
+allow hal_identity_default mnt_vendor_file:dir search;
+allow hal_identity_default persist_data_file:dir search;
+allow hal_identity_default tkcore_protect_data_file:dir search;
+allow hal_identity_default tkcore_protect_data_file:file r_file_perms;
+# ==============================================
+# # MICROTRUST Policy Rule
+# ==============================================
+
+allow hal_identity_default teei_client_device:chr_file rw_file_perms;

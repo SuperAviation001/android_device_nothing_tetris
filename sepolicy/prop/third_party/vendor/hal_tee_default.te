@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Trustonic TeeService
+
+# Access to TEE driver nodes (user and tui)
+allow hal_tee_default mobicore_user_device:chr_file rw_file_perms;
+allow hal_tee_default mobicore_tui_device:chr_file rw_file_perms;
+

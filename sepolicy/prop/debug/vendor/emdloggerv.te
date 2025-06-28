@@ -1,0 +1,36 @@
+# ==============================================
+# Policy File of /vendor/bin/emdloggerv Executable File
+
+# ==============================================
+# type Declaration
+# ==============================================
+
+type emdloggerv_exec, exec_type, file_type, vendor_file_type;
+type emdloggerv, domain;
+typeattribute emdloggerv mlstrustedsubject;
+init_daemon_domain(emdloggerv)
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# ccci device for internal modem
+allow emdloggerv ccci_mdl_device:chr_file rw_file_perms;
+allow emdloggerv ccci_ccb_device:chr_file rw_file_perms;
+
+#add for read /dev/ccci_md1_sta
+allow emdloggerv ccci_device:chr_file rw_file_perms;
+
+# usb device ttyGSx for modem logger usb logging
+allow emdloggerv ttyGS_device:chr_file rw_file_perms;
+
+# modem logger access on /data/vendor/mdlog
+allow emdloggerv mdlog_data_vendor_file:dir { create_dir_perms relabelto };
+allow emdloggerv mdlog_data_vendor_file:fifo_file create_file_perms;
+allow emdloggerv mdlog_data_vendor_file:file create_file_perms;
+
+allow emdloggerv block_device:dir search;
+allow emdloggerv md_block_device:blk_file r_file_perms;
+
+# Add permission to access new bootmode file
+allow emdloggerv sysfs_boot_info:file r_file_perms;

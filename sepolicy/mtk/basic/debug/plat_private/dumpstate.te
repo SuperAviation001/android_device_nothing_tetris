@@ -1,0 +1,18 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# 01-01 17:59:14.440  7664  7664 I aee_dumpstate: type=1400 audit(0.0:63497):
+# avc: denied { open } for path="/sys/kernel/debug/tracing/tracing_on" dev=
+# "debugfs" ino=2087 scontext=u:r:dumpstate:s0 tcontext=u:object_r:
+# tracing_shell_writable:s0 tclass=file permissive=1
+allow dumpstate debugfs_tracing:file rw_file_perms;
+
+# Purpose: aee_dumpstate set surfaceflinger property
+set_prop(dumpstate, system_mtk_debug_bq_dump_prop)
+
+# Date: W1826
+# Purpose : mobile_log_d exec 'logcat -L' via dumpstate
+allow dumpstate mobile_log_d:fd use;
+allow dumpstate mobile_log_d:fifo_file w_file_perms;
+allow dumpstate mobile_log_d:unix_stream_socket rw_socket_perms_no_ioctl;

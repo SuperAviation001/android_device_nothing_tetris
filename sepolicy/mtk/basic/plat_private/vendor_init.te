@@ -1,0 +1,3 @@
+# allow write for mobile_log_d.rc
+allow vendor_init proc_dynamic_debug_control:file w_file_perms;
+

@@ -1,0 +1,226 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+##########################
+# Filesystem types
+#
+##########################
+# Proc Filesystem types
+#
+# Date : 2019/08/29
+# Purpose: Allow rild access proc/aed/reboot-reason
+type proc_aed_reboot_reason, fs_type, proc_type;
+
+# Date : 2021/06/24
+# Operation: S development
+# Purpose: Add permission for access /proc/iommu_debug
+type proc_iommu_debug, fs_type, proc_type;
+
+type proc_aed, fs_type, proc_type;
+
+# Date : 2022/12/27
+# Purpose: Add apusys debug info into db
+type proc_apusys_rv_debug, fs_type, proc_type;
+
+# Date : 2021/08/10
+# Purpose: Add apusys MDW debug info into db
+type proc_aputag_mdw_debug, fs_type, proc_type;
+
+# Date : 2022/06/08
+# Purpose: Add apusys mdla debug info into db
+type proc_mdla_mdla_memory_debug, fs_type, proc_type;
+
+# Date : 2021/10/13
+type proc_mtmon, fs_type, proc_type;
+
+# Date : 2022/01/19
+# Purpose: Add lockdep debug info into db
+type proc_lockdep, fs_type, proc_type;
+
+# Date : 2022/04/08
+# Purpose: Add Camera P2 Drv Debug Information into DB
+type proc_img_daemon, fs_type, proc_type;
+type proc_img_kernel, fs_type, proc_type;
+type proc_img_stream, fs_type, proc_type;
+
+#vpu proc file
+type proc_vpu_memory, fs_type, proc_type;
+
+# Date : 2023/10/11
+# Purpose: Add GZ debug info into db
+type proc_gz_log_full, fs_type, proc_type;
+
+# Date : 2023/03/24
+# Purpose: Add GPU debug info into db
+type proc_mtk_mali_log, fs_type, proc_type;
+
+# Date : 2022/07/19
+# Purpose: Add MMDVFS debug info into db
+type proc_mmdvfs_mmdvfs_opp, fs_type, proc_type;
+
+# Date : 2022/07/27
+# camsys procfs file
+type procfs_cam_dbg, fs_type, proc_type;
+type procfs_cam_exception, fs_type, proc_type;
+
+# Date : 2022/08/08
+# Purpose: Allow mobile log to read apusysy log
+type proc_apusys_up_seq_logl, fs_type, proc_type;
+
+# Date : 2022/08/02
+# Purpose: Allow mobile log to read dpmaif log
+type proc_dpmaif_debug, fs_type, proc_type;
+
+# Date : 2022/08/16
+# Purpose: Add MMQoS debug info into db
+type proc_mmqos_mmqos_bw, fs_type, proc_type;
+
+# Date : 2023/07/21
+# Purpose: Add gpufreq_status into db
+type proc_gpufreqv2_gpufreq_status, fs_type, proc_type;
+
+# Date : 2023/08/23
+# Purpose: Add GPU OPP table into db
+type proc_gpufreqv2_gpu_working_opp_table, fs_type, proc_type;
+type proc_gpufreqv2_stack_working_opp_table, fs_type, proc_type;
+
+# Date : 2023/11/06
+# Purpose: Add AOV Drv Debug Information into DB
+type proc_aov_kernel, fs_type, proc_type;
+
+##########################
+# Sys Filesystem types
+#
+type sysfs_soc_ccb_gear, sysfs_type, fs_type;
+type sysfs_ccb_gear, sysfs_type, fs_type;
+
+# /sys/devices/platform/emiisu/emi_isu_buf
+type sysfs_emiisu, sysfs_type, fs_type;
+
+# /sys/devices/platform/14000000.dispsys-config/disp_plat_dbg_buf
+# /sys/devices/platform/soc/14000000.dispsys-config/disp_plat_dbg_buf
+type sysfs_disp_plat_dbg, sysfs_type, fs_type;
+
+type sysfs_aee_enable, fs_type, sysfs_type;
+type sysfs_aee_encrypt, fs_type, sysfs_type;
+
+
+##########################
+# Debug Filesystem types
+#
+# blockio procfs file
+type debugfs_blockio, fs_type, debugfs_type;
+
+# fuseio debugfs file
+type debugfs_fuseio, fs_type, debugfs_type;
+
+# cpuhvfs debugfs file
+type debugfs_cpuhvfs, fs_type, debugfs_type;
+
+# dynamic_debug debugfs file
+type debugfs_dynamic_debug, fs_type, debugfs_type;
+
+# shrinker debugfs file
+type debugfs_shrinker_debug, fs_type, debugfs_type;
+
+# dmlog debugfs file
+type debugfs_dmlog_debug, fs_type, debugfs_type;
+
+# page_owner_slim debugfs file
+type debugfs_page_owner_slim_debug, fs_type, debugfs_type;
+
+# rcu debugfs file
+type debugfs_rcu, fs_type, debugfs_type;
+
+# /sys/kernel/debug/ion/ion_mm_heap
+type debugfs_ion_mm_heap, fs_type, debugfs_type;
+
+# /sys/kernel/debug/emi_mbw/dump_buf
+type debugfs_emi_mbw_buf, fs_type, debugfs_type;
+
+# /sys/kernel/debug/kmemleak
+type debugfs_kmemleak, fs_type, debugfs_type;
+
+# Date : 2019/08/15
+type debugfs_smi_mon, fs_type, debugfs_type;
+
+type debugfs_cmdq, fs_type, debugfs_type;
+type debugfs_mml, fs_type, debugfs_type;
+
+# Date : 2021/08/24
+# camsys debugfs file
+type debugfs_cam_dbg, fs_type, debugfs_type;
+type debugfs_cam_exception, fs_type, debugfs_type;
+
+# Date : 2022/04/13
+type debugfs_gpufreqv2_history, fs_type, debugfs_type;
+
+# Date : 2022/05/12
+type debugfs_mali_mem_dump, fs_type, debugfs_type;
+
+# Date : 2022/05/31
+type debugfs_mali_active_groups, fs_type, debugfs_type;
+
+# Date : 2022/05/31
+type debugfs_mali_ctx_cpu_queues, fs_type, debugfs_type;
+
+# Date : 2022/05/31
+type debugfs_mali_ctx_kcpu_queues, fs_type, debugfs_type;
+
+# Date : 2022/06/28
+type debugfs_mali_fw_traces, fs_type, debugfs_type;
+
+# Date : 2022/06/28
+type debugfs_tracer_etb, fs_type, debugfs_type;
+
+# Date : 2022/08/02
+type debugfs_smi, fs_type, debugfs_type;
+##########################
+# File types
+# Data file types
+#
+type aee_exp_vendor_file, file_type, data_file_type;
+
+type irqmon_vendor_file, file_type, data_file_type;
+
+# Date: WK23.13
+# Add permission for vendor firmware netlog files
+type net_log_data_file, file_type, data_file_type;
+
+##########################
+# File types
+# Core domain data file types
+#
+# AEE exp
+type aee_exp_data_file, file_type, data_file_type, core_data_file_type, mlstrustedobject;
+
+# Date : 2022/08/08
+# mobilelog data/log_temp
+type logtemp_data_file, file_type, data_file_type, core_data_file_type;
+
+# Date : 2022/08/08
+# mobilelog data/misc/mblog
+type logmisc_data_file, file_type, data_file_type, core_data_file_type;
+
+##########################
+# Other
+# Data file types
+#
+# Date : WK16.35
+# Operation : untrusted_app support direct-coredump abort message
+# Purpose :
+# avc: denied { write } for name="aee_interim" dev="dm-0" ino=8236
+# scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:coredump_file:s0
+# tclass=dir permissive=0
+userdebug_or_eng(`
+  typeattribute coredump_file mlstrustedobject;
+')
+
+# Date:2022/05/16
+# add permission for vendor emdlogger
+type mdlog_data_vendor_file, file_type, data_file_type;
+
+# Date: WK23.07
+# Add permission for vendor firmware connsys files
+type connsys_vendor_file, file_type, vendor_file_type;

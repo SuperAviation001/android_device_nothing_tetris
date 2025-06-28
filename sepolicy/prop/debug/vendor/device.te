@@ -1,0 +1,17 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Device types
+type aed_device, dev_type;
+
+# Date:2021/07/27
+# Purpose: permission for emdlogger
+type ccci_mdl_device, dev_type;
+
+# Date:2023/02/06
+# Purpose: permission for mobilelogD
+type sa_log_wifi_device, dev_type;
+
+# Date:2023/03/10
+# Purpose: permission for pstore_blk
+type pstore_block_device, dev_type;

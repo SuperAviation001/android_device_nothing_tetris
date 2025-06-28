@@ -1,0 +1,4 @@
+
+init.svc.zygote_hbt u:object_r:init_service_status_prop:s0 exact string
+
+hbt. u:object_r:system_mtk_hbt_prop:s0

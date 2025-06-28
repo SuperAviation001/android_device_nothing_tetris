@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_hwservice(hal_mtk_pq, mtk_hal_pq_hwservice)
+hal_attribute_service(hal_mtk_pq, mtk_hal_pq_service)
+
+binder_call(hal_mtk_pq_client, hal_mtk_pq_server)
+binder_call(hal_mtk_pq_server, hal_mtk_pq_client)
+binder_call(hal_mtk_pq_server, servicemanager)

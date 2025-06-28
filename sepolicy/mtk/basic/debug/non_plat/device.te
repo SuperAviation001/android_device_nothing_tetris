@@ -1,0 +1,6 @@
+type aed_device, dev_type;
+
+# Date:2021/07/27
+# Purpose: permission for emdlogger
+type ccci_mdl_device, dev_type;
+

@@ -1,0 +1,31 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# ==============================================
+# Policy File of /vendor/bin/agnss_proxy Executable File
+type agnss_proxy_exec, exec_type, file_type, vendor_file_type;
+type agnss_proxy, domain;
+
+init_daemon_domain(agnss_proxy)
+
+net_domain(agnss_proxy)
+
+wakelock_use(agnss_proxy)
+
+# Access folders, files, and sockets in /data/agps_supl
+allow agnss_proxy agpsd_data_file:dir create_dir_perms;
+allow agnss_proxy agpsd_data_file:file create_file_perms;
+allow agnss_proxy agpsd_data_file:sock_file create_file_perms;
+
+# Send the message to agpsd
+unix_socket_connect(agnss_proxy, agpsd, mtk_agpsd)
+allow agnss_proxy mtk_agpsd:unix_dgram_socket sendto;
+
+# Send the message to the LBS HIDL Service to forward to system partitions
+allow agnss_proxy mtk_lbs_service:unix_dgram_socket sendto;
+
+# Send the message to the merged hal Service to forward to system partitions
+allow agnss_proxy merged_hal_service:unix_dgram_socket sendto;
+
+allow agnss_proxy mtk_wwan_device:chr_file rw_file_perms_no_map;

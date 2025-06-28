@@ -1,0 +1,11 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_hwservice(hal_mtk_mmagent, mtk_hal_mmagent_hwservice)
+hal_attribute_service(hal_mtk_mmagent, mtk_hal_mmagent_service)
+
+binder_call(hal_mtk_mmagent_client, hal_mtk_mmagent_server)
+binder_call(hal_mtk_mmagent_server, hal_mtk_mmagent_client)
+binder_use(hal_mtk_mmagent_server)
+binder_use(hal_mtk_mmagent_client)

@@ -1,0 +1,11 @@
+# MICROTRUST Policy Rule
+# Allow widevine hidl process access TEEI
+hal_client_domain(hal_drm_widevine, hal_teei_capi)
+hal_client_domain(hal_drm_widevine, hal_allocator)
+allow hal_drm_widevine teei_client_device:chr_file rw_file_perms;
+
+# Add sepolicy for tee relate
+allow hal_drm_widevine mobicore:unix_stream_socket connectto;
+allow hal_drm_widevine mobicore_user_device:chr_file rw_file_perms_no_map;
+allow hal_drm_widevine mobicore_data_file:file r_file_perms;
+allow hal_drm_widevine mobicore_data_file:dir search;

@@ -1,0 +1,15 @@
+# MICROTRUST Policy Rule
+vendor.soter.teei. u:object_r:vendor_mtk_soter_teei_prop:s0
+
+# TEE property
+ro.vendor.mtk_microtrust_tee_support  u:object_r:vendor_mtk_microtrust_tee_prop:s0
+ro.vendor.mtk_trustkernel_tee_support u:object_r:vendor_mtk_trustkernel_tee_prop:s0
+ro.vendor.mtk_trustonic_tee_support   u:object_r:vendor_mtk_trustonic_tee_prop:s0
+
+# Property set by Trustonic Daemon to indicate TEE is ready
+ro.vendor.trustonic.ready u:object_r:vendor_trustonic_prop:s0 exact bool
+
+# TrustKernel add
+ro.vendor.trustkernel. u:object_r:vendor_mtk_trustkernel_tee_prop:s0
+vendor.trustkernel.    u:object_r:vendor_mtk_trustkernel_tee_prop:s0
+

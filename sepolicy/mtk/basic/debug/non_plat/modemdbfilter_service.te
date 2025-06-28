@@ -1,0 +1,19 @@
+# ==============================================
+# Policy File of /vendor/bin/hw/modemdbfilter_service Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type modemdbfilter_service, domain;
+type modemdbfilter_service_exec, exec_type, file_type, vendor_file_type;
+typeattribute modemdbfilter_service mlstrustedsubject;
+
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+init_daemon_domain(modemdbfilter_service)
+
+#Purpose : for create hidl server
+hal_server_domain(modemdbfilter_service, hal_mtk_md_dbfilter)

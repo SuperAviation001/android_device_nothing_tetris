@@ -1,0 +1,3 @@
+get_prop(shell, system_mtk_persist_mtk_aee_prop)
+get_prop(shell, system_mtk_persist_aee_prop)
+get_prop(shell, system_mtk_debug_mtk_aee_prop)

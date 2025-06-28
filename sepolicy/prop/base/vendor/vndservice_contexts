@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+android.IRemosaicDaemon u:object_r:remosaic_daemon_service:s0
