@@ -14,15 +14,14 @@
 
 #include "CancellationSignal.h"
 
+#define FOD_HBM_PATH "/sys/panel_feature/hbm_node"
+#define FOD_UI_STATUS "/sys/panel_feature/ui_status"
+
 namespace aidl {
 namespace android {
 namespace hardware {
 namespace biometrics {
 namespace fingerprint {
-
-#define FOD_HBM_PATH "/sys/panel_feature/hbm_node"
-#define FOD_UI_STATUS "/sys/panel_feature/ui_status"
-#define FOD_HBM_DELAY 60
 
 void setFodHbm(bool status) {
     ::android::base::WriteStringToFile(status ? "1" : "0", FOD_HBM_PATH);
@@ -77,11 +76,6 @@ ndk::ScopedAStatus Session::enroll(const HardwareAuthToken& hat,
     if (error) {
         ALOGE("enroll failed: %d", error);
         mCb->onError(Error::UNABLE_TO_PROCESS, error);
-    } else {
-        std::thread([this]() {
-            std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
-            setFodHbm(true);
-        }).detach();
     }
 
     *out = SharedRefBase::make<CancellationSignal>(this);
@@ -96,11 +90,6 @@ ndk::ScopedAStatus Session::authenticate(int64_t operationId,
     if (error) {
         ALOGE("authenticate failed: %d", error);
         mCb->onError(Error::UNABLE_TO_PROCESS, error);
-    } else {
-        std::thread([this]() {
-            std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
-            setFodHbm(true);
-        }).detach();
     }
 
     *out = SharedRefBase::make<CancellationSignal>(this);
@@ -194,6 +183,8 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
+    std::this_thread::sleep_for(std::chrono::milliseconds(60));
+    setFodHbm(true);
 
     return ndk::ScopedAStatus::ok();
 }
