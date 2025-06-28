@@ -186,7 +186,7 @@ ndk::ScopedAStatus Session::onUiReady() {
 
     // TODO: stub
     std::thread([=] {
-        this_thread::sleep_for(chrono::milliseconds(50)); // 50ms delay
+        this_thread::sleep_for(chrono::milliseconds(100)); // 100ms delay
         setFodHbm(true);
     }).detach();
 
