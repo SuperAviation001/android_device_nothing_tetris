@@ -58,8 +58,8 @@ ndk::ScopedAStatus Session::generateChallenge() {
 ndk::ScopedAStatus Session::revokeChallenge(int64_t challenge) {
     ALOGI("revokeChallenge: %ld", challenge);
     setFodHbm(false);
-    mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
+    mDevice->goodix_extCmd(mDevice, 0, 0);
     mDevice->revokeChallenge(mDevice, challenge);
 
     return ndk::ScopedAStatus::ok();
@@ -76,6 +76,9 @@ ndk::ScopedAStatus Session::enroll(const HardwareAuthToken& hat,
     if (error) {
         ALOGE("enroll failed: %d", error);
         mCb->onError(Error::UNABLE_TO_PROCESS, error);
+    } else {
+	setFodHbm(true);
+        setFodStatus(true);
     }
 
     *out = SharedRefBase::make<CancellationSignal>(this);
@@ -90,6 +93,9 @@ ndk::ScopedAStatus Session::authenticate(int64_t operationId,
     if (error) {
         ALOGE("authenticate failed: %d", error);
         mCb->onError(Error::UNABLE_TO_PROCESS, error);
+    } else {
+	setFodHbm(true);
+        setFodStatus(true);
     }
 
     *out = SharedRefBase::make<CancellationSignal>(this);
@@ -162,8 +168,7 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
                                           float major) {
     ALOGI("onPointerDown");
 
-    mDevice->goodix_extCmd(mDevice, 1, 6);
-    setFodStatus(true);
+    mDevice->goodix_extCmd(mDevice, 1, 0);
 
     checkSensorLockout();
 
@@ -174,7 +179,6 @@ ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
     ALOGI("onPointerUp");
 
     mDevice->goodix_extCmd(mDevice, 0, 0);
-    setFodStatus(false);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -183,7 +187,6 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
-    setFodHbm(true);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -230,8 +233,8 @@ ndk::ScopedAStatus Session::cancel() {
     ALOGI("cancel");
 
     setFodHbm(false);
-    mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
+    mDevice->goodix_extCmd(mDevice, 0, 0);
 
     int ret = mDevice->cancel(mDevice);
 
@@ -247,8 +250,8 @@ ndk::ScopedAStatus Session::cancel() {
 ndk::ScopedAStatus Session::close() {
     ALOGI("close");
     setFodHbm(false);
-    mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
+    mDevice->goodix_extCmd(mDevice, 0, 0);
     mClosed = true;
     mCb->onSessionClosed();
     AIBinder_DeathRecipient_delete(mDeathRecipient);
@@ -328,8 +331,8 @@ bool Session::checkSensorLockout() {
 
     if (lockoutMode != LockoutMode::NONE) {
 	setFodHbm(false);
-	mDevice->goodix_extCmd(mDevice, 0, 0);
         setFodStatus(false);
+	mDevice->goodix_extCmd(mDevice, 0, 0);
     }
 
     if (lockoutMode == LockoutMode::PERMANENT) {
@@ -417,8 +420,8 @@ void Session::notify(const fingerprint_msg_t* msg) {
                 mCb->onAuthenticationSucceeded(msg->data.authenticated.finger.fid, authToken);
                 mLockoutTracker.reset(true);
                 setFodHbm(false);
+		setFodStatus(false);
                 mDevice->goodix_extCmd(mDevice, 0, 0);
-                setFodStatus(false);
             } else {
                 mCb->onAuthenticationFailed();
                 mLockoutTracker.addFailedAttempt();
