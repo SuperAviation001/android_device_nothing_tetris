@@ -22,7 +22,7 @@ namespace fingerprint {
 
 #define FOD_HBM_PATH "/sys/devices/platform/soc/1401a000.dsi0/hbm"
 #define FOD_UI_STATUS "/sys/panel_feature/ui_status"
-#define FOD_HBM_DELAY 15
+#define FOD_HBM_DELAY 60
 
 void setFodHbm(bool status) {
     ::android::base::WriteStringToFile(status ? "1" : "0", FOD_HBM_PATH);
@@ -163,6 +163,8 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
                                           float major) {
     ALOGI("onPointerDown: x=%d, y=%d, minor=%f, major=%f", x, y, minor, major);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
+    setFodHbm(true);
     mDevice->goodix_extCmd(mDevice, 1, 1);
     setFodStatus(true);
 
@@ -174,8 +176,8 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
 ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
     ALOGI("onPointerUp");
 
-    setFodHbm(false);
     mDevice->goodix_extCmd(mDevice, 0, 0);
+    setFodHbm(false);
     setFodStatus(false);
 
     return ndk::ScopedAStatus::ok();
@@ -185,8 +187,6 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
-    std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
-    setFodHbm(true);
 
     return ndk::ScopedAStatus::ok();
 }
