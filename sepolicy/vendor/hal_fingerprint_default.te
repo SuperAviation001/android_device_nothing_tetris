@@ -10,8 +10,8 @@ allow hal_fingerprint_default {
 }:chr_file rw_file_perms;
 
 
-allow hal_fingerprint_default sysfs_fod:file { read write open getattr watch watch_reads map };
 get_prop(hal_fingerprint_default, vendor_fp_prop);
 set_prop(hal_fingerprint_default, vendor_fp_prop)
 
 rw_dir_file(hal_fingerprint_default, vendor_sysfs_graphics)
+rw_dir_file(hal_fingerprint_default, sysfs_fod)
