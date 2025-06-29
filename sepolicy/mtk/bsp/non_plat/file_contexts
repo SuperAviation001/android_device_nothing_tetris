@@ -115,8 +115,6 @@
 # MTK VTService
 /dev/socket/volte_imsvt1(/.*)? u:object_r:volte_imsvt1_socket:s0
 
-/dev/goodix_fp     u:object_r:fingerprint_device:s0
-
 #MTK widevine kernel driver
 /dev/drm_wv u:object_r:widevine_drv_device:s0
 
