@@ -34,6 +34,5 @@ cc_binary {
 
 cc_library_shared {
     name: "libaacvibrator-tetris",
-    compile_multilib: "64",
     soc_specific: true,
 }
