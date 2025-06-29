@@ -24,7 +24,7 @@ namespace fingerprint {
 #define HBM_MODE_PATH "/sys/panel_feature/hbm_mode"
 #define UI_STATUS "/sys/panel_feature/ui_status"
 
-#define HBM_DELAY 15
+#define HBM_DELAY 60
 
 void setFodHbm(bool status) {
     ::android::base::WriteStringToFile(status ? "1" : "0", HBM_PATH);
@@ -167,6 +167,9 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
                                           float major) {
     ALOGI("onPointerDown: x=%d, y=%d, minor=%f, major=%f", x, y, minor, major);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(HBM_DELAY));
+
+    setFodHbm(true);
     setFodStatus(true);
 
     checkSensorLockout();
@@ -187,8 +190,6 @@ ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
     // TODO: stub
-    std::this_thread::sleep_for(std::chrono::milliseconds(HBM_DELAY));
-    setFodHbm(true);
 
     return ndk::ScopedAStatus::ok();
 }
