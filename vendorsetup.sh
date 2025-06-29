@@ -13,6 +13,3 @@ fi
 if [ ! -d "device/nothing/tetris-kernel" ]; then
   git clone https://github.com/SuperAviation001/android_device_nothing_tetris-kernel -b lineage-22.2 device/nothing/tetris-kernel
 fi
-if [ ! -d "device/nothing/tetris-sepolicy" ]; then
-  git clone https://github.com/SuperAviation001/android_device_nothing_tetris-sepolicy.git -b lineage-22.2 device/nothing/tetris-sepolicy
-fi
