@@ -10,7 +10,6 @@ cc_binary {
         "-Wall",
         "-Werror",
         "-DLOG_TAG=\"android.hardware.vibrator.service.tetris\"",
-        "-DLOG_TAG=\"android.hardware.vibrator.service.tetris\"",
         "-DUSE_RICHTAP_EFFECT_REMAP", 
     ],
     relative_install_path: "hw",
@@ -28,7 +27,13 @@ cc_binary {
         "liblog",
         "libbase",
         "libbinder_ndk",
-        "libaacvibrator",
+        "libaacvibrator-tetris",
         "android.hardware.vibrator-V2-ndk",
     ],
+}
+
+cc_library_shared {
+    name: "libaacvibrator-tetris",
+    compile_multilib: "64",
+    soc_specific: true,
 }
