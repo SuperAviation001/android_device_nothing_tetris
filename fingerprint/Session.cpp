@@ -20,7 +20,7 @@ namespace hardware {
 namespace biometrics {
 namespace fingerprint {
 
-#define FOD_HBM_PATH "/sys/panel_feature/hbm_node"
+#define FOD_HBM_PATH "/sys/devices/platform/soc/1401a000.dsi0/hbm"
 #define FOD_UI_STATUS "/sys/panel_feature/ui_status"
 #define FOD_HBM_DELAY 15
 
