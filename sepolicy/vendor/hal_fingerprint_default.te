@@ -7,9 +7,10 @@ allow hal_fingerprint_default boot_status_prop:file { read open getattr watch wa
 allow hal_fingerprint_default {
   fingerprint_device
   tee_device
-  sysfs_fod
 }:chr_file rw_file_perms;
 
+
+allow hal_fingerprint_default sysfs_fod:file { read write open getattr watch watch_reads map };
 get_prop(hal_fingerprint_default, vendor_fp_prop);
 set_prop(hal_fingerprint_default, vendor_fp_prop)
 
