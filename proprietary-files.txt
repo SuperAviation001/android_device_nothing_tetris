@@ -1323,7 +1323,7 @@ vendor/etc/panel-nt37705-1056-1068-dphy-cmd_pq.xml
 vendor/etc/panel-truly-td4330-cmd_pq.xml
 
 # Fingerprint
-vendor/lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.mt6878.so
+vendor/lib64/hw/fingerprint.default.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint.so
 vendor/lib64/android.hardware.biometrics.fingerprint-V3-ndk.so
