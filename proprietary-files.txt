@@ -2711,7 +2711,7 @@ vendor/lib64/libvibratorutils.so
 vendor/lib64/vendor.aac.hardware.richtap.vibrator-V2-ndk.so
 
 # Richtap
-vendor/lib64/libaacvibrator.so
+-vendor/lib64/libaacvibrator.so
 
 # Richtap config
 vendor/etc/aac_richtap.config

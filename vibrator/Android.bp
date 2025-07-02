@@ -27,12 +27,7 @@ cc_binary {
         "liblog",
         "libbase",
         "libbinder_ndk",
-        "libaacvibrator-tetris",
+        "libaacvibrator",
         "android.hardware.vibrator-V2-ndk",
     ],
-}
-
-cc_library_shared {
-    name: "libaacvibrator-tetris",
-    soc_specific: true,
 }
