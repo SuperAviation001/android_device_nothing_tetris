@@ -22,17 +22,14 @@ namespace fingerprint {
 
 #define HBM_PATH "/sys/devices/platform/soc/14017000.dsi/hbm"
 #define HBM_MODE_PATH "/sys/panel_feature/hbm_mode"
-#define UI_STATUS "/sys/panel_feature/ui_status"
+#define UI_STATUS_PATH "/sys/panel_feature/ui_status"
 
 #define HBM_DELAY 60
 
-void setFodHbm(bool status) {
+void setFodDisplayState(bool status) {
     ::android::base::WriteStringToFile(status ? "1" : "0", HBM_PATH);
     ::android::base::WriteStringToFile(status ? "1" : "0", HBM_MODE_PATH);
-}
-
-void setFodStatus(bool status) {
-    ::android::base::WriteStringToFile(status ? "1" : "0", UI_STATUS);
+    ::android::base::WriteStringToFile(status ? "1" : "0", UI_STATUS_PATH);
 }
 
 void onClientDeath(void* cookie) {
@@ -62,8 +59,7 @@ ndk::ScopedAStatus Session::generateChallenge() {
 ndk::ScopedAStatus Session::revokeChallenge(int64_t challenge) {
     ALOGI("revokeChallenge: %ld", challenge);
 
-    setFodHbm(false);
-    setFodStatus(false);
+    setFodDisplayState(false);
 
     mDevice->revokeChallenge(mDevice, challenge);
 
@@ -169,8 +165,7 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
 
     std::this_thread::sleep_for(std::chrono::milliseconds(HBM_DELAY));
 
-    setFodHbm(true);
-    setFodStatus(true);
+    setFodDisplayState(true);
 
     checkSensorLockout();
 
@@ -180,8 +175,7 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
 ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
     ALOGI("onPointerUp");
 
-    setFodHbm(false);
-    setFodStatus(false);
+    setFodDisplayState(false);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -235,8 +229,7 @@ ndk::ScopedAStatus Session::setIgnoreDisplayTouches(bool /*shouldIgnore*/) {
 ndk::ScopedAStatus Session::cancel() {
     ALOGI("cancel");
 
-    setFodHbm(false);
-    setFodStatus(false);
+    setFodDisplayState(false);
 
     int ret = mDevice->cancel(mDevice);
 
@@ -252,8 +245,7 @@ ndk::ScopedAStatus Session::cancel() {
 ndk::ScopedAStatus Session::close() {
     ALOGI("close");
 
-    setFodHbm(false);
-    setFodStatus(false);
+    setFodDisplayState(false);
 
     mClosed = true;
     mCb->onSessionClosed();
@@ -333,8 +325,7 @@ bool Session::checkSensorLockout() {
     LockoutMode lockoutMode = mLockoutTracker.getMode();
 
     if (lockoutMode != LockoutMode::NONE) {
-	    setFodHbm(false);
-        setFodStatus(false);
+	    setFodDisplayState(false);
     }
 
     if (lockoutMode == LockoutMode::PERMANENT) {
@@ -404,8 +395,7 @@ void Session::notify(const fingerprint_msg_t* msg) {
             mCb->onEnrollmentProgress(msg->data.enroll.finger.fid,
                                       msg->data.enroll.samples_remaining);
             if (msg->data.enroll.samples_remaining == 0) {
-                setFodHbm(false);
-                setFodStatus(false);
+                setFodDisplayState(false);
             }
         } break;
         case FINGERPRINT_TEMPLATE_REMOVED: {
@@ -425,8 +415,7 @@ void Session::notify(const fingerprint_msg_t* msg) {
 
                 mCb->onAuthenticationSucceeded(msg->data.authenticated.finger.fid, authToken);
                 mLockoutTracker.reset(true);
-                setFodHbm(false);
-                setFodStatus(false);
+                setFodDisplayState(false);
             } else {
                 mCb->onAuthenticationFailed();
                 mLockoutTracker.addFailedAttempt();
