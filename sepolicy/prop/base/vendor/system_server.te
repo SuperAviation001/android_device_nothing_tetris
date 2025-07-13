@@ -7,7 +7,7 @@
 # Operation : Migration
 # Purpose : Allow drmserver to access some system_server opreration on M
 #           and allow drmserver access file stored in sdcard
-use_drmservice(system_server)
+allow drmserver system_server:file getattr;
 allow system_server drmserver:drmservice openDecryptSession;
 
 # Date: WK16.30
