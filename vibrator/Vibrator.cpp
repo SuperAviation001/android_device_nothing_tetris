@@ -13,9 +13,9 @@
 
 #include "aac_vibra_function.h"
 
-#define RICHTAP_LIGHT_STRENGTH 79
+#define RICHTAP_LIGHT_STRENGTH 69
 #define RICHTAP_MEDIUM_STRENGTH 89
-#define RICHTAP_STRONG_STRENGTH 100
+#define RICHTAP_STRONG_STRENGTH 99
 
 namespace aidl {
 namespace android {
@@ -95,8 +95,8 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                                      int32_t* _aidl_return) {
     int32_t strength;
 
-    if (effect == Effect::THUD || effect == Effect::TICK || effect == Effect::POP)
-         effect = Effect::CLICK;
+    if (effect == Effect::TICK || effect == Effect::CLICK)
+         effect = Effect::THUD;
 
     if (effect < Effect::CLICK || effect > Effect::HEAVY_CLICK)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
