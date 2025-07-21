@@ -247,7 +247,8 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub
 
 PRODUCT_PACKAGES += \
-    libmtkperf_client_vendor
+    libmtkperf_client_vendor \
+    libperfctl_vendor
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/power/,$(TARGET_COPY_OUT_VENDOR)/etc)
