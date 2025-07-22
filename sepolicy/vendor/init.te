@@ -1,0 +1,1 @@
+allow init proc_ged:chr_file { ioctl open read write };
