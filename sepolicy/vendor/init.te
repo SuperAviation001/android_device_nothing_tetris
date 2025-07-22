@@ -1,1 +1,3 @@
 allow init proc_ged:chr_file { ioctl open read write };
+rw_dir_file(init, sysfs_ged)
+rw_dir_file(init, sysfs_gpu)
