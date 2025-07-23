@@ -1499,6 +1499,7 @@ system_ext/framework/mediatek-telecom-common.jar
 system_ext/framework/mediatek-telephony-base.jar
 system_ext/framework/mediatek-telephony-common.jar
 system_ext/priv-app/ImsService/ImsService.apk
+system_ext/priv-app/MtkGbaService/MtkGbaService.apk
 system_ext/lib64/libcomutils.so
 system_ext/lib64/libimsma.so
 system_ext/lib64/libimsma_adapt.so
