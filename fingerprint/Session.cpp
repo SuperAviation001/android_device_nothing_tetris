@@ -163,12 +163,6 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
                                           float major) {
     ALOGI("onPointerDown: x=%d, y=%d, minor=%f, major=%f", x, y, minor, major);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(HBM_DELAY));
-
-    setFodDisplayState(true);
-
-    checkSensorLockout();
-
     return ndk::ScopedAStatus::ok();
 }
 
@@ -183,7 +177,9 @@ ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
 ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
-    // TODO: stub
+    std::this_thread::sleep_for(std::chrono::milliseconds(HBM_DELAY));
+
+    setFodDisplayState(true);
 
     return ndk::ScopedAStatus::ok();
 }
