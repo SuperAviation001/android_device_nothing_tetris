@@ -16,7 +16,6 @@
 -->
 <resources>
     <bool name="config_prioritizeUpdateProcess">true</bool>
-    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/official_devices-pos/fifteen/tetris.json</string>
-    <string name="changelog_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/official_devices-pos/fifteen/tetris.md</string>
-    <string name="certified_prop_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/official_devices/fifteen/CertifiedProps/certified_build_props.apk</string>
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/ota-infinity/main/devices/tetris.json</string>
+    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/ota-infinity/main/changelogs/changelog_tetris.txt</string>
 </resources>

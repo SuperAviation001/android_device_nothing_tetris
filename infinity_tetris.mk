@@ -9,13 +9,13 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit common lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common infinity stuff.
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
 
 # Inherit from tetris device
 $(call inherit-product, device/nothing/tetris/device.mk)
 
-PRODUCT_NAME := lineage_tetris
+PRODUCT_NAME := infinity_tetris
 PRODUCT_DEVICE := tetris
 PRODUCT_BRAND := Nothing
 PRODUCT_MANUFACTURER := Nothing
@@ -34,3 +34,12 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 TARGET_INCLUDE_UPDATER := true
 PRODUCT_PACKAGES += \
     Updater
+
+# Infinity-X Specific Flags
+INFINITY_BUILD_TYPE := UNOFFICIAL
+INFINITY_MAINTAINER := "schoosh"
+TARGET_SUPPORTS_BLUR := true
+TARGET_HAS_UDFPS := true
+
+# GAPPS
+WITH_GAPPS := true
