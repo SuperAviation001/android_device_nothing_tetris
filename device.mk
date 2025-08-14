@@ -116,11 +116,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth-V1-ndk.vendor \
-    android.hardware.bluetooth.audio-V3-ndk.vendor \
     android.hardware.bluetooth.audio-impl \
-    libbluetooth_audio_session \
-    android.hardware.bluetooth@1.1.vendor
+    android.hardware.bluetooth-service.mediatek
 
 # Camera
 PRODUCT_PACKAGES += \
