@@ -7,10 +7,6 @@ allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
 allow hal_power_default cpu_dma_latency_device:file rw_file_perms;
 allow hal_power_default cpu_dma_latency_device:chr_file rw_file_perms;
 
-# Allow libperfmgr to control GPU boost
-r_dir_file(hal_power_default, sysfs_ged)
-allow hal_power_default sysfs_ged:file w_file_perms;
-
 r_dir_file(hal_power_default, proc_gpufreqv2)
 allow hal_power_default proc_gpufreqv2:file rw_file_perms;
 
@@ -24,3 +20,5 @@ allow hal_power_default sysfs_dvfsrc_devfreq:file rw_file_perms;
 # Sensors
 r_dir_file(hal_power_default, sysfs_sensor)
 allow hal_power_default sysfs_sensor:file rw_file_perms;
+rw_dir_file(hal_power_default, sysfs_ged)
+rw_dir_file(hal_power_default, sysfs_gpu)
