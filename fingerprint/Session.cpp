@@ -20,15 +20,9 @@ namespace hardware {
 namespace biometrics {
 namespace fingerprint {
 
-#define HBM_PATH "/sys/devices/platform/soc/14017000.dsi/hbm"
-#define HBM_MODE_PATH "/sys/panel_feature/hbm_mode"
 #define UI_STATUS_PATH "/sys/panel_feature/ui_status"
 
-#define HBM_DELAY 60
-
 void setFodDisplayState(bool status) {
-    ::android::base::WriteStringToFile(status ? "1" : "0", HBM_PATH);
-    ::android::base::WriteStringToFile(status ? "1" : "0", HBM_MODE_PATH);
     ::android::base::WriteStringToFile(status ? "1" : "0", UI_STATUS_PATH);
 }
 
@@ -176,8 +170,6 @@ ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
 
 ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(HBM_DELAY));
 
     setFodDisplayState(true);
 
