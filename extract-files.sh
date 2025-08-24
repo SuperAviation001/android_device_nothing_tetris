@@ -16,9 +16,8 @@ MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
-EXTRACTUTILS_ROOT="${MY_DIR}"
 
-HELPER="${EXTRACTUTILS_ROOT}/extract-utils/extract_utils.sh"
+HELPER="$PWD/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
