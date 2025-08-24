@@ -1,4 +1,4 @@
-# Firmware - from Tetris_U2.6-240828-2341
+# Firmware - from Tetris_V3.0-250208-2015_3.0
 
 apusys.img;AB
 ccu.img;AB
