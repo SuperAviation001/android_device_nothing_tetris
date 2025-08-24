@@ -1,4 +1,5 @@
-<compatibility-matrix version="7.0" type="framework"> <hal format="aidl" optional="true">
+<compatibility-matrix version="7.0" type="framework">
+    <hal format="aidl" optional="true">
         <name>android.hardware.bluetooth</name>
         <interface>
             <name>IBluetoothHci</name>
@@ -202,6 +203,15 @@
         </interface>
         <interface>
             <name>IGoodixFingerprintDaemonHbd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    </hal>
+	<hal format="aidl" optional="true">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <version>3</version>
+        <interface>
+            <name>IFingerprint</name>
             <instance>default</instance>
         </interface>
     </hal>
