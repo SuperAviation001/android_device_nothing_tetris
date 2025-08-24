@@ -23,7 +23,9 @@ PRODUCT_MODEL := A015
 
 PRODUCT_GMS_CLIENTID_BASE := android-nothing
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="Tetris 14 UP1A.231005.007 2412042338 release-keys"
+DEVICE_CODENAME := tetris
 
-BUILD_FINGERPRINT := Nothing/Tetris/Tetris:14/UP1A.231005.007/2412042338:user/release-keys
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BuildDesc="Tetris 14 UP1A.231005.007 2412042338 release-keys" \
+    BuildFingerprint=Nothing/Tetris/Tetris:14/UP1A.231005.007/2412042338:user/release-keys \
+    DeviceProduct=$(DEVICE_CODENAME)
