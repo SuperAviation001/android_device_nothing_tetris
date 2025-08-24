@@ -1,6 +1,0 @@
-stages:
-  - auto-merge-main
-include:
-  - project: 'e/templates'
-    ref: master
-    file: '/gitlab-ci/.gitlab-ci-auto-merge-main.yml'
