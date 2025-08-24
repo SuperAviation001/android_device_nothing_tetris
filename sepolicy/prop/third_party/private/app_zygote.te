@@ -1,0 +1,3 @@
+allow app_zygote hbt_device:chr_file ioctl;
+allowxperm app_zygote hbt_device:chr_file ioctl hbt_ioctls;
+hbt_translated(app_zygote, app_zygote_tmpfs)

@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK23.11
+# Purpose: Add permission to access init_pstore_blk_sh
+allow uart_launcher pstore_block_device:blk_file w_file_perms_no_map;

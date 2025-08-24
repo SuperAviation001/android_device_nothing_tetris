@@ -1,0 +1,5 @@
+# ==============================================
+# Policy File of /vendor/bin/avsyncservice Executable File
+
+# Set a new domain
+type mtk_hal_avsync, domain;

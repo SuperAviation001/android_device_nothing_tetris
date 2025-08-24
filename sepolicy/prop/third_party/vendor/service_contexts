@@ -1,0 +1,2 @@
+#HDCP AIDL
+vendor.tsa.hdcp.IHDCPInterface/default      u:object_r:tsa_hal_hdcp_service:s0

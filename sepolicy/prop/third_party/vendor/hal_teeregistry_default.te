@@ -1,0 +1,9 @@
+# Trustonic TeeService
+# Access to TEE driver nodes (user and admin)
+allow hal_teeregistry_default mobicore_user_device:chr_file rw_file_perms;
+allow hal_teeregistry_default mobicore_admin_device:chr_file rw_file_perms;
+
+allow hal_teeregistry_default mobicore_data_file:dir create_dir_perms;
+allow hal_teeregistry_default mobicore_data_file:file create_file_perms;
+allow hal_teeregistry_default mobicore_vendor_file:file r_file_perms;
+

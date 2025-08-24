@@ -1,0 +1,8 @@
+system_internal_prop(system_mtk_debug_mtk_aee_prop)
+system_internal_prop(system_mtk_persist_aee_prop)
+system_internal_prop(system_mtk_aee_basic_prop)
+
+typeattribute system_mtk_debug_mtk_aee_prop         extended_core_property_type;
+typeattribute system_mtk_persist_aee_prop           extended_core_property_type;
+typeattribute system_mtk_aee_basic_prop             extended_core_property_type;
+typeattribute system_mtk_persist_mtk_aee_prop       extended_core_property_type;

@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow domain system_mtk_pmb_file:dir r_dir_perms;
+allow domain system_mtk_pmb_file:lnk_file { getattr read };
+allow { appdomain coredomain } system_mtk_pmb_file:file { execute read open getattr map };

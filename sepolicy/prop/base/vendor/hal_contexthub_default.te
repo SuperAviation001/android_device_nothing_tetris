@@ -1,0 +1,9 @@
+allow hal_contexthub_default scp_device:chr_file rw_file_perms_no_map;
+
+wakelock_use(hal_contexthub_default)
+
+# Allow CHRE HAL to read/write to /data/vendor/
+allow hal_contexthub_default chre_data_file:dir w_dir_perms;
+allow hal_contexthub_default chre_data_file:file create_file_perms_no_map;
+hal_client_domain(hal_contexthub_default, hal_audio)
+binder_call(hal_contexthub_default, mtk_hal_audio)

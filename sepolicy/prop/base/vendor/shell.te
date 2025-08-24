@@ -1,0 +1,43 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK17.35
+# Purpose : allow shell to dump the debugging information of camera hal.
+binder_call(shell, mtk_hal_camera)
+
+# Date : WK17.36
+# Purpose : allow shell to dump the debugging information of power hal.
+hal_client_domain(shell, hal_power)
+hal_client_domain(shell, hal_mtk_power)
+
+# Data: 2021/12/07
+# Purpose: adjust the cpu policy config
+userdebug_or_eng(`
+    get_prop(shell, vendor_mtk_debug_sf_cpupolicy_prop);
+')
+
+# Data: 2022/03/14
+# Purpose: adjust the dynamic duration config
+userdebug_or_eng(`
+    get_prop(shell, vendor_mtk_debug_sf_duration_prop);
+')
+
+# Data: 2023/02/20
+# Purpose: adjust the kickidle config
+userdebug_or_eng(`
+    get_prop(shell, vendor_mtk_debug_sf_kickidle_prop);
+')
+
+# Data: 2022/08/09
+# Purpose: allow to check hwc dsi switch support
+userdebug_or_eng(`
+    get_prop(shell, vendor_mtk_hwc_dsi_switch_prop);
+')
+
+# Date: 2023/02/20
+# Purpose: allow hwc to set boot display config
+userdebug_or_eng(`
+    get_prop(shell, vendor_mtk_hwc_boot_display_config_prop);
+')
+

@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_service(hal_mtk_nwk_opt, mtk_hal_nwk_opt_service)
+
+binder_call(hal_mtk_nwk_opt_client, hal_mtk_nwk_opt_server)
+binder_call(hal_mtk_nwk_opt_server, hal_mtk_nwk_opt_client)
+
+binder_call(hal_mtk_nwk_opt_server, servicemanager)

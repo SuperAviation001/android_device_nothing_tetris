@@ -1,0 +1,13 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : 2021/08/01
+# Operation : Allow radio read write data/debuglogger folder
+# Purpose : Add for ATG app
+allow radio debuglog_data_file:dir create_dir_perms;
+allow radio debuglog_data_file:file create_file_perms;
+
+# Date : 2022/05/30
+# Purpose : Allow radio to read video ss property
+get_prop(radio, system_mtk_dbg_video_ss_prop)

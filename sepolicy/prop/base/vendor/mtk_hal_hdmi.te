@@ -1,0 +1,33 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/hw/vendor.mediatek.hardware.hdmi@1.0-service Executable File
+
+type mtk_hal_hdmi, domain;
+type mtk_hal_hdmi_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_hdmi)
+
+binder_use(mtk_hal_hdmi)
+
+hal_server_domain(mtk_hal_hdmi, hal_mtk_hdmi)
+
+# Purpose : Allow to use kernel driver
+allow mtk_hal_hdmi graphics_device:chr_file rw_file_perms;
+
+# Purpose : Allow permission to get AmbientLux from hwservice_manager
+allow mtk_hal_hdmi fwk_sensor_hwservice:hwservice_manager find;
+
+# for hdmi uevent
+allow mtk_hal_hdmi self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# Purpose : Allow hdmi to call vendor.mediatek.hardware.keymanage@1.0-service.
+hal_client_domain(mtk_hal_hdmi, hal_keymaster)
+
+# Purpose : Allow permission to set hdmi property
+set_prop(mtk_hal_hdmi, vendor_mtk_hdmi_prop)
+
+#for getting drm key
+allow mtk_hal_hdmi tee_device:chr_file rw_file_perms_no_map;
+
+hal_client_domain(mtk_hal_hdmi, hal_graphics_composer)

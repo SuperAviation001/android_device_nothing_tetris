@@ -1,0 +1,3 @@
+# Date : WK16.46
+# Purpose : allow shell to switch aee mode
+allow shell crash_dump:unix_stream_socket connectto;

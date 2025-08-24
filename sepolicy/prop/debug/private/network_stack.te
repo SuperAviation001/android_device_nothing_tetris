@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# add for netdiag dump network_stack
+allow network_stack netdiag:fd use;
+allow network_stack netdiag:fifo_file w_file_perms;

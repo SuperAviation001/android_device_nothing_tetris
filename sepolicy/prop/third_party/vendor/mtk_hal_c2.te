@@ -1,0 +1,7 @@
+# MICROTRUST Policy Rule
+hal_client_domain(mtk_hal_c2, hal_teei_capi)
+allow mtk_hal_c2 teei_client_device:chr_file rw_file_perms;
+
+#============= mtk_hal_c2 for SVP on legacy vcodec ==============
+allow mtk_hal_c2 mobicore_user_device:chr_file rw_file_perms;
+

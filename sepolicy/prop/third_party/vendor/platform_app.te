@@ -1,0 +1,14 @@
+# MICROTRUST Policy Rule
+allow platform_app teei_data_file:dir create_dir_perms;
+allow platform_app teei_data_file:file create_file_perms;
+
+# Date : 2014/12/30
+# Operation : TUI Migration
+# Purpose : TUI service need to access tui device driver
+# Package: com.trustonic.tuiservice.TuiService
+allow platform_app mobicore_tui_device:chr_file r_file_perms;
+allow platform_app mobicore_user_device:chr_file rw_file_perms;
+
+allow platform_app mobicore_data_file:file r_file_perms;
+allow platform_app mobicore_data_file:dir search;
+

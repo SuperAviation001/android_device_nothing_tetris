@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_hwservice(hal_graphics_composer, mtk_hal_composer_ext_hwservice)

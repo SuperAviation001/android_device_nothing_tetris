@@ -1,0 +1,6 @@
+# Trustonic Policy Rule
+# Date : 2023/02/22
+# Operation: TEE integration
+# Purpose: Trustonic gatekeeper aidl
+allow hal_gatekeeper_default mobicore_data_file:dir create_dir_perms;
+allow hal_gatekeeper_default mobicore_data_file:file create_file_perms;

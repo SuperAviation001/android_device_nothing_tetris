@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow hal_nfc st21nfc_device:chr_file rw_file_perms;

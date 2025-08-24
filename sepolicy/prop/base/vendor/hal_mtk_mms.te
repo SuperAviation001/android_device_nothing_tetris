@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+add_hwservice(hal_mtk_mms_server, mtk_hal_mms_hwservice)
+allow hal_mtk_mms_client mtk_hal_mms_hwservice:hwservice_manager find;
+
+binder_call(hal_mtk_mms_client, hal_mtk_mms_server)
+binder_call(hal_mtk_mms_server, hal_mtk_mms_client)

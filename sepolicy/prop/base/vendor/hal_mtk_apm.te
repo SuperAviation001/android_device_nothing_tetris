@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+hal_attribute_service(hal_mtk_apm, mtk_hal_apm_service)
+
+binder_call(hal_mtk_apm_client, hal_mtk_apm_server)
+binder_call(hal_mtk_apm_server, hal_mtk_apm_client)
+binder_call(hal_mtk_apm_client, servicemanager)

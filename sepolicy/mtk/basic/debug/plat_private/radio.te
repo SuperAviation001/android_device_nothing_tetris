@@ -1,0 +1,5 @@
+#Date : 2021/08/01
+# Operation : Allow radio read write data/debuglogger folder
+# Purpose : Add for ATG app
+allow radio debuglog_data_file:dir create_dir_perms;
+allow radio debuglog_data_file:file create_file_perms;

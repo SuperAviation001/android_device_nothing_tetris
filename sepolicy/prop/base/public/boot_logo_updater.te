@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/boot_logo_updater Executable File
+
+type boot_logo_updater, domain;

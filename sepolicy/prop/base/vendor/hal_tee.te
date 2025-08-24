@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Trustonic TeeService
+
+add_hwservice(hal_tee_server, hal_tee_hwservice)
+allow hal_tee_client hal_tee_hwservice:hwservice_manager find;
+
+binder_call(hal_tee_client, hal_tee_server)
+binder_call(hal_tee_server, hal_tee_client)

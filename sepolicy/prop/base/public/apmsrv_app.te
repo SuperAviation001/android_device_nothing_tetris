@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system_ext/priv-app/ApmService/ApmService.apk Executable File
+
+type apmsrv_app, domain, coredomain;

@@ -1,0 +1,5 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+allow hal_ir_default irtx_device:chr_file rw_file_perms;

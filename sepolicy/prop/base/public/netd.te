@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Suppress the denial for netd to use surfaceflinger
+dontaudit netd surfaceflinger:fd use;

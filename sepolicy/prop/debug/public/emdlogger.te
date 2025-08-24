@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/emdlogger[x] Executable File
+
+type emdlogger, domain;

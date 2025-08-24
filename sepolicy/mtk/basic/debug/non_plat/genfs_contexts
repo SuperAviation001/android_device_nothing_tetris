@@ -1,0 +1,72 @@
+genfscon proc /aed       u:object_r:proc_aed:s0
+# Date : 2019/08/29
+# Purpose: allow rild to access /proc/aed/reboot-reason
+genfscon proc /aed/reboot-reason u:object_r:proc_aed_reboot_reason:s0
+
+# 2021/06/24
+# Purpose: add iommu debug info into db
+genfscon proc /iommu_debug u:object_r:proc_iommu_debug:s0
+
+# Date : 2021/07/06
+# Purpose: allow emdlogger to access /proc/device-tree/soc/mddriver
+genfscon sysfs /firmware/devicetree/base/soc/mddriver/md1_ccb_gear_list u:object_r:sysfs_soc_ccb_gear:s0
+genfscon sysfs /firmware/devicetree/base/soc/mddriver/md1_ccb_cap_gear u:object_r:sysfs_soc_ccb_gear:s0
+
+# Date : 2021/07/06
+# Purpose: allow emdlogger to access /proc/device-tree/mddriver
+genfscon sysfs /firmware/devicetree/base/mddriver/md1_ccb_cap_gear u:object_r:sysfs_ccb_gear:s0
+genfscon sysfs /firmware/devicetree/base/mddriver/md1_ccb_gear_list u:object_r:sysfs_ccb_gear:s0
+
+# Date : 2021/08/09
+# Purpose: add apusys debug info into db
+genfscon proc /apusys_rv/apusys_rv_coredump u:object_r:proc_apusys_rv_coredump_debug:s0
+genfscon proc /apusys_rv/apusys_rv_xfile u:object_r:proc_apusys_rv_xfile_debug:s0
+genfscon proc /apusys_rv/apusys_regdump u:object_r:proc_apusys_rv_regdump_debug:s0
+genfscon proc /apusys_logger/seq_log u:object_r:proc_apusys_logger_seq_log_debug:s0
+
+# Date : 2021/08/10
+# Purpose: add apusys MDW debug info into db
+genfscon proc /aputag/mdw u:object_r:proc_aputag_mdw_debug:s0
+
+# Date : 2021/10/13
+# Purpose: allow vendor_init to access /proc/mtmon
+genfscon proc /mtmon u:object_r:proc_mtmon:s0
+
+# Date : 2022/01/19
+# Purpose: add lockdep debug info into db
+genfscon proc /lockdep u:object_r:proc_lockdep:s0
+genfscon proc /lockdep_chains u:object_r:proc_lockdep:s0
+genfscon proc /lockdep_stats u:object_r:proc_lockdep:s0
+
+genfscon debugfs /blockio            u:object_r:debugfs_blockio:s0
+genfscon debugfs /cpuhvfs            u:object_r:debugfs_cpuhvfs:s0
+genfscon debugfs /dmlog              u:object_r:debugfs_dmlog_debug:s0
+genfscon debugfs /dynamic_debug      u:object_r:debugfs_dynamic_debug:s0
+genfscon debugfs /emi_mbw/dump_buf   u:object_r:debugfs_emi_mbw_buf:s0
+genfscon debugfs /fuseio             u:object_r:debugfs_fuseio:s0
+genfscon debugfs /ion/client_history u:object_r:debugfs_ion_mm_heap:s0
+genfscon debugfs /ion/heaps          u:object_r:debugfs_ion_mm_heap:s0
+genfscon debugfs /ion/ion_mm_heap    u:object_r:debugfs_ion_mm_heap:s0
+genfscon debugfs /kmemleak           u:object_r:debugfs_kmemleak:s0
+genfscon debugfs /page_owner_slim    u:object_r:debugfs_page_owner_slim_debug:s0
+genfscon debugfs /rcu                u:object_r:debugfs_rcu:s0
+genfscon debugfs /shrinker           u:object_r:debugfs_shrinker_debug:s0
+# 2019/08/15
+genfscon debugfs /smi_mon u:object_r:debugfs_smi_mon:s0
+
+genfscon debugfs /cmdq/cmdq-status u:object_r:debugfs_cmdq:s0
+genfscon debugfs /cmdq/cmdq-record u:object_r:debugfs_cmdq:s0
+
+genfscon debugfs /mml/mml-record u:object_r:debugfs_mml:s0
+genfscon debugfs /mml/mml-frame-dump-in u:object_r:debugfs_mml:s0
+
+# Date: 2021/08/24
+# allow aee to get camsys dump
+genfscon debugfs /mtk_cam_dbg_dump u:object_r:debugfs_cam_dbg:s0
+genfscon debugfs /mtk_cam_exp_dump u:object_r:debugfs_cam_exception:s0
+
+genfscon sysfs /devices/platform/emiisu/emi_isu_buf u:object_r:sysfs_emiisu:s0
+genfscon sysfs /devices/platform/soc/soc:emiisu/emi_isu_buf u:object_r:sysfs_emiisu:s0
+
+genfscon proc  /vpu/vpu_memory u:object_r:proc_vpu_memory:s0
+

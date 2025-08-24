@@ -1,0 +1,6 @@
+/(system_ext|system/system_ext)/bin/hbt_translator u:object_r:zygote_exec:s0
+
+/dev/socket/zygote_tertiary    u:object_r:zygote_socket:s0
+/dev/socket/usap_pool_tertiary u:object_r:zygote_socket:s0
+
+/dev/hbt u:object_r:hbt_device:s0

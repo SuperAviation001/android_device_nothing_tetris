@@ -1,0 +1,6 @@
+# Date : 2017/11/07
+# Operation : Migration
+# Purpose : CAT need copy exception db file from data folder
+# Package: CAT tool
+allow system_app aee_exp_data_file:file r_file_perms;
+allow system_app aee_exp_data_file:dir r_dir_perms;

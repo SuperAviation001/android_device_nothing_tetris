@@ -1,0 +1,7 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# Date : W18.26
+# Allow logmuch related property
+get_prop(logd, vendor_mtk_logmuch_prop)

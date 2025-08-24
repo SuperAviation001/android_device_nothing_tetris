@@ -1,0 +1,23 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : 2017/11/07
+# Operation : Migration
+# Purpose : CAT need copy exception db file from data folder
+# Package: CAT tool
+allow system_app aee_exp_data_file:file r_file_perms;
+allow system_app aee_exp_data_file:dir r_dir_perms;
+
+# Date: 2019/09/11
+# Purpose: Allow atmwifimeta apk to use HIDL and access loghidlvendorservice
+hal_client_domain(system_app, hal_mtk_log)
+
+# Purpose : AEEHelper copy exception db file from aee folder
+# Date:2022/06/15
+allow system_app aee_exp_vendor_file:file r_file_perms;
+allow system_app aee_exp_vendor_file:dir r_dir_perms;
+
+# Data: 2023/08/31
+# Operation: Add for mbrain
+get_prop(system_app, vendor_mtk_mbrain_prop)

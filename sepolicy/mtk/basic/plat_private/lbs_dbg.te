@@ -1,0 +1,48 @@
+# ==============================================
+# Policy File of /system/bin/lbs_dbg Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type lbs_dbg, domain;
+
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+type lbs_dbg_exec, system_file_type, exec_type, file_type;
+typeattribute lbs_dbg coredomain;
+
+init_daemon_domain(lbs_dbg)
+
+#============= lbs_dbg ==============
+allow lbs_dbg storage_file:dir { create_dir_perms mounton };
+allow lbs_dbg storage_file:lnk_file r_file_perms;
+
+allow lbs_dbg debuglog_data_file:lnk_file r_file_perms;
+
+allow lbs_dbg mnt_user_file:dir search;
+allow lbs_dbg fuse:dir create_dir_perms;
+allow lbs_dbg fuse:file create_file_perms;
+allow lbs_dbg sdcard_type:filesystem unmount;
+allow lbs_dbg tmpfs:filesystem unmount;
+allow lbs_dbg sysfs:dir r_dir_perms;
+allow lbs_dbg sysfs_leds:dir search;
+allow lbs_dbg sysfs_leds:lnk_file r_file_perms;
+allow lbs_dbg sysfs_vibrator:file rw_file_perms;
+
+allow lbs_dbg sdcard_type:dir r_dir_perms;
+allow lbs_dbg self:netlink_route_socket { create_socket_perms_no_ioctl nlmsg_read nlmsg_write };
+
+allow lbs_dbg self:tcp_socket create_stream_socket_perms;
+allow lbs_dbg self:udp_socket create_socket_perms;
+
+hal_client_domain(lbs_dbg, hal_mtk_lbs)
+
+allow lbs_dbg vfat:dir create_dir_perms;
+allow lbs_dbg vfat:file create_file_perms;
+allow lbs_dbg debuglog_data_file:dir create_dir_perms;
+allow lbs_dbg debuglog_data_file:file create_file_perms;
+allow lbs_dbg sdcardfs:dir create_dir_perms;
+allow lbs_dbg sdcardfs:file create_file_perms;
+allow lbs_dbg media_rw_data_file:dir create_dir_perms;
+allow lbs_dbg media_rw_data_file:file create_file_perms;

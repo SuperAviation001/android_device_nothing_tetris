@@ -1,0 +1,10 @@
+allow hal_sensors_default hf_manager_device:chr_file rw_file_perms_no_map;
+allow hal_sensors_default mnt_vendor_file:dir search;
+allow hal_sensors_default nvcfg_file:file create_file_perms;
+allow hal_sensors_default nvcfg_file:dir create_dir_perms;
+binder_call(hal_sensors_default, system_server)
+hal_client_domain(hal_sensors_default, hal_graphics_allocator)
+
+# Allow access to raw HID devices for dynamic sensors.
+allow hal_sensors_default device:dir r_dir_perms;
+allow hal_sensors_default hidraw_device:chr_file rw_file_perms_no_map;

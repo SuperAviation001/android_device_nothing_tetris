@@ -1,0 +1,5 @@
+set_prop(vendor_init, system_mtk_persist_mtk_aee_prop)
+set_prop(vendor_init, vendor_mtk_ro_aee_prop)
+set_prop(vendor_init, vendor_mtk_persist_aeev_prop)
+
+allow vendor_init proc_mtmon:file w_file_perms;

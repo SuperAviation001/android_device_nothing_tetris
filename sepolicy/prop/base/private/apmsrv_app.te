@@ -1,0 +1,25 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system_ext/priv-app/ApmService/ApmService.apk Executable File
+
+typeattribute apmsrv_app mlstrustedsubject;
+app_domain(apmsrv_app)
+
+# Allow to use HAL APM
+hal_client_domain(apmsrv_app, hal_mtk_apm)
+
+# Allow to start Android service component
+allow apmsrv_app activity_service:service_manager find;
+
+# Used by LocationMessageKpiMonitor to get location info
+allow apmsrv_app location_service:service_manager find;
+
+# Used by NetworkServiceStateKpiMonitor to get Network info
+allow apmsrv_app radio_service:service_manager find;
+allow apmsrv_app registry_service:service_manager find;
+
+# Allow to access database and config file
+allow apmsrv_app apmsrv_app_data_file:dir create_dir_perms;
+allow apmsrv_app apmsrv_app_data_file:file create_file_perms;
+

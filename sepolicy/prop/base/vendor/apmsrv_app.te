@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system_ext/priv-app/ApmService/ApmService.apk Executable File
+
+# Allow to get DMC properties
+get_prop(apmsrv_app, vendor_mtk_dmc_prop)

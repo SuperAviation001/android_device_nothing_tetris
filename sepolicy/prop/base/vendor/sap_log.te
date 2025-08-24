@@ -1,0 +1,31 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/sap_log Executable File
+
+# ==============================================
+# type Declaration
+# ==============================================
+
+type sap_log_exec, exec_type, file_type, vendor_file_type;
+type sap_log, domain;
+
+init_daemon_domain(sap_log)
+
+# Add permission to access pcie port
+allow sap_log mtk_wwan_device:chr_file rw_file_perms_no_map;
+
+# sap_log logger access on /data/vendor/sap_log
+allow sap_log node:tcp_socket node_bind;
+allow sap_log port:tcp_socket { name_connect name_bind };
+allow sap_log sap_log:tcp_socket {create_stream_socket_perms};
+allow sap_log fwmarkd_socket:sock_file {write};
+allow sap_log dbg_ctrl:unix_stream_socket connectto;
+allow sap_log sap_log_data_vendor_file:dir create_dir_perms;
+allow sap_log sap_log_data_vendor_file:file create_file_perms;
+allow sap_log sap_config_data_file:dir create_dir_perms;
+allow sap_log sap_config_data_file:file create_file_perms;
+allow sap_log ttyGS_device:chr_file rw_file_perms_no_map;
+allow sap_log connsyslog_data_vendor_file:file create_file_perms_no_map;
+allow sap_log connsyslog_data_vendor_file:dir create_dir_perms;
+allow sap_log meta_tst:unix_stream_socket connectto;

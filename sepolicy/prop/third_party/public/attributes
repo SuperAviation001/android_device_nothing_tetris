@@ -1,0 +1,33 @@
+# ==============================================
+# MICROTRUST Attribute declarations
+# ==============================================
+# THH ATTESTATION HIDL
+attribute hal_teei_thh;
+attribute hal_teei_thh_client;
+attribute hal_teei_thh_server;
+
+# TUI ATTESTATION HIDL
+attribute hal_teei_tui;
+attribute hal_teei_tui_client;
+attribute hal_teei_tui_server;
+
+# IFAA ATTESTATION HIDL
+attribute hal_teei_ifaa;
+attribute hal_teei_ifaa_client;
+attribute hal_teei_ifaa_server;
+
+# CLIENT API ATTESTATION HIDL
+attribute hal_teei_capi;
+attribute hal_teei_capi_client;
+attribute hal_teei_capi_server;
+
+# Wechat ATTESTATION HIDL
+attribute hal_teei_wechat;
+attribute hal_teei_wechat_client;
+attribute hal_teei_wechat_server;
+
+# Data: 2023/05/22
+# HDCP AIDL
+attribute hal_tsa_hdcp;
+attribute hal_tsa_hdcp_client;
+attribute hal_tsa_hdcp_server;

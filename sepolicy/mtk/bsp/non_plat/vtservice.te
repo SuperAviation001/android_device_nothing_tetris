@@ -1,0 +1,181 @@
+# ==============================================
+# Policy File of /system/bin/vtservice Executable File
+
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# Date : WK15.33
+# Purpose : Add vtservice to support video telephony functionality
+#           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
+allow vtservice sdcard_type:dir search;
+allow vtservice sdcard_type:file { read write open };
+allow vtservice radio_service:service_manager find;
+allow vtservice mediaserver_service:service_manager find;
+allow vtservice power_service:service_manager find;
+allow vtservice batterystats_service:service_manager find;
+
+# Date : 2015/08/13
+# Purpose : for access ccci device
+allow vtservice ccci_device:chr_file { read write open ioctl };
+
+# Purpose : VDEC/VENC device node
+allow vtservice Vcodec_device:chr_file { read write ioctl open };
+
+# Date: 2016/06/27
+# This part is for both 3G VT/ViLTE
+# Purpose: add in N migration for access audioflinger etc.
+allow vtservice audioserver_service:service_manager find;
+allow vtservice mnt_user_file:dir search;
+allow vtservice surfaceflinger:binder call;
+
+# Date: 2016/06/30
+# This part is for both 3G VT/ViLTE
+# Purpose: add in N migration for access SDcard etc.
+allow vtservice audioserver:binder call;
+allow vtservice mnt_user_file:lnk_file read;
+
+# Date: 2016/07/01
+# This part is for both 3G VT/ViLTE
+# Purpose: add in N migration for write SDcard etc.
+allow vtservice media_rw_data_file:dir create_dir_perms;
+allow vtservice media_rw_data_file:file { write create open };
+
+# Date: 2016/07/26
+# Purpose: add for cleanup thread's AF_UNIX socket
+allow vtservice proc_ged:file r_file_perms;
+allowxperm vtservice proc_ged:file ioctl { proc_ged_ioctls };
+
+# for debug dump data
+allow vtservice storage_file:lnk_file read;
+allow vtservice devmap_device:chr_file read;
+
+allow vtservice devmap_device:chr_file open;
+allow vtservice devmap_device:chr_file ioctl;
+
+# for using surfaceflinger
+allow vtservice surfaceflinger_service:service_manager find;
+
+# for using camera
+allow vtservice cameraserver_service:service_manager find;
+allow vtservice cameraserver:binder call;
+allow vtservice cameraserver:fd use;
+
+# Change VTS uid to media
+allow vtservice mediacodec:binder call;
+allow vtservice qtaguid_device:chr_file r_file_perms;
+allow vtservice priv_app:binder call;
+
+# For loopback mode
+allow vtservice self:capability net_admin;
+
+# For vendro GPU
+allow vtservice gpu_device:dir search;
+allow vtservice dri_device:chr_file { open read write ioctl getattr};
+allow vtservice gpu_device:chr_file rw_file_perms;
+
+# Date : WK17.23
+# Stage: O Migration, SQC
+# Purpose: Allow to use HAL PQ
+hal_client_domain(vtservice, hal_mtk_pq)
+
+# Date : WK17.23
+# Stage: O Migration, SQC
+# Purpose: Allow to use shared memory for HAL PQ
+hal_client_domain(vtservice, hal_allocator)
+
+# 2017/07/
+# HiDL porting
+allow vtservice hwservicemanager:binder call;
+allow vtservice system_file:dir read;
+allow vtservice system_file:dir open;
+
+# give permission for hal client
+allow vtservice mtk_hal_videotelephony_hwservice:hwservice_manager find;
+
+# Date : 2017/08/14
+# Operation : VT development
+# Purpose : Add vtservice to support video telephony functionality
+#           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
+allow vtservice soc_vt_svc_socket:sock_file write;
+allow vtservice soc_vt_tcv_socket:sock_file write;
+allow vtservice rild_oem_socket:sock_file write;
+allow vtservice platform_app:binder call;
+allow vtservice system_server:binder call;
+allow vtservice sdcard_type:dir write;
+allow vtservice sdcard_type:dir add_name;
+allow vtservice sdcard_type:dir create;
+allow vtservice sdcard_type:file create;
+allow vtservice sdcard_type:file getattr;
+allow vtservice surfaceflinger:fd use;
+allow vtservice tmpfs:lnk_file read;
+allow vtservice radio:binder call;
+
+# for codec acces dev/ion
+allow vtservice ion_device:chr_file { open read };
+
+# for MA socket rebind
+hal_client_domain(vtservice, hal_omx)
+allow vtservice mediametrics_service:service_manager find;
+allow vtservice mediametrics:binder call;
+
+allow vtservice self:udp_socket create_socket_perms_no_ioctl;
+allow vtservice node:udp_socket node_bind;
+
+allow vtservice debugfs_ion:dir search;
+allow vtservice fwmarkd_socket:sock_file write;
+allow vtservice hal_graphics_allocator_default:binder call;
+allow vtservice hal_graphics_allocator_default:fd use;
+hal_client_domain(vtservice, hal_graphics_allocator);
+allow vtservice hal_graphics_mapper_hwservice:hwservice_manager find;
+allow vtservice netd:unix_stream_socket connectto;
+allow vtservice ion_device:chr_file ioctl;
+allow vtservice MTK_SMI_device:chr_file { read write ioctl open };
+allow vtservice mtk_cmdq_device:chr_file r_file_perms;
+allow vtservice mtk_mdp_device:chr_file r_file_perms;
+allow vtservice mtk_mdp_sync_device:chr_file r_file_perms;
+allow vtservice merged_hal_service:fd use;
+allow vtservice merged_hal_service:binder call;
+
+# Date : WK17.43
+# Operation : Migration
+# Purpose : DISP access
+allow vtservice graphics_device:chr_file { ioctl open read };
+allow vtservice graphics_device:dir search;
+
+# Date : WK18.10
+# Operation : SQC
+# Purpose : Allow perfmgr FPSGO access
+allow vtservice proc_perfmgr:dir {read search};
+allow vtservice proc_perfmgr:file r_file_perms;
+allowxperm vtservice proc_perfmgr:file ioctl {
+  PERFMGR_FPSGO_QUEUE
+  PERFMGR_FPSGO_DEQUEUE
+  PERFMGR_FPSGO_QUEUE_CONNECT
+  PERFMGR_FPSGO_BQID
+};
+
+# Date: 2018/07/19
+# Operation: P Migration
+get_prop(vtservice, vendor_mtk_vendor_vt_prop)
+
+# Date: 2018/08/24
+# Operation: add mdp
+hal_client_domain(vtservice, hal_mtk_mms)
+allow vtservice cameraserver:dir search;
+allow vtservice cameraserver:file { getattr open read };
+allow vtservice proc_uptime:file read;
+
+# Date: 2018/11/07
+# Operation: gen97
+allow vtservice port:udp_socket name_bind;
+allow vtservice self:capability net_raw;
+
+# Date: 2019/08/29
+# Operation: support c2 sw codec
+hal_client_domain(vtservice, hal_codec2)
+
+# Date: 2021/05/29
+# Operation: VT c2 for dmabuf heap
+allow vtservice dmabuf_system_heap_device:chr_file r_file_perms;
+

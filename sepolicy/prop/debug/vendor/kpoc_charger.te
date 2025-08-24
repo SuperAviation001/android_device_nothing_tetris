@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/kpoc_charger Executable File
+
+# Date : WK23.11
+# Purpose: Add permission to access init_pstore_blk_sh
+allow kpoc_charger init_pstore_blk_sh:fd use;
+allow kpoc_charger pstore_block_device:blk_file w_file_perms_no_map;

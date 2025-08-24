@@ -1,0 +1,27 @@
+#data/aee_exp
+allow crash_dump aee_exp_data_file:dir { create_dir_perms relabelto };
+allow crash_dump aee_exp_data_file:file create_file_perms;
+
+hal_client_domain(crash_dump, hal_mtk_aee)
+
+allow crash_dump aed_device:chr_file rw_file_perms;
+
+# Date : 2020/12/14
+# Purpose: allow aee_aed to read /sys/kernel/mm/mlog/dump
+allow crash_dump sysfs_mm:file r_file_perms;
+
+# Purpose: Allow crash_dump to write /proc/aed/generate-kernel-notify
+allow crash_dump proc_aed:dir r_dir_perms;
+allow crash_dump proc_aed:file rw_file_perms;
+
+no_debugfs_restriction(`
+  userdebug_or_eng(`
+    allow crash_dump debugfs_blockio:file r_file_perms;
+    allow crash_dump debugfs_ion_mm_heap:dir search;
+    allow crash_dump debugfs_ion_mm_heap:file r_file_perms;
+    allow crash_dump debugfs_ion_mm_heap:lnk_file r_file_perms;
+    allow crash_dump debugfs_dmlog_debug:file r_file_perms;
+  ')
+')
+
+allow crash_dump sysfs_aee_enable:file r_file_perms;

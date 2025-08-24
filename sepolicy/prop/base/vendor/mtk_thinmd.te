@@ -1,0 +1,59 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/mtk_thinmd Executable File
+
+type mtk_thinmd, domain;
+type mtk_thinmd_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_thinmd)
+
+# allow mtk_thinmd to read/write ddr/efuse_data/aee_exp
+# /data/vendor/thinmd
+allow mtk_thinmd thinmd_data_vendor_file:dir create_dir_perms;
+allow mtk_thinmd thinmd_data_vendor_file:file create_file_perms;
+
+# allow mtk_thinmd to access firmware image
+# /vendor/firmware/xxx
+allow mtk_thinmd thinmd_fw_file:dir r_dir_perms;
+allow mtk_thinmd thinmd_fw_file:file r_file_perms;
+
+# /data/vendor/md_rfs
+allow mtk_thinmd md_rfs_data_vendor_file:dir r_dir_perms;
+allow mtk_thinmd md_rfs_data_vendor_file:file r_file_perms;
+
+# Uevent via netlink
+allow mtk_thinmd self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+allow mtk_thinmd mtk_wwan_device:chr_file rw_file_perms_no_map;
+allow mtk_thinmd sysfs_wwan_fsm_state:dir r_dir_perms;
+allow mtk_thinmd sysfs_wwan_fsm_state:file r_file_perms;
+
+allow mtk_thinmd mnt_vendor_file:dir search;
+allow mtk_thinmd nvdata_file:dir r_dir_perms;
+allow mtk_thinmd nvdata_file:file r_file_perms;
+
+# Purpose : Allow to open and read/write /proc/bootprof
+allow mtk_thinmd proc_bootprof:file rw_file_perms;
+
+# allow mtk_thinmd to access gnss/nvdata for postdump
+allow mtk_thinmd gnss_data_file:dir r_dir_perms;
+allow mtk_thinmd gnss_data_file:file r_file_perms;
+allow mtk_thinmd protect_f_data_file:dir r_dir_perms;
+allow mtk_thinmd protect_f_data_file:file r_file_perms;
+allow mtk_thinmd protect_s_data_file:dir r_dir_perms;
+allow mtk_thinmd protect_s_data_file:file r_file_perms;
+allow mtk_thinmd vendor_toolbox_exec:file rx_file_perms;
+
+# allow mtk_thimd to ioctl /dev/thinmd_ee
+allow mtk_thinmd thinmd_ee_device:chr_file w_file_perms_no_map;
+
+# Purpose: property get for nvram load check
+get_prop(mtk_thinmd, vendor_mtk_service_nvram_load_prop)
+
+# allow mtk_thimd to netlink socket
+allow mtk_thinmd self:netlink_generic_socket create_socket_perms_no_ioctl;
+
+# allow mtk_thimd net_admin capability
+allow mtk_thinmd self:capability net_admin;
+

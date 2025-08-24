@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Purpose: aee_dumpstate set surfaceflinger property
+set_prop(dumpstate, system_mtk_debug_bq_dump_prop)
+
+# Date: W1826
+# Purpose : mobile_log_d exec 'logcat -L' via dumpstate
+allow dumpstate mobile_log_d:fd use;
+allow dumpstate mobile_log_d:fifo_file w_file_perms;
+allow dumpstate mobile_log_d:unix_stream_socket rw_socket_perms_no_ioctl;

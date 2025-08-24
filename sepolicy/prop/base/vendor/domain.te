@@ -1,0 +1,49 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Grant read access to mtk core property type which represents all
+# mtk properties except those with ctl_xxx prefix.
+# Align Google change: f01453ad453b29dd723838984ea03978167491e5
+get_prop(domain, mtk_core_property_type)
+
+# Allow all processes to read /sys/bus/platform/drivers/dev_info/dev_info
+# as it is a public interface for all processes to read some OTP data.
+allow {
+  domain
+  -isolated_app_all
+  -untrusted_app_all
+} sysfs_devinfo:file r_file_perms;
+
+# Date: 2022/07/28
+# Purpose :allow appdomain to use gpu aidl
+allow {
+  domain
+  -isolated_app_all
+  -webview_zygote
+  -app_zygote
+  -vendor_init
+  -init
+  -hal_configstore_server
+  } mtk_hal_mali_platform_default_service:service_manager find;
+
+# Date: 2023/02/21
+# Purpose: only gralloc allocator is allowed to use mtk_slc heap
+neverallow ~{
+  hal_graphics_allocator_default
+  shell
+  ueventd
+  } dmabuf_mtk_slc_heap_device:chr_file r_file_perms;
+
+binder_call({
+  domain
+  -vold
+  -installd
+  -vendor_init
+  -init
+  }, mtk_hal_mali_platform_default)
+
+# Date: 2023/04/13
+# Purpose: dontaudit other domian access to webp prop
+dontaudit { domain -untrusted_app_all } vendor_mtk_webp_enhancement_prop:file read;
+

@@ -1,0 +1,6 @@
+# MICROTRUST Policy Rule
+allow vpud_native teei_client_device:chr_file rw_file_perms;
+
+# TRUSTONIC Policy Rules
+allow vpud_native mobicore_user_device:chr_file rw_file_perms;
+

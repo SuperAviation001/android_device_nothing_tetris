@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Purpose : Support Trustonic TeeService
+binder_call(system_server, teed_app)

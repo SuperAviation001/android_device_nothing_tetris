@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/camerapostalgo Executable File
+
+type camerapostalgo, domain;

@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type mediahelper_exec, system_file_type, exec_type, file_type;
+typeattribute mediahelper coredomain;
+
+init_daemon_domain(mediahelper)
+
+domain_auto_trans(mediahelper, mediaserver_exec, mediaserver)

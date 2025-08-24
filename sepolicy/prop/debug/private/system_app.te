@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Purpose : AEEHelper need copy exception db file from aee folder to debug folder
+# Date:2022/06/15
+allow system_app debuglog_data_file:dir create_dir_perms;
+allow system_app debuglog_data_file:file create_file_perms;

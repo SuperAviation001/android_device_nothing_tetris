@@ -1,0 +1,7 @@
+# ==============================================
+# Policy File of /system/bin/connsyslogger Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type connsyslogger, domain;

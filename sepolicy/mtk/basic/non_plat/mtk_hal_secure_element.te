@@ -1,0 +1,18 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+type mtk_hal_secure_element, domain;
+type mtk_hal_secure_element_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(mtk_hal_secure_element)
+
+hal_server_domain(mtk_hal_secure_element, hal_secure_element)
+
+# Allow to get android.hardware.radio HIDL interface
+hal_client_domain(mtk_hal_secure_element, hal_telephony)
+binder_call(mtk_hal_secure_element, rild)
+
+allow mtk_hal_secure_element secure_element_device:chr_file rw_file_perms;
+
+# Allow to use persist.radio.multisim.config
+get_prop(mtk_hal_secure_element, radio_control_prop)

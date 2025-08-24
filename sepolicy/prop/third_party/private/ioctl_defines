@@ -1,0 +1,5 @@
+define(`HBT_COMPAT_IOCTL', `0x74a3')
+define(`HBT_COMPAT_SET_ROBUST_LIST', `0x74a4')
+define(`HBT_COMPAT_GET_ROBUST_LIST', `0x74a5')
+define(`HBT_COMPAT_GETDENTS64', `0x74a6')
+define(`HBT_COMPAT_LSEEK', `0x74a7')

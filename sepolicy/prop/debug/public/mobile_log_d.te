@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/mobile_log_d Executable File
+
+type mobile_log_d, domain;

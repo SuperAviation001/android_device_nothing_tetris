@@ -1,0 +1,241 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+android.hardware.neuralnetworks.IDevice/mtk-dsp_shim    u:object_r:hal_neuralnetworks_service:s0
+android.hardware.neuralnetworks.IDevice/mtk-gpu_shim    u:object_r:hal_neuralnetworks_service:s0
+android.hardware.neuralnetworks.IDevice/mtk-mdla_shim   u:object_r:hal_neuralnetworks_service:s0
+android.hardware.neuralnetworks.IDevice/mtk-neuron_shim u:object_r:hal_neuralnetworks_service:s0
+
+#Data: 2022/3/1
+#add em aidl
+vendor.mediatek.hardware.engineermode.IEmds/default   u:object_r:mtk_hal_em_service:s0
+
+#Data: 2022/4/12
+#add widevine aidl
+android.hardware.drm.IDrmFactory/widevine    u:object_r:hal_drm_service:s0
+
+#Data: 2022/4/14
+#mmlpq aidl
+vendor.mediatek.hardware.mmlpq.IMmlpq/default u:object_r:mtk_hal_mmlpq_service:s0
+
+#Data: 2022/4/14
+#PQ AIDL
+vendor.mediatek.hardware.pq_aidl.IPictureQuality_AIDL/default u:object_r:mtk_hal_pq_service:s0
+
+#Data: 2022/10/19
+#MMAgent AIDL
+vendor.mediatek.hardware.mmagent.IMMAgent/default u:object_r:mtk_hal_mmagent_service:s0
+
+#MTKPOWER AIDL
+vendor.mediatek.hardware.mtkpower.IMtkPowerService/default u:object_r:mtk_hal_power_service:s0
+
+#Data: 2022/6/7
+#MTKPOWER APPLIST AIDL
+vendor.mediatek.hardware.mtkpower_applist.IMtkpower_applist/default u:object_r:mtk_hal_applist_service:s0
+
+#Data: 2023/03/16
+#add MTK jxnosfastswitch AIDL
+vendor.mediatek.hardware.nps.nos.fastswitch.INativeFastSwitch/default u:object_r:mtk_hal_jxnosfastswitch_service:s0
+
+#Date: 2022/4/20
+#secure element
+android.hardware.radio.modem.IRadioModem/se1 u:object_r:hal_radio_service:s0
+android.hardware.radio.modem.IRadioModem/se2 u:object_r:hal_radio_service:s0
+android.hardware.radio.modem.IRadioModem/se3 u:object_r:hal_radio_service:s0
+android.hardware.radio.modem.IRadioModem/se4 u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/se1 u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/se2 u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/se3 u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/se4 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.sim.IMtkRadioExSim/slot1 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.sim.IMtkRadioExSim/slot2 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.sim.IMtkRadioExSim/slot3 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.sim.IMtkRadioExSim/slot4 u:object_r:hal_radio_service:s0
+
+#Date: 2022/4/29
+#add apusys aidl
+vendor.mediatek.hardware.apuware.apusys.INeuronApusys/default u:object_r:hal_neuralnetworks_service:s0
+
+# Date: 2022/12/30
+# BGService AIDL
+vendor.mediatek.hardware.camera.bgservice.IBGService/default u:object_r:mtk_hal_bgs_service:s0
+
+
+# Date: 2023/03/02
+# ATMs AIDL
+vendor.mediatek.hardware.camera.atms.IATMs/default u:object_r:mtk_hal_atms_service:s0
+
+
+# Date: 2022/05/04
+# AovService AIDL
+vendor.mediatek.hardware.camera.aovservice.IAovService/default u:object_r:mtk_hal_aov_service:s0
+
+# Date: 2022/11/21
+# Isphal Aidl
+vendor.mediatek.hardware.camera.isphal.IISPModule/internal/1 u:object_r:mtk_hal_isphal_service:s0
+
+#Data: 2022/05/23
+#add MTK Gnss&batcing AIDL
+vendor.mediatek.hardware.gnss.batching.IMtkGnssBatching/default u:object_r:mtk_hal_batching_service:s0
+vendor.mediatek.hardware.gnss.IMtkGnss/default u:object_r:hal_gnss_service:s0
+
+# Data: 2022/05/26
+# add telephony aidl
+vendor.mediatek.hardware.mtkradioex.data.IMtkRadioExData/slot1           u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.data.IMtkRadioExData/slot2           u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.data.IMtkRadioExData/slot3           u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.data.IMtkRadioExData/slot4           u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.ims.IMtkRadioExIms/slot1             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.ims.IMtkRadioExIms/slot2             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.ims.IMtkRadioExIms/slot3             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.ims.IMtkRadioExIms/slot4             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.messaging.IMtkRadioExMessaging/slot1 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.messaging.IMtkRadioExMessaging/slot2 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.messaging.IMtkRadioExMessaging/slot3 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.messaging.IMtkRadioExMessaging/slot4 u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.modem.IMtkRadioExModem/slot1         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.modem.IMtkRadioExModem/slot2         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.modem.IMtkRadioExModem/slot3         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.modem.IMtkRadioExModem/slot4         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.network.IMtkRadioExNetwork/slot1     u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.network.IMtkRadioExNetwork/slot2     u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.network.IMtkRadioExNetwork/slot3     u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.network.IMtkRadioExNetwork/slot4     u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.voice.IMtkRadioExVoice/slot1         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.voice.IMtkRadioExVoice/slot2         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.voice.IMtkRadioExVoice/slot3         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.voice.IMtkRadioExVoice/slot4         u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.rcs.IMtkRadioExRcs/slot1             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.rcs.IMtkRadioExRcs/slot2             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.rcs.IMtkRadioExRcs/slot3             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.rcs.IMtkRadioExRcs/slot4             u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.dch.IMtkRadioExDc/slot1              u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.dch.IMtkRadioExDc/slot2              u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.dch.IMtkRadioExDc/slot3              u:object_r:hal_radio_service:s0
+vendor.mediatek.hardware.mtkradioex.dch.IMtkRadioExDc/slot4              u:object_r:hal_radio_service:s0
+
+# Data: 2022/05/26
+# add telephony ims aidl
+android.hardware.radio.modem.IRadioModem/imsSlot1     u:object_r:hal_radio_service:s0
+android.hardware.radio.modem.IRadioModem/imsSlot2     u:object_r:hal_radio_service:s0
+android.hardware.radio.modem.IRadioModem/imsSlot3     u:object_r:hal_radio_service:s0
+android.hardware.radio.modem.IRadioModem/imsSlot4     u:object_r:hal_radio_service:s0
+android.hardware.radio.network.IRadioNetwork/imsSlot1 u:object_r:hal_radio_service:s0
+android.hardware.radio.network.IRadioNetwork/imsSlot2 u:object_r:hal_radio_service:s0
+android.hardware.radio.network.IRadioNetwork/imsSlot3 u:object_r:hal_radio_service:s0
+android.hardware.radio.network.IRadioNetwork/imsSlot4 u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/imsSlot1         u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/imsSlot2         u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/imsSlot3         u:object_r:hal_radio_service:s0
+android.hardware.radio.sim.IRadioSim/imsSlot4         u:object_r:hal_radio_service:s0
+android.hardware.radio.voice.IRadioVoice/imsSlot1     u:object_r:hal_radio_service:s0
+android.hardware.radio.voice.IRadioVoice/imsSlot2     u:object_r:hal_radio_service:s0
+android.hardware.radio.voice.IRadioVoice/imsSlot3     u:object_r:hal_radio_service:s0
+android.hardware.radio.voice.IRadioVoice/imsSlot4     u:object_r:hal_radio_service:s0
+#Data: 2022/4/20
+#add bluetooth audio aidl
+vendor.mediatek.hardware.bluetooth.audio.IBluetoothAudioProviderFactory/default u:object_r:mtk_hal_audio_service:s0
+
+#Data: 2022/07/26
+#add MTK gpu AIDL
+arm.mali.platform.ICompression/default u:object_r:mtk_hal_mali_platform_default_service:s0
+
+#Data: 2023/01/04
+#add MTK netdagent AIDL
+vendor.mediatek.hardware.netdagent.INetdagents/default   u:object_r:mtk_hal_netdagent_service:s0
+
+#add omadm aidl
+vendor.mediatek.hardware.omadm.IOmadm/omadm u:object_r:mtk_hal_omadm_service:s0
+
+#Data: 2022/11/15
+#add MTK ClientApi AIDL
+vendor.mediatek.hardware.clientapi.IClientApi/clientapi_aidl_service u:object_r:mtk_hal_clientapi_service:s0
+
+#add atci aidl
+vendor.mediatek.hardware.atci.IAtcid/default u:object_r:mtk_hal_atci_service:s0
+
+# Data: 2022/12/12
+# add NVRAM AIDL
+vendor.mediatek.hardware.nvram.INvram/default u:object_r:mtk_hal_nvramagent_service:s0
+
+#add vtservice aidl
+vendor.mediatek.hardware.videotelephony.IVideoTelephony/default u:object_r:mtk_hal_videotelephony_service:s0
+
+
+# Data: 2023/01/05
+# add nwk_opt AIDL
+vendor.mediatek.hardware.nwk_opt_new.INwkOptNew/default u:object_r:mtk_hal_nwk_opt_service:s0
+
+# Date: 2022/12/23
+# LBS AIDL
+vendor.mediatek.hardware.lbs.ILbs/AgpsDebugInterface       u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/AgpsInterface            u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_agps2framework       u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_agpsd2debugService   u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_debugService2agpsd   u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_debugService2mnld    u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_framework2agps       u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lbs_log_v2s          u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_agps     u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_bt       u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_ipaddr   u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_lbs      u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_network  u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_sensor   u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_wlan     u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_meta2mnld            u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_mnld2debugService    u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_mnld2mtklogger       u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_mnld2nlputils        u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_mtklogger2mnld       u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_jam2mnl              u:object_r:mtk_hal_lbs_service:s0
+vendor.mediatek.hardware.lbs.ILbs/mtk_mnl2jam              u:object_r:mtk_hal_lbs_service:s0
+
+#Date: 2022/12/20
+#add MTK RCS AIDL
+vendor.mediatek.hardware.rcs.IRcs/default u:object_r:mtk_hal_rcs_ua_service:s0
+
+# Data: 2022/12/28
+# ComposerExt AIDL
+vendor.mediatek.hardware.composer_ext.IComposerExt/default u:object_r:mtk_hal_composer_ext_service:s0
+
+#Date: 2023/01/03
+#add MTK Audio AIDL
+vendor.mediatek.hardware.audio.IMtkAudio/default u:object_r:mtk_hal_audio_service:s0
+
+# Data: 2023/01/28
+# MDMonitorService AIDL
+vendor.mediatek.hardware.mdmonitor.IMDMonitorService/default u:object_r:mtk_hal_mdm_service:s0
+
+#Date: 2023/02/06
+#add apuware utils aidl
+vendor.mediatek.hardware.apuware.utils.IApuwareUtils/default u:object_r:hal_neuralnetworks_service:s0
+
+#Data: 2023/01/17
+#add NpAgent AIDL
+vendor.mediatek.hardware.neuropilot.agent.IAgent/default u:object_r:hal_neuralnetworks_service:s0
+
+#MBrain
+vendor.mediatek.hardware.mbrain.IMBrain/default               u:object_r:mtk_hal_mbrain_service:s0
+vendor.mediatek.hardware.mbrainj.IMBrainJava/default               u:object_r:mtk_mbrainj_service:s0
+
+#Data: 2023/3/21
+#HDMI AIDL
+vendor.mediatek.hardware.hdmi_aidl.IMtkHdmiService_AIDL/default u:object_r:mtk_hal_hdmi_service:s0
+
+#Data: 2023/03/22
+#add MTK GPU Extra AIDL
+vendor.mediatek.hardware.gpuserv.IGpuService/default u:object_r:mtk_hal_gpuserv_service:s0
+
+#Data: 2023/05/10
+#add DMC AIDL
+vendor.mediatek.hardware.dmc.IDmcService/default u:object_r:mtk_hal_dmc_service:s0
+
+#Data: 2023/05/10
+#add APM AIDL
+vendor.mediatek.hardware.apmonitor.IApmService/default u:object_r:mtk_hal_apm_service:s0
+
+#Date: 2023/05/25
+#add MTK Dplanner AIDL
+vendor.mediatek.hardware.dplanner2.IDPlanner/default               u:object_r:mtk_hal_dplanner_service:s0

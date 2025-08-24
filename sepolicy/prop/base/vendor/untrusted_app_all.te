@@ -1,0 +1,31 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date: 2019/06/17
+# Operation : Migration
+# Purpose :allow untrusted_app to search debugfs_ion dir
+allow untrusted_app_all debugfs_ion:dir search;
+
+# Date: 2019/06/17
+# Operation : Migration
+# Purpose :allow untrusted_app to search sysfs_mmcblk dir
+allow untrusted_app_all sysfs_devices_block:dir search;
+get_prop(untrusted_app_all, vendor_mtk_nn_option_prop)
+
+# Date: 2020/06/08
+# Purpose: Allow untrusted app to access mtk jpeg
+allow untrusted_app_all proc_mtk_jpeg:file rw_file_perms;
+allowxperm untrusted_app_all proc_mtk_jpeg:file ioctl {
+      JPG_BRIDGE_DEC_IO_LOCK
+      JPG_BRIDGE_DEC_IO_WAIT
+      JPG_BRIDGE_DEC_IO_UNLOCK
+};
+
+# Data: 2023/02/01
+# Purpose: Allow untrusted app to get webp decode enhancement prop
+get_prop(untrusted_app_all, vendor_mtk_webp_enhancement_prop)
+
+# Date: 2023/05/25
+# Purpose: Allow untrusted app to trigger fast cmd via apu ext node
+allow untrusted_app_all apuext_device:chr_file r_file_perms_no_map;

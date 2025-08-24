@@ -1,0 +1,4 @@
+# TrustKernel add
+userdebug_or_eng(`
+        allow untrusted_app tkcore_admin_device:chr_file rw_file_perms;
+')

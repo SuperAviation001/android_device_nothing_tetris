@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of AIDL vendor.mediatek.hardware.nps.nos.fastswitch.INativeFastSwtich/default service
+
+hal_attribute_service(hal_mtk_jxnosfastswitch, mtk_hal_jxnosfastswitch_service)
+
+binder_call(hal_mtk_jxnosfastswitch_client, hal_mtk_jxnosfastswitch_server)
+binder_call(hal_mtk_jxnosfastswitch_server, hal_mtk_jxnosfastswitch_client)
+binder_call(hal_mtk_jxnosfastswitch_server, servicemanager)

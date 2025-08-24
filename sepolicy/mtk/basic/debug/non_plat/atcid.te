@@ -1,0 +1,10 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# Date : WK21.33
+# Purpose: Add policy to support get modem status
+
+allow atcid ccci_device:chr_file rw_file_perms_no_map;
+allow atcid self:unix_stream_socket ioctl;
+allowxperm atcid self:unix_stream_socket ioctl unpriv_tty_ioctls;

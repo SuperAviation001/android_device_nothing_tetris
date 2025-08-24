@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date: WK23.11
+# Purpose: able to relabel mntl block device link
+allow init pstore_block_device:lnk_file relabelto;
+allow init pstore_block_device:blk_file relabelto;
+
+# Date: WK23.15
+# Purpose: Allow to trigger perf_tracker enable for AEE debug
+allow init sysfs_devices_system_cpu:file w_file_perms;

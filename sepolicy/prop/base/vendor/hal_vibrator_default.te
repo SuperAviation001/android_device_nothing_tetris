@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# vibrator sysfs rw access
+allow hal_vibrator_default sysfs_vibrator:file rw_file_perms;

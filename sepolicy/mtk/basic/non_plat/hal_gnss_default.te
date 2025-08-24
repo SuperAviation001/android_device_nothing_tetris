@@ -1,0 +1,8 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# Communicate over a socket created by mnld process.
+allow hal_gnss_default mnld_data_file:sock_file create_file_perms;
+allow hal_gnss_default mnld_data_file:dir create_dir_perms;
+allow hal_gnss_default mnld:unix_dgram_socket sendto;

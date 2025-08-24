@@ -1,0 +1,9 @@
+# ==============================================
+# Microtrust Policy Rule
+# ==============================================
+# for ifaa upgrade on android O
+ifaa_service     u:object_r:teei_ifaa_service:s0
+
+# Trustonic Policy Rule
+vendor.trustonic.teeregistryservice.ITeeRegistryService u:object_r:teeregistry_service:s0
+vendor.trustonic.teeservice.ITeeService                 u:object_r:tee_service:s0

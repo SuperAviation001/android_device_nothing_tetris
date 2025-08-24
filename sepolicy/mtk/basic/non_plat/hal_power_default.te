@@ -1,0 +1,9 @@
+# To do powerhint on nodes defined in powerhint.json
+rw_dir_file(hal_power_default, proc_perfmgr)
+rw_dir_file(hal_power_default, proc_ppm)
+
+r_dir_file(hal_power_default, sysfs_dvfsrc_devfreq)
+r_dir_file(hal_power_default, proc_gpufreqv2)
+
+allow hal_power_default sysfs_dvfsrc_devfreq:file rw_file_perms;
+allow hal_power_default proc_gpufreqv2:file rw_file_perms;

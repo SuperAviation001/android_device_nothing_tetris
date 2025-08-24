@@ -1,0 +1,16 @@
+# MICROTRUST Policy Rule
+# Date : 2016/06/01
+# Operation: TEEI integration
+# Purpose: Microtrust HW-backed Gatekeeper
+hal_client_domain(hal_gatekeeper_default, hal_teei_capi)
+hal_client_domain(hal_gatekeeper_default, hal_allocator)
+allow hal_gatekeeper_default teei_client_device:chr_file rw_file_perms;
+
+# Date : WK15.49
+# Operation : Migration
+# Purpose: Trustonic HW-backed Gatekeeper
+allow hal_gatekeeper_default mobicore:unix_stream_socket { connectto read write };
+allow hal_gatekeeper_default mobicore_user_device:chr_file rw_file_perms_no_map;
+
+# Purpose: TrustKernel HW-backed Gatekeeper
+allow hal_gatekeeper_default tkcore_admin_device:chr_file rw_file_perms_no_map;

@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type bp_id_attestation, domain;
+type bp_id_attestation_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(bp_id_attestation)
+
+set_prop(bp_id_attestation, vendor_mtk_soter_teei_prop)
+allow bp_id_attestation teei_client_device:chr_file rw_file_perms;
+allow bp_id_attestation teei_data_file:file create_file_perms;

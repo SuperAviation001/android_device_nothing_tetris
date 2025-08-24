@@ -1,0 +1,25 @@
+# ==============================================
+# Microtrust Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/hw/tetheroffloadservice Executable File
+
+# associate netdomain to use for accessing internet sockets
+net_domain(hal_tetheroffload_default)
+
+# Register to hwbinder service
+add_hwservice(hal_tetheroffload_default, hal_tetheroffload_hwservice)
+
+allow hal_tetheroffload_default self:{
+    netlink_generic_socket
+    netlink_kobject_uevent_socket
+    netlink_route_socket
+    netlink_socket
+} create_socket_perms_no_ioctl;
+
+allow hal_tetheroffload_default system_server:binder call;
+allow hal_tetheroffload_default system_server:netlink_netfilter_socket {read write};
+allow hal_tetheroffload_default system_server:fd use;
+allow hal_tetheroffload_default netdagent:binder call;
+allow hal_tetheroffload_default mddp_device:chr_file rw_file_perms;
+allow hal_tetheroffload_default proc_net:file r_file_perms;
+hal_client_domain(hal_tetheroffload_default,mtk_hal_netdagent);

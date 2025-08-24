@@ -1,0 +1,11 @@
+type mtk_hal_batching, domain;
+type mtk_hal_batching_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_batching)
+hal_server_domain(mtk_hal_batching, hal_mtk_batching)
+
+binder_call(mtk_hal_batching, servicemanager)
+
+allow mtk_hal_batching aol_flp_device:chr_file rw_file_perms_no_map;
+
+get_prop(mtk_hal_batching, vendor_mtk_flp_prop)

@@ -1,0 +1,50 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/gnss_daemon Executable File
+
+type gnss_daemon, domain;
+type gnss_daemon_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(gnss_daemon)
+
+# for gnss_daemon get screen on/off
+allow gnss_daemon sysfs_leds:dir search;
+allow gnss_daemon sysfs_leds:file r_file_perms_no_map;
+
+# Purpose : For access kernel device
+allow gnss_daemon gps2scp_device:chr_file rw_file_perms_no_map;
+allow gnss_daemon gps_pwr_device:chr_file rw_file_perms_no_map;
+allow gnss_daemon mtk_wwan_device:chr_file rw_file_perms_no_map;
+set_prop(gnss_daemon, vendor_mtk_mnld_prop)
+set_prop(gnss_daemon, vendor_mtk_radio_prop)
+# For HIDL, communicate mtk_hal_gnss instead of system_server
+allow gnss_daemon mtk_hal_gnss:unix_dgram_socket sendto;
+# Purpose : For file system operations
+allow gnss_daemon gps_data_file:dir { create_dir_perms unlink };
+
+#socket
+allow gnss_daemon gnss_daemon:udp_socket create;
+allow gnss_daemon netd:unix_stream_socket connectto;
+allow gnss_daemon dnsproxyd_socket:sock_file write;
+
+#epo
+allow gnss_daemon gnss_daemon:tcp_socket create_socket_perms_no_ioctl;
+allow gnss_daemon port:tcp_socket { name_connect connect write read };
+allow gnss_daemon gnss_data_file:dir create_dir_perms;
+allow gnss_daemon gnss_data_file:file create_file_perms;
+allow gnss_daemon fwmarkd_socket:sock_file write;
+
+# Purpose : MPE sensor HIDL policy
+hwbinder_use(gnss_daemon)
+binder_call(gnss_daemon, system_server)
+allow gnss_daemon fwk_sensor_hwservice:hwservice_manager find;
+get_prop(gnss_daemon, hwservicemanager_prop)
+
+# Purpose : MPE sensor HF policy
+allow gnss_daemon hf_manager_device:chr_file rw_file_perms_no_map;
+
+# Purpose : for Thinmodem log ctrl
+allow gnss_daemon connsyslog_data_vendor_file:dir r_dir_perms;
+allow gnss_daemon ttyGS_device:chr_file rw_file_perms;
+allow gnss_daemon connsyslog_data_vendor_file:file r_file_perms;

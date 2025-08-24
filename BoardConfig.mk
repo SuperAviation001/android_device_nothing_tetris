@@ -131,8 +131,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2024-05-05
 
-# Sepolicy
--include device/mediatek/sepolicy_vndr/SEPolicy.mk
+# SELinux
+-include device/nothing/tetris/sepolicy/mtk/SEPolicy.mk
+-include device/nothing/tetris/sepolicy/prop/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Verified Boot

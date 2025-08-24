@@ -1,0 +1,5 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+vendor.mediatek.hardware.aee::IAee u:object_r:mtk_hal_aee_hwservice:s0

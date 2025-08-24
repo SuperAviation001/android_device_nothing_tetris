@@ -1,0 +1,14 @@
+# ==============================================
+# Microtrust Policy Rule
+# ==============================================
+# Allow platform_app to interact with hal_teei_tui
+hal_client_domain(platform_app, hal_teei_tui)
+
+# Allow platform_app to interact with hal_teei_capi
+hal_client_domain(platform_app, hal_teei_capi)
+
+# Allow platform_app to interact with hal_teei_thh
+hal_client_domain(platform_app, hal_teei_thh)
+
+hal_client_domain(platform_app, hal_teei_ifaa)
+hal_client_domain(platform_app, hal_teei_wechat)

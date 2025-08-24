@@ -1,0 +1,27 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# system_internal_prop      -- Properties used only in /system
+# system_restricted_prop    -- Properties which can't be written outside system
+# system_public_prop        -- Properties with no restrictions
+# system_vendor_config_prop -- Properties which can be written only by vendor_init
+# vendor_internal_prop      -- Properties used only in /vendor
+# vendor_restricted_prop    -- Properties which can't be written outside vendor
+# vendor_public_prop        -- Properties with no restrictions
+
+vendor_restricted_prop(vendor_mtk_aeev_dynamic_switch_prop)
+vendor_restricted_prop(vendor_mtk_debug_mtk_aeev_prop)
+vendor_restricted_prop(vendor_mtk_persist_aeev_prop)
+vendor_restricted_prop(vendor_mtk_persist_mtk_aeev_prop)
+vendor_restricted_prop(vendor_mtk_ro_aee_prop)
+vendor_restricted_prop(vendor_mtk_logmuch_prop)
+vendor_restricted_prop(vendor_mtk_mbrain_prop)
+
+# Properties with can be read by all domains
+typeattribute vendor_mtk_aeev_dynamic_switch_prop    mtk_core_property_type;
+typeattribute vendor_mtk_debug_mtk_aeev_prop         mtk_core_property_type;
+typeattribute vendor_mtk_persist_aeev_prop           mtk_core_property_type;
+typeattribute vendor_mtk_persist_mtk_aeev_prop       mtk_core_property_type;
+typeattribute vendor_mtk_ro_aee_prop                 mtk_core_property_type;
+typeattribute vendor_mtk_logmuch_prop                mtk_core_property_type;

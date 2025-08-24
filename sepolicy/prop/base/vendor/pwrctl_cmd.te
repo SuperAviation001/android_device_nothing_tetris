@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type pwrctl_cmd, domain;
+type pwrctl_cmd_exec, exec_type, file_type, vendor_file_type;
+
+allow pwrctl_cmd block_device:dir search;
+allow pwrctl_cmd boot_para_block_device:blk_file rw_file_perms;

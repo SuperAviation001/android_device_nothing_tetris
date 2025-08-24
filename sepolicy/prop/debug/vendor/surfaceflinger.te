@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow surfaceflinger aee_exp_data_file:file w_file_perms;
+
+# Data: 2023/08/30
+# Operation: Add for mbrain
+get_prop(surfaceflinger, vendor_mtk_mbrain_prop)

@@ -1,0 +1,5 @@
+persist.vendor.mtk.aee. u:object_r:system_mtk_persist_mtk_aee_prop:s0
+persist.vendor.aee.     u:object_r:system_mtk_persist_aee_prop:s0
+vendor.debug.mtk.aee.   u:object_r:system_mtk_debug_mtk_aee_prop:s0
+ro.vendor.aee.basic     u:object_r:system_mtk_aee_basic_prop:s0
+init.svc.aee_aedv   u:object_r:system_mtk_init_svc_aee_aedv_prop:s0

@@ -1,0 +1,12 @@
+allow system_server aee_exp_data_file:file w_file_perms;
+# Date:W17.22
+# Operation : add aee_aed socket rule
+# Purpose : type=1400 audit(0.0:134519): avc: denied { connectto }
+#           for comm=4572726F722064756D703A20737973
+#           path=00636F6D2E6D746B2E6165652E6165645F3634
+#           scontext=u:r:system_server:s0 tcontext=u:r:crash_dump:s0
+#           tclass=unix_stream_socket permissive=0
+allow system_server crash_dump:unix_stream_socket connectto;
+
+# Search /proc/proc_mtmon
+allow system_server proc_mtmon:dir search;

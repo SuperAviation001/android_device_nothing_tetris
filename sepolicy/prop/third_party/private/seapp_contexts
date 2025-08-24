@@ -1,0 +1,3 @@
+# This is for trustonic rootpa apk
+user=system seinfo=platform name=com.gd.mobicore.pa domain=teeregistryd_app
+user=system seinfo=platform name=com.trustonic.teeservice domain=teed_app type=teed_app_data_file levelFrom=user

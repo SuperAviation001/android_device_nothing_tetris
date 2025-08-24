@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK16.35
+# Operation : Migration
+# Purpose : allow camera to access log too much detect property
+set_prop(cameraserver, system_mtk_logmuch_prop)

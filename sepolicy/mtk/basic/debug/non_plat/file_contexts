@@ -1,0 +1,37 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+##########################
+# Data files
+#
+/data/connsyslog(/.*)?              u:object_r:consyslog_data_file:s0
+##########################
+# Devices
+#
+/dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
+##########################
+# Vendor files
+#
+/vendor/bin/loghidlvendorservice    u:object_r:loghidlvendorservice_exec:s0
+
+/data/aee_exp(/.*)?                 u:object_r:aee_exp_data_file:s0
+/data/vendor/aee_exp(/.*)?          u:object_r:aee_exp_vendor_file:s0
+
+/(vendor|system/vendor)/bin/aee_aedv         u:object_r:aee_aedv_exec:s0
+/(vendor|system/vendor)/bin/aee_aedv64       u:object_r:aee_aedv_exec:s0
+/(vendor|system/vendor)/bin/aee_aedv64_v2    u:object_r:aee_aedv_exec:s0
+
+/vendor/bin/hw/vendor\.mediatek\.hardware\.aee@1\.0-service u:object_r:aee_hal_exec:s0
+/vendor/bin/hw/vendor\.mediatek\.hardware\.aee@1\.1-service u:object_r:aee_hal_exec:s0
+
+/dev/aed[0-9]+      u:object_r:aed_device:s0
+
+# Date:2021/07/27
+# Purpose: permission for emdlogger
+/dev/ccci_md_log_ctrl  u:object_r:ccci_mdl_device:s0
+/dev/ccci_ccb_dhl      u:object_r:ccci_mdl_device:s0
+/dev/ccci_raw_dhl      u:object_r:ccci_mdl_device:s0
+# Purpose: permission for mdlogger
+/dev/ccci_md_log_tx    u:object_r:ccci_mdl_device:s0
+/dev/ccci_md_log_rx    u:object_r:ccci_mdl_device:s0

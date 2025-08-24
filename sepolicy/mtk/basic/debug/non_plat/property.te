@@ -1,0 +1,11 @@
+vendor_restricted_prop(vendor_mtk_debug_mtk_aeev_prop)
+vendor_restricted_prop(vendor_mtk_persist_aeev_prop)
+vendor_restricted_prop(vendor_mtk_persist_mtk_aeev_prop)
+vendor_restricted_prop(vendor_mtk_ro_aee_prop)
+vendor_restricted_prop(vendor_mtk_aeev_dynamic_switch_prop)
+
+typeattribute vendor_mtk_debug_mtk_aeev_prop         mtk_core_property_type;
+typeattribute vendor_mtk_persist_aeev_prop           mtk_core_property_type;
+typeattribute vendor_mtk_persist_mtk_aeev_prop       mtk_core_property_type;
+typeattribute vendor_mtk_ro_aee_prop                 mtk_core_property_type;
+typeattribute vendor_mtk_aeev_dynamic_switch_prop    mtk_core_property_type;

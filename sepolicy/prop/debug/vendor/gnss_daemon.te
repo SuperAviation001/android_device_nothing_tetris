@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/gnss_daemon Executable File
+
+#debug socket for power_gps
+allow gnss_daemon port:tcp_socket name_bind;
+allow gnss_daemon node:tcp_socket node_bind;
+allow gnss_daemon gnss_daemon:tcp_socket { listen accept };
+

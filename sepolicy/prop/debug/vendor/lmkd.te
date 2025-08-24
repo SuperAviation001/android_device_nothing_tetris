@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Data : 2023/05/16
+# Operation: Add for mbrain
+get_prop(lmkd, vendor_mtk_mbrain_prop)

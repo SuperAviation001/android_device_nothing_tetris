@@ -1,0 +1,17 @@
+type hal_mtkcodecservice_default, domain;
+type hal_mtkcodecservice_default_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(hal_mtkcodecservice_default)
+
+hal_server_domain(hal_mtkcodecservice_default, hal_mtkcodecservice)
+
+hal_client_domain(hal_mtkcodecservice_default, hal_allocator)
+
+binder_call(hal_mtkcodecservice_client, hal_mtkcodecservice_server)
+binder_call(hal_mtkcodecservice_server, hal_mtkcodecservice_client)
+
+add_hwservice(hal_mtkcodecservice_server, hal_mtkcodecservice_hwservice)
+allow hal_mtkcodecservice_client hal_mtkcodecservice_hwservice:hwservice_manager find;
+
+allow hal_mtkcodecservice_default hidl_allocator_hwservice:hwservice_manager find;
+allow hal_mtkcodecservice_default hidl_memory_hwservice:hwservice_manager find;

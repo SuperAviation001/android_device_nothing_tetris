@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+get_prop(shell, system_mtk_persist_mtk_aee_prop)
+get_prop(shell, system_mtk_persist_aee_prop)
+get_prop(shell, system_mtk_debug_mtk_aee_prop)
+
+r_dir_file(shell, debuglog_data_file)

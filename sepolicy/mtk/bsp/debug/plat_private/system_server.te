@@ -1,0 +1,14 @@
+# Date : 2016/11/11
+# Purpose : Add permission for aee socket access to report Java Layer Exception
+allow system_server crash_dump:unix_stream_socket connectto;
+
+# Date:2020/12/23
+# Operation:R Migration, add permission for AMS read mtk_AEE_prop
+get_prop(system_server, system_mtk_persist_aee_prop)
+
+# Date:2020/09/04
+# Operation:R Migration, add permission for AMS dump binderinfo when ANR happened in user load
+allow system_server binderfs_logs:dir r_dir_perms;
+allow system_server binderfs_logs:file r_file_perms;
+allow system_server binderfs_logs_proc:dir r_dir_perms;
+allow system_server binderfs_logs_proc:file r_file_perms;

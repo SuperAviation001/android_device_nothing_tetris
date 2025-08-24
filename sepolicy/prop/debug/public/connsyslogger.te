@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/connsyslogger Executable File
+
+type connsyslogger, domain;

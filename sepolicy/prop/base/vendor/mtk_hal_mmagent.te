@@ -1,0 +1,19 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/hw/vendor.mediatek.hardware.mmagent@1.0-service Executable File
+
+type mtk_hal_mmagent, domain;
+type mtk_hal_mmagent_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_mmagent)
+
+hal_server_domain(mtk_hal_mmagent, hal_mtk_mmagent)
+
+# Purpose : Allow to use kernel driver
+allow mtk_hal_mmagent ion_device:chr_file rw_file_perms;
+
+# Purpose : Allow to set property for AI function
+allow mtk_hal_mmagent apusys_device:chr_file rw_file_perms;
+
+hal_client_domain(mtk_hal_mmagent, hal_graphics_allocator)

@@ -1,0 +1,7 @@
+# =====================
+# MTK Policy Rule
+# =====================
+hal_attribute_service(hal_mtk_audio, mtk_hal_audio_service)
+binder_call(hal_mtk_audio_client, hal_mtk_audio_server)
+binder_call(hal_mtk_audio_server, hal_mtk_audio_client)
+

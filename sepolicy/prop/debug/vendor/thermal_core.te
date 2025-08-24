@@ -1,0 +1,6 @@
+# For vendor.mbrain.enabled
+get_prop(thermal_core, vendor_mtk_mbrain_prop)
+
+# To read gpu opp table
+allow thermal_core proc_gpufreqv2_gpu_working_opp_table:file r_file_perms;
+allow thermal_core proc_gpufreqv2_stack_working_opp_table:file r_file_perms;

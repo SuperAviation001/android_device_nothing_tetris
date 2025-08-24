@@ -1,0 +1,28 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/jxnosfastswitch Executable File
+# Also configure policy of process "jxnosfastswitch"
+
+type mtk_hal_jxnosfastswitch, domain;
+type mtk_hal_jxnosfastswitch_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_jxnosfastswitch)
+binder_use(mtk_hal_jxnosfastswitch)
+
+# hal_server_domain(mtk_hal_jxnosfastswitch, hal_mtk_jxnosfastswitch)
+# use below below rules to replace hal_server_domain because it binds halserverdomain
+# that doesn't allow use udp socket
+add_service(hal_mtk_jxnosfastswitch_server, mtk_hal_jxnosfastswitch_service)
+typeattribute mtk_hal_jxnosfastswitch hal_mtk_jxnosfastswitch_server;
+typeattribute mtk_hal_jxnosfastswitch hal_mtk_jxnosfastswitch;
+allow mtk_hal_jxnosfastswitch self:udp_socket { create ioctl };
+
+# nos will link into wifi and will access netlink
+allow mtk_hal_jxnosfastswitch self:rawip_socket create_socket_perms_no_ioctl;
+allow mtk_hal_jxnosfastswitch self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow mtk_hal_jxnosfastswitch self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+allow mtk_hal_jxnosfastswitch self:netlink_route_socket { create_socket_perms_no_ioctl nlmsg_read };
+allow mtk_hal_jxnosfastswitch self:capability { net_admin net_raw kill };
+allow mtk_hal_jxnosfastswitch sysfs_net:dir r_dir_perms;
+allow mtk_hal_jxnosfastswitch proc_net:file r_file_perms;

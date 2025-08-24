@@ -1,0 +1,4 @@
+# ==============================================
+# Microtrust Policy Rule
+# ==============================================
+type teei_ifaa_service, app_api_service, service_manager_type;

@@ -1,0 +1,22 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# Date : WK14.39
+# Operation : Migration
+# Purpose :  MDLogger USB logging
+# Owner : Bo shang
+allow netd mdlogger:fd use;
+allow netd mdlogger:tcp_socket rw_socket_perms_no_ioctl;
+
+# Date : WK14.41
+# Operation : Migration
+# Purpose :  network logging
+# Owner : Bo shang
+allow netd netdiag:fd use;
+allow netd netdiag:udp_socket rw_socket_perms_no_ioctl;
+
+userdebug_or_eng(`
+  allow netd mobile_log_d:fd use;
+  allow netd mobile_log_d:tcp_socket rw_socket_perms_no_ioctl;
+')

@@ -1,0 +1,5 @@
+hal_attribute_service(hal_mtk_sf, mtk_hal_sf_service)
+
+#binder IPC from clients into server, and callbacks
+binder_call(hal_mtk_sf_client, hal_mtk_sf_server)
+binder_call(hal_mtk_sf_server, hal_mtk_sf_client)

@@ -1,0 +1,29 @@
+# Purpose: crash_dump set property
+set_prop(crash_dump, system_mtk_persist_mtk_aee_prop)
+set_prop(crash_dump, system_mtk_persist_aee_prop)
+set_prop(crash_dump, system_mtk_debug_mtk_aee_prop)
+get_prop(crash_dump, system_mtk_aee_basic_prop)
+
+# Date : WK17.09
+# Operation : AEE UT for Android O
+# Purpose : for AEE module to dump files
+domain_auto_trans(crash_dump, dumpstate_exec, dumpstate)
+
+# aee db dir and db files
+allow crash_dump sdcard_type:dir create_dir_perms;
+allow crash_dump sdcard_type:file create_file_perms;
+
+# system(cmd) aee_dumpstate aee_archive
+allow crash_dump shell_exec:file rx_file_perms;
+
+# Purpose: dump bugreport into NE DB
+allow crash_dump dumpstate_socket:sock_file w_file_perms;
+allow crash_dump dumpstate:unix_stream_socket connectto;
+set_prop(crash_dump, ctl_start_prop)
+
+# Purpose: Allow crash_dump to get mobile log prop
+get_prop(crash_dump, system_mtk_mobile_log_prop)
+
+# Purpose: Allow crash_dump to write /data/debuglogger/mobilelog
+allow crash_dump debuglog_data_file:dir create_dir_perms;
+allow crash_dump debuglog_data_file:file create_file_perms;

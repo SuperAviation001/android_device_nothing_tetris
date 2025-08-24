@@ -1,0 +1,9 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# For debug utils
+get_prop(em_app, system_mtk_persist_mtk_aee_prop)
+
+# For video log
+set_prop(em_app, system_mtk_logmuch_prop)

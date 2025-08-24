@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/mdl_ctrl Executable File
+
+type mdl_ctrl_exec, exec_type, file_type, vendor_file_type;
+type mdl_ctrl, domain;
+
+init_daemon_domain(mdl_ctrl)
+
+# socket access
+allow mdl_ctrl mdl_ctrl_mgr:unix_stream_socket connectto;

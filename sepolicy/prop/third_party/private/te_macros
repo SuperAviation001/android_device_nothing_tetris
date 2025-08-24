@@ -1,0 +1,10 @@
+# Extra permissions needed for translated processes:
+# - Access to hbt.* system properties.
+# - RWX mappings for the HBT JIT compiler.
+# - Access to memfd in /proc/self/fd/*.
+define(`hbt_translated', `
+  allow $1 self:process execmem;
+  allow $1 $2:file { open read write getattr map };
+  get_prop($1, system_mtk_hbt_prop);
+  allow $1 hbt_device:chr_file rw_file_perms;
+')

@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/vtservice Executable File
+
+# Date: 2013/03/13
+# Operation: get tellog prop
+get_prop(vtservice, system_mtk_em_tel_log_prop)

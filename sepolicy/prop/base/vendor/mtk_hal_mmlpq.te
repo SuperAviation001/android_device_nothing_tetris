@@ -1,0 +1,45 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service Executable File
+
+type mtk_hal_mmlpq, domain;
+type mtk_hal_mmlpq_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_mmlpq)
+binder_use(mtk_hal_mmlpq)
+hal_server_domain(mtk_hal_mmlpq, hal_mtk_mmlpq)
+
+# Purpose: Allow permission to get AmbientLux from service_manager
+allow mtk_hal_mmlpq fwk_sensor_service:service_manager find;
+
+allow mtk_hal_mmlpq gpu_device:dir search;
+allow mtk_hal_mmlpq dri_device:chr_file rw_file_perms;
+allow mtk_hal_mmlpq mml_pq_device:chr_file rw_file_perms;
+
+# Purpose: Allow permission to get MMAgent from hwservice_manager
+hal_client_domain(mtk_hal_mmlpq, hal_mtk_mmagent)
+
+# Allow to get PQService
+hal_client_domain(mtk_hal_mmlpq, hal_mtk_pq)
+
+# Allow to allocate hidl memory
+hal_client_domain(mtk_hal_mmlpq, hal_allocator)
+
+# Purpose: Allow permission to set pq property
+set_prop(mtk_hal_mmlpq, vendor_mtk_pq_prop)
+
+# Purpose: Allow to use kernel driver
+allow mtk_hal_mmlpq graphics_device:chr_file rw_file_perms;
+
+# Purpose : Allow change priority
+allow mtk_hal_mmlpq self:capability sys_nice;
+
+# Purpose: Allow permission to use DMABuffer
+allow mtk_hal_mmlpq dmabuf_system_heap_device:chr_file rw_file_perms;
+
+# Purpose : Allow use gralloc buffer
+allow mtk_hal_mmlpq hal_graphics_allocator_default:fd use;
+
+#Purpose : Allow use sensor service
+binder_call(mtk_hal_mmlpq, system_server)

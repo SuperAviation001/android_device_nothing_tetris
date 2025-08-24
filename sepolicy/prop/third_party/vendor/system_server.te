@@ -1,0 +1,12 @@
+# MICROTRUST Policy Rule
+# Date : WK15.24
+# Operation: TEEI integration
+# Purpose: access for fp device
+allow system_server teei_fp_device:chr_file rw_file_perms;
+allow system_server teei_client_device:chr_file r_file_perms;
+
+# Date : W18.20
+# Operation : Migration
+# Purpose : for mobicore (Trustonic TEE)
+allow system_server mobicore_vendor_file:dir r_file_perms;
+

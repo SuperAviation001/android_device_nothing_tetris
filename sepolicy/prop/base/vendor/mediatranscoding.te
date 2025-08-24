@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK23.15
+# Operation : Migration
+# Purpose : Allow mediatranscoding service to access surfacefligner
+allow mediatranscoding surfaceflinger_service:service_manager find;

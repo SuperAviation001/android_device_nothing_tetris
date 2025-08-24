@@ -1,0 +1,9 @@
+# MICROTRUST Policy Rule
+# Date : 2017/12/18
+# Operation: ifaa integration
+# Purpose: access for ifaa_service call
+# Package: org.ifaa.android.service
+add_service(system_app, teei_ifaa_service)
+
+hal_client_domain(system_app, hal_teei_ifaa)
+hal_client_domain(system_app, hal_teei_wechat)

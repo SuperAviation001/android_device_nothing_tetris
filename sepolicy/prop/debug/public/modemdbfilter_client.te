@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/bin/modemdbfilter_client Executable File
+
+type modemdbfilter_client, domain;

@@ -1,0 +1,8 @@
+# ==============================================
+# Microtrust Policy Rule
+# ==============================================
+hal_attribute_service(hal_tsa_hdcp, tsa_hal_hdcp_service)
+binder_call(hal_tsa_hdcp_client, hal_tsa_hdcp_server)
+binder_call(hal_tsa_hdcp_server, hal_tsa_hdcp_client)
+binder_call(hal_tsa_hdcp_server, servicemanager)
+binder_call(hal_tsa_hdcp_client, servicemanager)

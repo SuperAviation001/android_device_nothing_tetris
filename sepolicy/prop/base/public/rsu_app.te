@@ -1,0 +1,6 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/priv-app/RsuService/RsuService.apk etc. Executable File
+
+type rsu_app, domain;

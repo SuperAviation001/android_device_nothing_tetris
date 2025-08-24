@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+userdebug_or_eng(`
+  hal_attribute_service(hal_dplanner, mtk_hal_dplanner_service)
+  binder_call(hal_dplanner_client, hal_dplanner_server)
+  binder_call(hal_dplanner_server, hal_dplanner_client)
+  binder_use(hal_dplanner_server, servicemanager)
+')

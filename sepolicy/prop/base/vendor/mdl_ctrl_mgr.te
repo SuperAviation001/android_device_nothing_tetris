@@ -1,0 +1,21 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/mdl_ctrl_mgr Executable File
+
+type mdl_ctrl_mgr_exec, exec_type, file_type, vendor_file_type;
+type mdl_ctrl_mgr, domain;
+
+init_daemon_domain(mdl_ctrl_mgr)
+
+# Add permission to access pcie port
+allow mdl_ctrl_mgr mtk_wwan_device:chr_file rw_file_perms_no_map;
+
+# socket access
+allow mdl_ctrl_mgr mdl_coll:unix_stream_socket connectto;
+allow mdl_ctrl_mgr sysfs_wwan_fsm_state:file r_file_perms;
+allow mdl_ctrl_mgr mdl_ctrl_mgr_data_vendor_file:dir w_dir_perms;
+allow mdl_ctrl_mgr mdl_ctrl_mgr_data_vendor_file:file create_file_perms;
+
+#Access netlink
+allow mdl_ctrl_mgr self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;

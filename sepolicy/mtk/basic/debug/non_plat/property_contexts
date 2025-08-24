@@ -1,0 +1,9 @@
+persist.vendor.mtk.aeev. u:object_r:vendor_mtk_persist_mtk_aeev_prop:s0
+persist.vendor.aeev.     u:object_r:vendor_mtk_persist_aeev_prop:s0
+vendor.debug.mtk.aeev    u:object_r:vendor_mtk_debug_mtk_aeev_prop:s0
+
+ro.vendor.aee.build.info      u:object_r:vendor_mtk_ro_aee_prop:s0
+ro.vendor.aee.enforcing       u:object_r:vendor_mtk_ro_aee_prop:s0
+ro.vendor.have_aee_feature    u:object_r:vendor_mtk_ro_aee_prop:s0
+ro.vendor.aeev.dynamic.switch u:object_r:vendor_mtk_aeev_dynamic_switch_prop:s0
+ro.vendor.aee.convert64       u:object_r:vendor_mtk_ro_aee_prop:s0

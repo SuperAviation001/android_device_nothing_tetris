@@ -1,0 +1,13 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /system/priv-app/RsuService/RsuService.apk etc. Executable File
+
+typeattribute rsu_app mlstrustedobject;
+app_domain(rsu_app)
+
+# Common
+allow rsu_app app_api_service:service_manager find;
+
+# Purpose:For wakelock get power manager service
+allow rsu_app thermal_service:service_manager find;

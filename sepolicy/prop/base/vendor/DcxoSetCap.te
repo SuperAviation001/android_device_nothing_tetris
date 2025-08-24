@@ -1,0 +1,22 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/DcxoSetCap Executable File
+
+type DcxoSetCap, domain;
+type DcxoSetCap_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(DcxoSetCap)
+
+allow DcxoSetCap nvdata_file:dir rw_dir_perms;
+allow DcxoSetCap nvdata_file:file rw_file_perms;
+allow DcxoSetCap proc_cmdline:file r_file_perms;
+allow DcxoSetCap sysfs_dcxo:file rw_file_perms;
+allow DcxoSetCap sysfs_boot_mode:file r_file_perms;
+allow DcxoSetCap sysfs_dt_firmware_android:dir r_dir_perms;
+allow DcxoSetCap sysfs_dt_firmware_android:file r_file_perms;
+
+allow DcxoSetCap proc_bootconfig:file { read open getattr };
+allow DcxoSetCap metadata_file:dir search;
+allow DcxoSetCap gsi_metadata_file:dir search;
+allow DcxoSetCap mnt_vendor_file:dir search;

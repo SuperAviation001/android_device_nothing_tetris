@@ -1,0 +1,15 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date: WK23.07
+# Purpose: Allow kernel to read vendor firmware files after adb push
+allow kernel vendor_file:dir r_dir_perms;
+allow kernel connsys_vendor_file:file r_file_perms;
+
+# Date : WK23.11
+# Purpose: Allow pstore_blk to write sdcard
+allow kernel init_pstore_blk_sh:fd use;
+
+# Date: WK23.11
+allow kernel pstore_block_device:blk_file rw_file_perms_no_map;

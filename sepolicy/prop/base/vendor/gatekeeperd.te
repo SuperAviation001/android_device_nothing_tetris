@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow hal_gatekeeper_default debugfs_tracing:file write;
+allow hal_gatekeeper_default mnt_vendor_file:dir search;
+allow hal_gatekeeper_default persist_data_file:dir { write search add_name remove_name};
+allow hal_gatekeeper_default persist_data_file:file { write read getattr open create unlink};
+
+# Allow hal_gatekeeper_default to access /data/key_provisioning
+allow hal_gatekeeper_default key_install_data_file:dir w_dir_perms;
+allow hal_gatekeeper_default key_install_data_file:file create_file_perms;

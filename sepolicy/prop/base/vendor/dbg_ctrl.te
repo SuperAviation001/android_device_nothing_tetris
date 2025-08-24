@@ -1,0 +1,20 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Policy File of /vendor/bin/dbg_ctrl Executable File
+
+# ==============================================
+# type Declaration
+# ==============================================
+
+type dbg_ctrl_exec, exec_type, file_type, vendor_file_type;
+type dbg_ctrl, domain;
+
+init_daemon_domain(dbg_ctrl)
+
+# Add permission to access pcie port
+allow dbg_ctrl mtk_wwan_device:chr_file rw_file_perms_no_map;
+
+# socket access
+allow dbg_ctrl sap_log:unix_stream_socket connectto;
+

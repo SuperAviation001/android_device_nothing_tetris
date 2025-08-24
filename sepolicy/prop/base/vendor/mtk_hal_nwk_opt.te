@@ -1,0 +1,22 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type mtk_hal_nwk_opt, domain;
+type mtk_hal_nwk_opt_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_hal_nwk_opt)
+
+binder_use(mtk_hal_nwk_opt)
+
+hal_server_domain(mtk_hal_nwk_opt, hal_mtk_nwk_opt)
+
+allow mtk_hal_nwk_opt nwkopt_device:chr_file rw_file_perms_no_map;
+allow mtk_hal_nwk_opt sysfs_fpsgo:dir search;
+allow mtk_hal_nwk_opt sysfs_fpsgo:file rw_file_perms;
+allow mtk_hal_nwk_opt input_device:dir r_dir_perms;
+allow mtk_hal_nwk_opt input_device:file rw_file_perms;
+allow mtk_hal_nwk_opt input_device:chr_file rw_file_perms;
+allow mtk_hal_nwk_opt tx_device:chr_file rw_file_perms;
+
+set_prop(mtk_hal_nwk_opt, vendor_mtk_nwk_opt_prop)

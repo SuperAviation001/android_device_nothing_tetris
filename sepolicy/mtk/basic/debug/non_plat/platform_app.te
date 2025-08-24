@@ -1,0 +1,100 @@
+# ==============================================
+# Common SEPolicy Rule
+# ==============================================
+
+# Date : 2017/07/03
+# Operation : Migration
+# Purpose : get/set agps configuration via hal_mtk_lbs
+hal_client_domain(platform_app, hal_mtk_lbs)
+
+# Date : 2014/08/21
+# Operation : Migration
+# Purpose : FMRadio enable driver access permission for fmradio hardware device
+# Package: com.mediatek.fmradio
+allow platform_app fm_device:chr_file rw_file_perms;
+
+# Date : 2014/09/11
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with native daemon:mobile_logd,
+# netdialog,mdlogger,emdlogger,cmddumper
+# Package: com.mediatek.mtklogger
+allow platform_app mobile_log_d:unix_stream_socket connectto;
+allow platform_app mdlogger:unix_stream_socket connectto;
+allow platform_app emdlogger:unix_stream_socket connectto;
+allow platform_app cmddumper:unix_stream_socket connectto;
+allow platform_app connsyslogger:unix_stream_socket connectto;
+unix_socket_connect(platform_app, netdiag, netdiag)
+
+# Date: 2018/11/17
+# purpose: allow MTKLogger to control Bluetooth HCI log via socket
+allow platform_app bluetooth:unix_stream_socket connectto;
+
+# Date : 2014/10/17
+# Operation : Migration
+# Purpose :Make MTKLogger or VIASaber apk can Access TTYSDIO_device
+# Package: com.mediatek.mtklogger
+allow platform_app ttySDIO_device:chr_file rw_file_perms;
+
+# Date : 2014/10/17
+# Operation : Migration
+# Purpose :Make MTKLogger or VIASaber apk can Access storage
+# Package: com.mediatek.mtklogger
+allow platform_app sdcard_type:file create_file_perms;
+allow platform_app sdcard_type:dir create_dir_perms;
+
+# Date : 2014/11/12
+# Operation : Migration
+# Purpose : MTKLogger need copy exception db from data folder
+# Package: com.mediatek.mtklogger
+allow platform_app aee_exp_data_file:file r_file_perms;
+allow platform_app aee_exp_data_file:dir r_dir_perms;
+
+# Date : 2014/11/14
+# Operation : Migration
+# Purpose : MTKLogger need update md config file in data for mode changed
+# Package: com.mediatek.mtklogger
+allow platform_app mdlog_data_file:file rw_file_perms;
+allow platform_app mdlog_data_file:dir rw_dir_perms;
+
+# Date : WK17.46
+# Operation : Migration
+# Purpose : allow MTKLogger to read KE DB
+allow platform_app aee_dumpsys_data_file:file r_file_perms;
+
+# Date: 2018/03/23
+# Operation : Migration
+# Purpose : MTKLogger need connect to log hidl server
+# Package: com.mediatek.mtklogger
+hal_client_domain(platform_app, hal_mtk_log)
+
+# Date : 2020/09/15
+# Operation : Migration
+# Purpose : DebugLoggerUI need copy proc/ccci_sib to storage
+# Package: com.debug.loggerui
+allow platform_app proc_ccci_sib:file r_file_perms;
+
+# Date : 2021/03/05
+# Operation : Migration
+# Purpose : DebugLoggerUI need call wifi JNI set wifi level
+# Package: com.debug.loggerui
+allow platform_app self:udp_socket { create ioctl };
+allowxperm platform_app self:udp_socket ioctl {
+  SIOCIWFIRSTPRIV_0B
+  SIOCIWFIRSTPRIV_0F
+  SIOCSIWMODE SIOCIWFIRSTPRIV_01
+  SIOCIWFIRSTPRIV_09
+  SIOCDEVPRIVATE_2
+};
+
+# Date : WK18.17
+# Operation : P Migration
+# Purpose: allow platform_app to read /data/vendor/mtklog/aee_exp
+allow platform_app aee_exp_vendor_file:dir r_dir_perms;
+allow platform_app aee_exp_vendor_file:file r_file_perms;
+
+# Date : 2021/06/01
+# Operation : Migration
+# Purpose : DebugLoggerUI need copy & delete /data/vendor/vcodec/ folder
+# Package: com.debug.loggerui
+allow platform_app vcodec_file:dir {rw_dir_perms rmdir};
+allow platform_app vcodec_file:file rw_file_perms;
