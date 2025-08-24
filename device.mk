@@ -130,9 +130,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider-V2-ndk.vendor \
     android.hardware.camera.provider@2.6.vendor
 
-PRODUCT_PACKAGES += \
-    ApertureOverlayTetris
-
 # Charger
 PRODUCT_PACKAGES += \
     libsuspend \
