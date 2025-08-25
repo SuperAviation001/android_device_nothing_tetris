@@ -20,12 +20,6 @@ namespace hardware {
 namespace biometrics {
 namespace fingerprint {
 
-#define UI_STATUS_PATH "/sys/panel_feature/ui_status"
-
-void setFodDisplayState(bool status) {
-    ::android::base::WriteStringToFile(status ? "1" : "0", UI_STATUS_PATH);
-}
-
 void onClientDeath(void* cookie) {
     ALOGI("FingerprintService has died");
     Session* session = static_cast<Session*>(cookie);
@@ -52,8 +46,6 @@ ndk::ScopedAStatus Session::generateChallenge() {
 
 ndk::ScopedAStatus Session::revokeChallenge(int64_t challenge) {
     ALOGI("revokeChallenge: %ld", challenge);
-
-    setFodDisplayState(false);
 
     mDevice->revokeChallenge(mDevice, challenge);
 
@@ -163,15 +155,13 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
 ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
     ALOGI("onPointerUp");
 
-    setFodDisplayState(false);
-
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Session::onUiReady() {
     ALOGI("onUiReady");
 
-    setFodDisplayState(true);
+    ::android::base::WriteStringToFile("1", "/sys/panel_feature/ui_status");
 
     return ndk::ScopedAStatus::ok();
 }
@@ -217,8 +207,6 @@ ndk::ScopedAStatus Session::setIgnoreDisplayTouches(bool /*shouldIgnore*/) {
 ndk::ScopedAStatus Session::cancel() {
     ALOGI("cancel");
 
-    setFodDisplayState(false);
-
     int ret = mDevice->cancel(mDevice);
 
     if (ret == 0) {
@@ -232,8 +220,6 @@ ndk::ScopedAStatus Session::cancel() {
 
 ndk::ScopedAStatus Session::close() {
     ALOGI("close");
-
-    setFodDisplayState(false);
 
     mClosed = true;
     mCb->onSessionClosed();
@@ -312,10 +298,6 @@ AcquiredInfo Session::VendorAcquiredFilter(int32_t info, int32_t* vendorCode) {
 bool Session::checkSensorLockout() {
     LockoutMode lockoutMode = mLockoutTracker.getMode();
 
-    if (lockoutMode != LockoutMode::NONE) {
-	    setFodDisplayState(false);
-    }
-
     if (lockoutMode == LockoutMode::PERMANENT) {
         ALOGE("Fail: lockout permanent");
         mCb->onLockoutPermanent();
@@ -382,9 +364,6 @@ void Session::notify(const fingerprint_msg_t* msg) {
                   msg->data.enroll.finger.gid, msg->data.enroll.samples_remaining);
             mCb->onEnrollmentProgress(msg->data.enroll.finger.fid,
                                       msg->data.enroll.samples_remaining);
-            if (msg->data.enroll.samples_remaining == 0) {
-                setFodDisplayState(false);
-            }
         } break;
         case FINGERPRINT_TEMPLATE_REMOVED: {
             ALOGD("onRemove(fid=%d, gid=%d, rem=%d)", msg->data.removed.finger.fid,
@@ -403,7 +382,6 @@ void Session::notify(const fingerprint_msg_t* msg) {
 
                 mCb->onAuthenticationSucceeded(msg->data.authenticated.finger.fid, authToken);
                 mLockoutTracker.reset(true);
-                setFodDisplayState(false);
             } else {
                 mCb->onAuthenticationFailed();
                 mLockoutTracker.addFailedAttempt();
