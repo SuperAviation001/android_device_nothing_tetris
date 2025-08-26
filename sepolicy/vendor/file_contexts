@@ -7,15 +7,11 @@
 /dev/goodix_fp     u:object_r:fingerprint_device:s0
 
 # Richtap
-/dev/aac_richtap    u:object_r:aac_richtap_dev_device:s0
-/vendor/bin/hw/android.hardware.vibrator.service.tetris         u:object_r:hal_vibrator_default_exec:s0
+/dev/aac_richtap                                                                        u:object_r:aac_richtap_dev_device:s0
+/vendor/bin/hw/android.hardware.vibrator.service.tetris                                 u:object_r:hal_vibrator_default_exec:s0
 
 # Charger
-/sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?              u:object_r:sysfs_ntchg:s0
+/sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?                             u:object_r:sysfs_ntchg:s0
 
 # Power
-/vendor/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr                      u:object_r:hal_power_default_exec:s0
-
-# ZRAM
-/dev/block/zram0                      u:object_r:zramswap:s0
-/sys/block/zram0/disksize                      u:object_r:zramswap:s0
+/vendor/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr                       u:object_r:hal_power_default_exec:s0

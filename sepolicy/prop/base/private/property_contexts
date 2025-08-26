@@ -151,7 +151,7 @@ vendor.bluetooth.         u:object_r:system_mtk_bluetooth_prop:s0
 vendor.bluetooth.a2dp_over_mhdt.supported u:object_r:system_mtk_a2dp_over_mhdt_prop:s0
 
 # leaudio offload
-#ro.bluetooth.leaudio_offload.supported     u:object_r:bluetooth_leaudio_offload_prop:s0 exact bool
+# ro.bluetooth.leaudio_offload.supported     u:object_r:bluetooth_leaudio_offload_prop:s0 exact bool
 
 # tel log property
 persist.vendor.log.tel_dbg u:object_r:system_mtk_em_tel_log_prop:s0
