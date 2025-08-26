@@ -132,8 +132,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2025-02-08
 
 # SELinux
--include device/nothing/tetris/sepolicy/prop/SEPolicy.mk
 -include device/nothing/tetris/sepolicy/mtk/SEPolicy.mk
+-include device/nothing/tetris/sepolicy/prop/SEPolicy.mk
+
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
