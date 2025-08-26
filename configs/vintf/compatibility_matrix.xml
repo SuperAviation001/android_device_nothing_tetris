@@ -206,7 +206,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    </hal>
 	<hal format="aidl" optional="true">
         <name>android.hardware.biometrics.fingerprint</name>
         <version>3</version>
