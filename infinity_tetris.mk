@@ -30,13 +30,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFingerprint=Nothing/Tetris/Tetris:15/AP3A.240905.015.A2/2506092111:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
 
-# OTA
-TARGET_INCLUDE_UPDATER := true
-PRODUCT_PACKAGES += \
-    Updater
-
 # Infinity-X Specific Flags
-INFINITY_BUILD_TYPE := UNOFFICIAL
+INFINITY_BUILD_TYPE := OFFICIAL
 INFINITY_MAINTAINER := "schoosh"
 TARGET_SUPPORTS_BLUR := true
 TARGET_HAS_UDFPS := true
