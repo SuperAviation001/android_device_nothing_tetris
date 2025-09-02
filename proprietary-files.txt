@@ -2503,6 +2503,7 @@ vendor/lib64/vendor.mediatek.hardware.pq_aidl-V4-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V7-ndk.so
 
 # Power
+<<<<<<< HEAD
 vendor/bin/hw/vendor.mediatek.hardware.mtkpower-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.mtkpower_applist-service.mediatek
 vendor/etc/command.csv
