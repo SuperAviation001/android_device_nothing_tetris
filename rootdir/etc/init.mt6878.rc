@@ -1310,7 +1310,7 @@ on property:sys.touch.edge_mode.enable=*
     write /proc/touchpanel/edge_mode ${sys.touch.edge_mode.enable}
 on property:sys.touch.fod_en.enable=*
     write /proc/touchpanel/fod_mode ${sys.touch.fod_en.enable}
-on property:persist.sys.tetris.dt2w=*
-    write /proc/touchpanel/gesture_mode ${persist.sys.tetris.dt2w}
+on property:vendor.tetris.dt2w=*
+    write /proc/touchpanel/gesture_mode ${vendor.tetris.dt2w}
 on property:sys.touch.pocket_mode=*
     write /proc/touchpanel/pocket_mode ${sys.touch.pocket_mode}

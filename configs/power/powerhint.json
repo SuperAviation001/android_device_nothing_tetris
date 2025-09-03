@@ -191,6 +191,16 @@
                 "[34] freq:  286000, volt: 53125, vsram: 75000, posdiv: 3, margin: 7500, power: 152",
                 "[35] freq:  265000, volt: 52500, vsram: 75000, posdiv: 3, margin: 7500, power: 140"
             ]
+        },
+        {
+            "Name": "DoubleTapToWakeEnable",
+            "Path": "vendor.tetris.dt2w",
+            "Values": [
+                "0",
+                "1"
+            ],
+            "Type": "Property",
+            "DefaultIndex": 0
         }
     ],
     "Actions": [
@@ -361,6 +371,12 @@
             "Node": "GpuPwrLevel",
             "Duration": 0,
             "Value": "-1"
+        },
+        {
+            "PowerHint": "DOUBLE_TAP_TO_WAKE",
+            "Node": "DoubleTapToWakeEnable",
+            "Duration": 0,
+            "Value": "1"
         }
     ]
 }

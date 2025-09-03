@@ -2,3 +2,6 @@
 persist.vendor.overlay.fp_model    u:object_r:vendor_fp_prop:s0
 persist.vendor.overlay.fp_algo     u:object_r:vendor_fp_prop:s0
 persist.vendor.overlay.fp_serial   u:object_r:vendor_fp_prop:s0
+
+# DT2W
+vendor.tetris.dt2w   u:object_r:vendor_power_prop:s0
