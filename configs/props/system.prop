@@ -41,6 +41,7 @@ persist.vendor.mdlog.flush_log_ratio=72340194296137244
 ro.product.property_source_order=odm,vendor,product,system
 
 # Performance
+persist.sys.phh.mtk_ged_kpi=1
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_fast_start_win=1
 ro.mtk_perf_response_time=1
