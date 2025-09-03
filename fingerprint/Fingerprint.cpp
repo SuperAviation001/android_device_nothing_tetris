@@ -27,13 +27,37 @@ namespace {
 constexpr int SENSOR_ID = 0;
 constexpr common::SensorStrength SENSOR_STRENGTH = common::SensorStrength::STRONG;
 constexpr int MAX_ENROLLMENTS_PER_USER = 5;
-constexpr char HW_COMPONENT_ID[] = "fingerprintSensor";
-constexpr char HW_VERSION[] = "vendor/model/revision";
-constexpr char FW_VERSION[] = "1.01";
-constexpr char SERIAL_NUMBER[] = "00000001";
-constexpr char SW_COMPONENT_ID[] = "matchingAlgorithm";
-constexpr char SW_VERSION[] = "vendor/version/revision";
+constexpr const char* HW_COMPONENT_ID = "fingerprintSensor";
+constexpr const char* HW_VERSION = "vendor/model/revision";
+constexpr const char* FW_VERSION = "1.01";
+constexpr const char* SERIAL_NUMBER = "00000001";
+constexpr const char* SW_COMPONENT_ID = "matchingAlgorithm";
+constexpr const char* SW_VERSION = "vendor/version/revision";
 }  // namespace
+
+enum sensorProp {
+    PROP_REAR,
+    PROP_UDFPS,
+    PROP_UDFPS_OPTICAL,
+    PROP_SIDE,
+    PROP_HOME,
+    PROP_UNKNOWN,
+};
+
+enum sensorProp parse_prop(const std::string& sensorTypeProp) {
+    if (sensorTypeProp == "" || sensorTypeProp == "default" || sensorTypeProp == "rear")
+    return PROP_REAR;
+    if (sensorTypeProp == "udfps")
+    return PROP_UDFPS;
+    if (sensorTypeProp == "udfps_optical")
+    return PROP_UDFPS_OPTICAL;
+    if (sensorTypeProp == "side")
+    return PROP_SIDE;
+    if (sensorTypeProp == "home")
+    return PROP_HOME;
+    
+    return PROP_UNKNOWN;
+}
 
 static Fingerprint* sInstance;
 
@@ -50,18 +74,31 @@ Fingerprint::Fingerprint()
     }
 
     std::string sensorTypeProp = FingerprintHalProperties::type().value_or("");
-    if (sensorTypeProp == "" || sensorTypeProp == "default" || sensorTypeProp == "rear")
-        mSensorType = FingerprintSensorType::REAR;
-    else if (sensorTypeProp == "udfps")
-        mSensorType = FingerprintSensorType::UNDER_DISPLAY_ULTRASONIC;
-    else if (sensorTypeProp == "udfps_optical")
-        mSensorType = FingerprintSensorType::UNDER_DISPLAY_OPTICAL;
-    else if (sensorTypeProp == "side")
-        mSensorType = FingerprintSensorType::POWER_BUTTON;
-    else if (sensorTypeProp == "home")
-        mSensorType = FingerprintSensorType::HOME_BUTTON;
-    else
-        mSensorType = FingerprintSensorType::UNKNOWN;
+
+    enum sensorProp c = parse_prop(sensorTypeProp);
+    
+        switch (c) {
+            case PROP_REAR:
+                mSensorType = FingerprintSensorType::REAR;
+                break;
+            case PROP_UDFPS:
+                mSensorType = FingerprintSensorType::UNDER_DISPLAY_ULTRASONIC;
+                break;
+            case PROP_UDFPS_OPTICAL:
+                mSensorType = FingerprintSensorType::UNDER_DISPLAY_OPTICAL;
+                break;
+            case PROP_SIDE:
+                mSensorType = FingerprintSensorType::POWER_BUTTON;
+                break;
+            case PROP_HOME:
+                mSensorType = FingerprintSensorType::HOME_BUTTON;
+                break;
+            case PROP_UNKNOWN:
+            default:
+                ALOGE("Failed to return sensor type");
+                mSensorType = FingerprintSensorType::UNKNOWN;
+                break;
+        }
 
     mMaxEnrollmentsPerUser =
             FingerprintHalProperties::max_enrollments_per_user().value_or(MAX_ENROLLMENTS_PER_USER);
