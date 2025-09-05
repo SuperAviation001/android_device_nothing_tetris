@@ -26,33 +26,32 @@
     <!-- Array of brightness-alpha lut for framework dimming -->
     <string-array name="config_udfpsDimmingBrightnessAlphaArray" translatable="false">
         <!-- Low curve -->
-        <item>0,192</item>
-        <item>8,187</item>
-        <item>28,183</item>
-        <item>41,178</item>
-        <item>55,174</item>
-        <item>68,170</item>
-        <item>88,165</item>
+	<item>0,250</item>
+        <item>8,249</item>
+        <item>28,242</item>
+        <item>41,236</item>
+        <item>68,231</item>
+        <item>88,227</item>
         <!-- Mid curve -->
-        <item>110,185</item>
-        <item>124,180</item>
-        <item>137,175</item>
-        <item>152,170</item>
-        <item>165,165</item>
-        <item>179,160</item>
-        <item>192,155</item>
-        <item>206,150</item>
-        <item>219,145</item>
-        <item>234,140</item>
-        <item>246,135</item>
+        <item>110,220</item>  
+        <item>124,218</item>  
+        <item>137,212</item>  
+        <item>152,208</item>  
+        <item>165,204</item>  
+        <item>179,199</item>  
+        <item>192,194</item>  
+        <item>206,190</item>  
+        <item>219,185</item>  
+        <item>234,181</item>  
+        <item>246,175</item>  
         <!-- High curve -->
-        <item>261,130</item>
-        <item>275,125</item>
-        <item>496,115</item>
-        <item>703,105</item>
-        <item>1667,95</item>
-        <item>2177,85</item>
-        <item>2452,75</item>
+        <item>261,173</item>  
+        <item>275,171</item>  
+        <item>496,166</item>  
+        <item>703,160</item>  
+        <item>1667,153</item> 
+        <item>2177,141</item> 
+        <item>2452,131</item> 
     </string-array>
 
     <!-- Color of the UDFPS Pressed view -->
