@@ -4,3 +4,4 @@ type aac_richtap_dev_device, dev_type;
 type fingerprint_data_file, data_file_type, file_type;
 type vendor_sysfs_graphics, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_fod, fs_type, sysfs_type, mlstrustedobject;
+type vendor_proc_charger, fs_type, proc_type;

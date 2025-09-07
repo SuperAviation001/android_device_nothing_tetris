@@ -3,6 +3,10 @@ genfscon proc /haptic/lra_resistance  u:object_r:proc_vibrator:s0
 genfscon proc /haptic/gpp             u:object_r:proc_vibrator:s0
 genfscon proc /haptic/f0              u:object_r:proc_vibrator:s0
 
+# Charger
+genfscon proc /charger                                                         u:object_r:vendor_proc_charger:s0
+genfscon sysfs /devices/platform/nt_chg/power_supply                           u:object_r:sysfs_power_supply:s0
+
 # Fingerprint
 genfscon proc  /touchpanel                                                               u:object_r:proc_touchpanel:s0
 genfscon sysfs /devices/platform/soc/11013000.spi3/spi_master/spi3/spi3.0/fts_fod_mode   u:object_r:vendor_sysfs_graphics:s0
