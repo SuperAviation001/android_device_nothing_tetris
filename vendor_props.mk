@@ -728,3 +728,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.fingerprint.type=udfps_optical \
     ro.vendor.fingerprint.sensor_location=540|2109|93
+
+# Saturation
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.sf.color_saturation=0.73
