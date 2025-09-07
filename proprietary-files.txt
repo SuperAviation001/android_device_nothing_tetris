@@ -1045,7 +1045,7 @@ vendor/lib64/mt6878/libmtkcam_salmgr.so
 vendor/lib64/mt6878/libmtkcam_sensorcontrol.so
 vendor/lib64/mt6878/libmtkcam_simager.so
 vendor/lib64/mt6878/libmtkcam_smvr.so
-vendor/lib64/mt6878/libmtkcam_stdutils.so;NOCHECK
+vendor/lib64/mt6878/libmtkcam_stdutils.so
 vendor/lib64/mt6878/libmtkcam_streamutils.so
 vendor/lib64/mt6878/libmtkcam_synchelper.so
 vendor/lib64/mt6878/libmtkcam_sysutils.so
@@ -2333,7 +2333,7 @@ vendor/lib64/libvcodecdrv_header_stub.so
 vendor/lib64/mt6878/libmtk_drvb.so
 
 # Media (C2)
-vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b;NOCHECK
+vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
 vendor/etc/VideoLog_dynamic.xml
 vendor/etc/init/android.hardware.media.c2@1.2-mediatek-64b.rc
 vendor/etc/mtk_platform_codecs_config.xml
