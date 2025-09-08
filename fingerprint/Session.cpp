@@ -20,13 +20,8 @@ namespace hardware {
 namespace biometrics {
 namespace fingerprint {
 
-#define FOD_HBM_PATH "/sys/devices/platform/soc/1401a000.dsi0/hbm"
 #define FOD_UI_STATUS "/sys/panel_feature/ui_status"
 #define FOD_HBM_DELAY 60
-
-void setFodHbm(bool status) {
-    ::android::base::WriteStringToFile(status ? "1" : "0", FOD_HBM_PATH);
-}
 
 void setFodStatus(bool status) {
     ::android::base::WriteStringToFile(status ? "1" : "0", FOD_UI_STATUS);
@@ -58,7 +53,6 @@ ndk::ScopedAStatus Session::generateChallenge() {
 
 ndk::ScopedAStatus Session::revokeChallenge(int64_t challenge) {
     ALOGI("revokeChallenge: %ld", challenge);
-    setFodHbm(false);
     mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
     mDevice->revokeChallenge(mDevice, challenge);
@@ -164,7 +158,6 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
     ALOGI("onPointerDown: x=%d, y=%d, minor=%f, major=%f", x, y, minor, major);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
-    setFodHbm(true);
     mDevice->goodix_extCmd(mDevice, 1, 1);
     setFodStatus(true);
 
@@ -177,7 +170,6 @@ ndk::ScopedAStatus Session::onPointerUp(int32_t /*pointerId*/) {
     ALOGI("onPointerUp");
 
     mDevice->goodix_extCmd(mDevice, 0, 0);
-    setFodHbm(false);
     setFodStatus(false);
 
     return ndk::ScopedAStatus::ok();
@@ -232,7 +224,6 @@ ndk::ScopedAStatus Session::setIgnoreDisplayTouches(bool /*shouldIgnore*/) {
 ndk::ScopedAStatus Session::cancel() {
     ALOGI("cancel");
 
-    setFodHbm(false);
     mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
 
@@ -249,7 +240,6 @@ ndk::ScopedAStatus Session::cancel() {
 
 ndk::ScopedAStatus Session::close() {
     ALOGI("close");
-    setFodHbm(false);
     mDevice->goodix_extCmd(mDevice, 0, 0);
     setFodStatus(false);
     mClosed = true;
@@ -330,7 +320,6 @@ bool Session::checkSensorLockout() {
     LockoutMode lockoutMode = mLockoutTracker.getMode();
 
     if (lockoutMode != LockoutMode::NONE) {
-	setFodHbm(false);
 	mDevice->goodix_extCmd(mDevice, 0, 0);
         setFodStatus(false);
     }
@@ -402,7 +391,6 @@ void Session::notify(const fingerprint_msg_t* msg) {
             mCb->onEnrollmentProgress(msg->data.enroll.finger.fid,
                                       msg->data.enroll.samples_remaining);
             if (msg->data.enroll.samples_remaining == 0) {
-                setFodHbm(false);
                 mDevice->goodix_extCmd(mDevice, 0, 0);
                 setFodStatus(false);
             }
@@ -424,7 +412,6 @@ void Session::notify(const fingerprint_msg_t* msg) {
 
                 mCb->onAuthenticationSucceeded(msg->data.authenticated.finger.fid, authToken);
                 mLockoutTracker.reset(true);
-                setFodHbm(false);
                 mDevice->goodix_extCmd(mDevice, 0, 0);
                 setFodStatus(false);
             } else {
