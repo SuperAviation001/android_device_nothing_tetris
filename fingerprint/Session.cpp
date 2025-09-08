@@ -157,7 +157,6 @@ ndk::ScopedAStatus Session::onPointerDown(int32_t /*pointerId*/, int32_t x, int3
                                           float major) {
     ALOGI("onPointerDown: x=%d, y=%d, minor=%f, major=%f", x, y, minor, major);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(FOD_HBM_DELAY));
     mDevice->goodix_extCmd(mDevice, 1, 1);
     setFodStatus(true);
 
