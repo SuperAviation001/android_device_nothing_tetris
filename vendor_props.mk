@@ -21,6 +21,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
+    bluetooth.device_id.vendor_id=0x0046 \
     bluetooth.profile.sap.server.enabled=true \
     bluetooth.profile.bap.broadcast.source.enabled=false \
     bluetooth.profile.bap.broadcast.assist.enabled=false \
