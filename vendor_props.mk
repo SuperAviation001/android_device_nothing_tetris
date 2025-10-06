@@ -178,10 +178,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.arm.gralloc.shared_access_usage_flags=0x10000000 \
     ro.vendor.arm.gralloc.shared_access_usage_mask=0x50000000
 
-# FRP
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/by-name/frp
-
 # FS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.incremental.enable=yes \
