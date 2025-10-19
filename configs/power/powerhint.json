@@ -301,6 +301,11 @@
             "Value": "0"
         },
         {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Type": "EndHint",
+            "Value": "INTERACTION"
+        },
+        {
             "PowerHint": "INTERACTIVE",
             "Node": "CPULittleClusterMinFreq",
             "Duration": 2000,
