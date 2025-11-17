@@ -149,7 +149,8 @@ PRODUCT_PACKAGES += \
     libprocessgroup.vendor \
     libhwc2on1adapter \
     libhwc2onfbadapter \
-    libdrm.vendor
+    libdrm.vendor \
+    libui-v34
 
 # Graphics shims
 PRODUCT_PACKAGES += \

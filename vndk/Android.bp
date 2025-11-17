@@ -1,0 +1,18 @@
+cc_prebuilt_library_shared {
+    name: "libui-v34",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["v34/arm/libui-v34.so"],
+        },
+        android_arm64: {
+            srcs: ["v34/arm64/libui-v34.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    installable: true,
+}
