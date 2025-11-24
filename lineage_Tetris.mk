@@ -25,6 +25,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-nothing
 DEVICE_CODENAME := Tetris
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="Tetris 15 AP3A.240905.015.A2 2506092111 release-keys" \
-    BuildFingerprint=Nothing/Tetris/Tetris:15/AP3A.240905.015.A2/2506092111:user/release-keys \
+    BuildDesc="sys_mssi_64_64only_ww_armv82-user 15 AP3A.240905.015.A2 2509251843 release-keys" \
+    BuildFingerprint=Nothing/Tetris/Tetris:15/AP3A.240905.015.A2/2509251843:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
