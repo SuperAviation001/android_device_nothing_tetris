@@ -286,6 +286,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
 # Fingerprint
+$(call soong_config_set,surfaceflinger,has_mtk_udfps,true)
+
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.nothing
 
