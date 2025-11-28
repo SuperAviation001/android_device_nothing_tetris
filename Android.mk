@@ -6,6 +6,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),tetris)
+ifeq ($(TARGET_DEVICE),Tetris)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif

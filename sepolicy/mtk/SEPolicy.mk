@@ -1,5 +1,5 @@
 # Board specific SELinux policy variable definitions
-MTK_SEPOLICY_PATH := device/nothing/tetris/sepolicy/mtk
+MTK_SEPOLICY_PATH := device/nothing/Tetris/sepolicy/mtk
 
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 

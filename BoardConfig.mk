@@ -7,7 +7,7 @@
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 
-DEVICE_PATH := device/nothing/tetris
+DEVICE_PATH := device/nothing/Tetris
 
 # A/B
 AB_OTA_UPDATER := true
@@ -68,7 +68,7 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
-include device/nothing/tetris-kernel/BoardConfigKernel.mk
+include device/nothing/Tetris-kernel/BoardConfigKernel.mk
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
@@ -132,8 +132,8 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2025-02-08
 
 # SELinux
--include device/nothing/tetris/sepolicy/mtk/SEPolicy.mk
--include device/nothing/tetris/sepolicy/prop/SEPolicy.mk
+-include device/nothing/Tetris/sepolicy/mtk/SEPolicy.mk
+-include device/nothing/Tetris/sepolicy/prop/SEPolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
@@ -193,4 +193,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # Inherit the proprietary files
-include vendor/nothing/tetris/BoardConfigVendor.mk
+include vendor/nothing/Tetris/BoardConfigVendor.mk
