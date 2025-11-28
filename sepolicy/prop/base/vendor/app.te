@@ -64,7 +64,3 @@ get_prop(appdomain, vendor_mtk_magt_app_support_prop)
 # Purpose :allow appdomain to get vendor_mtk_soc_prop
 get_prop(appdomain, vendor_mtk_soc_prop)
 
-# Data: 2023/03/22
-# Purpose :allow appdomain to use mtk safe aidl
-allow { appdomain -isolated_app_all } mtk_safe_service_manager_type:service_manager find;
-binder_call(appdomain, mtk_safe_service_manager_type)

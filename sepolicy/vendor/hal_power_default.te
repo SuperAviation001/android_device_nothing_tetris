@@ -24,3 +24,5 @@ allow hal_power_default sysfs_dvfsrc_devfreq:file rw_file_perms;
 # Sensors
 r_dir_file(hal_power_default, sysfs_sensor)
 allow hal_power_default sysfs_sensor:file rw_file_perms;
+
+rw_dir_file(init, proc_ged)
