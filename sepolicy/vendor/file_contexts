@@ -1,14 +1,15 @@
 # Fingerprint
-/data/vendor/goodix/gf_data(/.*)?    u:object_r:fingerprint_data_file:s0
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.nothing				u:object_r:hal_fingerprint_default_exec:s0
-/mnt/vendor/persist/goodix(/.*)?   u:object_r:fingerprint_data_file:s0
-/sys/panel_feature(/.*)?    u:object_r:sysfs_fod:s0
-/sys/devices/platform/soc/1401a000.dsi0/hbm   u:object_r:sysfs_fod:s0
-/dev/goodix_fp     u:object_r:fingerprint_device:s0
+/data/vendor/goodix/gf_data(/.*)?                                                       u:object_r:fingerprint_data_file:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.nothing		u:object_r:hal_fingerprint_default_exec:s0
+/mnt/vendor/persist/goodix(/.*)?                                                        u:object_r:fingerprint_data_file:s0
+/sys/panel_feature(/.*)?								u:object_r:sysfs_fod:s0
+/sys/devices/platform/soc/1401a000.dsi0/						u:object_r:sysfs_fod:s0
+/dev/goodix_fp                                                                          u:object_r:fingerprint_device:s0
 
 # Richtap
 /dev/aac_richtap                                                                        u:object_r:aac_richtap_dev_device:s0
-/vendor/bin/hw/android.hardware.vibrator.service.tetris                                 u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/android\.hardware\.vibrator\.service\.tetris-richtap                     u:object_r:hal_vibrator_default_exec:s0
+
 
 # Charger
 /sys/devices/platform/nt_chg/power_supply/nt-chg/type(/.*)?                             u:object_r:sysfs_ntchg:s0

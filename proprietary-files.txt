@@ -2710,11 +2710,7 @@ vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
 vendor/lib64/hw/vibrator.default.so
 vendor/lib64/libvibratorutils.so
 vendor/lib64/vendor.aac.hardware.richtap.vibrator-V2-ndk.so
-
-# Richtap
 -vendor/lib64/libaacvibrator.so
-
-# Richtap config
 vendor/etc/aac_richtap.config
 
 # Wi-Fi
