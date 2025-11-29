@@ -65,10 +65,3 @@ ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0
 wifi.tethering.interface=ap0
 wifi.direct.interface=p2p0
-
-# Infinity
-ro.infinity.soc=MediaTek Dimensity 7300 (mt6878)
-ro.infinity.battery=5000 mAh
-ro.infinity.display=1080x2400, 120Hz, AMOLED
-ro.infinity.camera=50MP + 16MP
-ro.product.marketname=CMF Phone (1)
