@@ -107,6 +107,7 @@ PRODUCT_PACKAGES += \
     libaudiofoundation.vendor \
     libnbaio_mono \
     libtinycompress \
+    libtinyalsa.vendor \
     libxml2.vendor
 
 PRODUCT_COPY_FILES += \
