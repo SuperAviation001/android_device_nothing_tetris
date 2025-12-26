@@ -1388,8 +1388,8 @@ vendor/etc/gralloc/dpu.xml
 vendor/etc/gralloc/dpu_aeu.xml
 vendor/etc/gralloc/gpu.xml
 vendor/etc/gralloc/vpu.xml
-vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc|25c9af53115b69dc6e24e20442b726dc6eb172a2
-vendor/etc/init/android.hardware.graphics.composer@3.2-service.rc|e4f5059e4a67c8670a3d6692f0116678464b1fd6
+vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
+vendor/etc/init/android.hardware.graphics.composer@3.2-service.rc
 vendor/etc/init/arm.mali.platform-mediatek.rc
 vendor/etc/init/gpuserv-default.rc
 vendor/etc/meow.cfg
