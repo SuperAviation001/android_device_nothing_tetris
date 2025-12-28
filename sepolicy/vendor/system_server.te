@@ -1,0 +1,2 @@
+binder_call(system_server, zygote)
+binder_call(system_server, system_server)

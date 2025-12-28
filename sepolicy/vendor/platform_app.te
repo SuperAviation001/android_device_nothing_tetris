@@ -1,2 +1,5 @@
 allow platform_app vendor_sysfs_graphics:file rw_file_perms;
 allow platform_app sysfs_fod:file rw_file_perms;
+
+binder_call(platform_app, platform_app)
+binder_call(platform_app, zygote)

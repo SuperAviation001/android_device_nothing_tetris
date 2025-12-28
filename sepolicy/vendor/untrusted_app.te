@@ -1,0 +1,3 @@
+dontaudit untrusted_app ashmem_device:chr_file open;
+
+allow untrusted_app mtk_hal_mali_platform_default_service:service_manager find;

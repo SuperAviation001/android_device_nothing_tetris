@@ -1,3 +1,6 @@
+allow init proc:file { read open getattr };
+allow init init:netlink_kobject_uevent_socket { bind create getopt read setopt };
+
 rw_dir_file(init, proc_ged)
 rw_dir_file(init, sysfs_ged)
 rw_dir_file(init, sysfs_gpu)

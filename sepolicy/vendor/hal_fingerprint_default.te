@@ -3,6 +3,7 @@ allow hal_fingerprint_default fingerprint_data_file:dir create_dir_perms;
 allow hal_fingerprint_default proc_touchpanel:file rw_file_perms;
 allow hal_fingerprint_default proc_touchpanel:dir r_dir_perms;
 allow hal_fingerprint_default boot_status_prop:file { read open getattr watch watch_reads map };
+binder_call(hal_fingerprint_default, mtk_hal_power)
 
 allow hal_fingerprint_default {
   fingerprint_device

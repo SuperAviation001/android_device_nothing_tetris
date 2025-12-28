@@ -25,6 +25,8 @@ rw_dir_file(hal_power_default, sysfs_gpu)
 
 allow mtk_hal_power vendor_power_prop:file { open read map watch watch_reads getattr };
 
+allow hal_power_default fwk_stats_service:service_manager find;
+
 # Allow libperfmgr to control cpu frequencies
 allow hal_power_default proc_cpufreq:dir r_dir_perms;
 allow hal_power_default proc_cpufreq:file rw_file_perms;
