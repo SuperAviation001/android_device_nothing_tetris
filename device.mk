@@ -419,9 +419,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator.service.tetris-richtap
 
-# Wifi
-$(call soong_config_set,wpa_supplicant_8,board_wlan_mediatek_stability,true)
-
+# Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.tetheroffload-V1-ndk.vendor \
     android.hardware.wifi-V1-ndk.vendor \
