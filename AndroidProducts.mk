@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/custom_Tetris.mk
+    $(LOCAL_DIR)/cherta_Tetris.mk

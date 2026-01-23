@@ -8,13 +8,13 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common pixelOS stuff.
-$(call inherit-product, vendor/custom/config/common_full_phone.mk)
+# Inherit some common CHerta stuff.
+$(call inherit-product, vendor/cherta/config/common_full_phone.mk)
 
 # Inherit from tetris device
 $(call inherit-product, device/nothing/Tetris/device.mk)
 
-PRODUCT_NAME := custom_Tetris
+PRODUCT_NAME := cherta_Tetris
 PRODUCT_DEVICE := Tetris
 PRODUCT_BRAND := Nothing
 PRODUCT_MANUFACTURER := Nothing
