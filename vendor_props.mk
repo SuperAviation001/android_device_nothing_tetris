@@ -198,6 +198,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hwc.min.duration=2000000 \
     debug.sf.late.app.duration=20000000 \
     debug.sf.late.sf.duration=15600000 \
+    debug.sf.frame_rate_multiple_threshold=120 \
     debug.sf.set_binder_thread_rt=1 \
     debug.sf.use_phase_offsets_as_durations=1 \
     debug.stagefright.c2inputsurface=-1 \
