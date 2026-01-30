@@ -392,7 +392,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator.service.tetris
+    android.hardware.vibrator.service.tetris-richtap
 
 # Wifi
 $(call soong_config_set,wpa_supplicant_8,board_wlan_mediatek_stability,true)

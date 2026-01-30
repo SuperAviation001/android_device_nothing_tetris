@@ -17,6 +17,15 @@
 #define RICHTAP_MEDIUM_STRENGTH 97
 #define RICHTAP_STRONG_STRENGTH 100
 
+enum vibrationMode {
+    MODE_NONE,
+    MODE_TIMEOUT,
+    MODE_PREBAKED,
+    MODE_STREAM,
+};
+
+static vibrationMode sLastMode = MODE_NONE;
+
 namespace aidl {
 namespace android {
 namespace hardware {
@@ -44,7 +53,12 @@ ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
 }
 
 ndk::ScopedAStatus Vibrator::off() {
-    int32_t ret = aac_vibra_off();
+    bool ret = aac_vibra_looper_stopPerformHe();
+
+    if (ret)
+        ALOGW("No HE effects to stop!");
+
+    ret = aac_vibra_off();
     if (ret) {
         ALOGE("AAC off failed: %d\n", ret);
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
@@ -68,45 +82,22 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
         }).detach();
     }
 
+    sLastMode = MODE_TIMEOUT;
     return ndk::ScopedAStatus::ok();
 }
-
-#ifdef USE_RICHTAP_EFFECT_REMAP
-std::optional<uint32_t> mapEffectToPrebakedId(Effect effect) {
-    switch (effect) {
-        case Effect::CLICK:
-        case Effect::DOUBLE_CLICK:
-        case Effect::TICK:
-            return static_cast<uint32_t>(effect) + 0x1000;
-
-        case Effect::THUD:
-        case Effect::POP:
-        case Effect::HEAVY_CLICK:
-            return static_cast<uint32_t>(effect) + 0x3002;
-
-        default:
-            return std::nullopt;
-    }
-}
-#endif
 
 ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                                      const std::shared_ptr<IVibratorCallback>& callback,
                                      int32_t* _aidl_return) {
+    int32_t effectId;
     int32_t strength;
-
-    if (effect == Effect::TICK || effect == Effect::CLICK)
-         effect = Effect::THUD;
-
-    if (effect < Effect::CLICK || effect > Effect::HEAVY_CLICK)
-        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 
     switch (es) {
         case EffectStrength::LIGHT:
-            strength = RICHTAP_STRONG_STRENGTH;
+            strength = RICHTAP_LIGHT_STRENGTH;
             break;
         case EffectStrength::MEDIUM:
-            strength = RICHTAP_STRONG_STRENGTH;
+            strength = RICHTAP_MEDIUM_STRENGTH;
             break;
         case EffectStrength::STRONG:
             strength = RICHTAP_STRONG_STRENGTH;
@@ -115,20 +106,28 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
             return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
     }
 
-#ifdef USE_RICHTAP_EFFECT_REMAP
-    auto mappedEffect = mapEffectToPrebakedId(effect);
-    if (!mappedEffect.has_value()) {
-        ALOGE("Unsupported effect: %d", static_cast<int>(effect));
-        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
+    switch (effect) {
+        case Effect::CLICK:
+        case Effect::DOUBLE_CLICK:
+        case Effect::TICK:
+        case Effect::THUD:
+        case Effect::POP:
+        case Effect::HEAVY_CLICK:
+            effectId = 12295;
+            break;
+        case Effect::TEXTURE_TICK:
+            effectId = 12296;
+            break;
+        default:
+            return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
     }
 
-    ALOGD("Performing effect_id=0x%x (mapped from %d), strength=%d",
-          mappedEffect.value(), static_cast<int>(effect), strength);
+    if (sLastMode == MODE_STREAM)
+        aac_vibra_setAmplitude(0xFF);
 
-    int32_t ret = aac_vibra_looper_prebaked_effect(mappedEffect.value(), strength);
-#else
-    int32_t ret = aac_vibra_looper_prebaked_effect(static_cast<uint32_t>(effect), strength);
-#endif
+    aac_vibra_looper_stopPerformHe();
+
+    int32_t ret = aac_vibra_looper_prebaked_effect(effectId, strength);
     if (ret < 0) {
         ALOGE("AAC perform failed: %d\n", ret);
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
@@ -136,19 +135,25 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
 
     if (callback != nullptr) {
         std::thread([=] {
-            usleep(ret * 1000);
+            usleep((ret + 30) * 1000);
+            if (effect == Effect::DOUBLE_CLICK) {
+                usleep((ret + 20) * 1000);
+                aac_vibra_looper_prebaked_effect(effectId, strength);
+            }
             callback->onComplete();
         }).detach();
     }
 
     *_aidl_return = ret;
 
+    sLastMode = MODE_PREBAKED;
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Vibrator::getSupportedEffects(std::vector<Effect>* _aidl_return) {
     *_aidl_return = {Effect::CLICK, Effect::DOUBLE_CLICK, Effect::TICK,
-                     Effect::THUD,  Effect::POP,          Effect::HEAVY_CLICK};
+                     Effect::THUD,  Effect::POP,          Effect::HEAVY_CLICK,
+                     Effect::TEXTURE_TICK};
 
     return ndk::ScopedAStatus::ok();
 }
@@ -162,6 +167,7 @@ ndk::ScopedAStatus Vibrator::setAmplitude(float amplitude) {
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
     }
 
+    sLastMode = MODE_STREAM;
     return ndk::ScopedAStatus::ok();
 }
 
