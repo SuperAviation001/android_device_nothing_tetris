@@ -72,6 +72,9 @@
     <!-- boolean indicating whether the Easy Connect (DPP) AKM is supported -->
     <bool name="config_wifiDppAkmSupported">true</bool>
 
+    <!-- Indicates that bridged AP mode is supported on this device -->
+    <bool translatable="false" name="config_wifiBridgedSoftApSupported">true</bool>
+
     <!-- Enable aggregation of Wifi link layer radio stats from all radios.
          Defaults to false will fetch radio stats only from Radio 0. This is to avoid
          incorrect behavior due to driver/firmware returning bogus radio stats from other radios.
