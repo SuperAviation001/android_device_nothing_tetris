@@ -373,6 +373,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
+    hardware/mediatek/wlan/wifi_hal \
     hardware/google/pixel \
     hardware/google/interfaces \
     $(LOCAL_PATH)
@@ -393,6 +394,8 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator.service.tetris
 
 # Wifi
+$(call soong_config_set,wpa_supplicant_8,board_wlan_mediatek_stability,true)
+
 PRODUCT_PACKAGES += \
     android.hardware.tetheroffload-V1-ndk.vendor \
     android.hardware.wifi-V1-ndk.vendor \
@@ -403,7 +406,6 @@ PRODUCT_PACKAGES += \
     hostapd \
     libkeystore-wifi-hidl \
     libkeystore-engine-wifi-hidl \
-    libwifi-hal-wrapper \
     libnetutils \
     libnetutils.vendor \
     wifi_legacy \
