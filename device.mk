@@ -73,6 +73,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     FrameworksResOverlayTetris \
+    NetworkStackResOverlayTetris \
     SettingsResTetris \
     SystemUIOverlayTetris \
     TelephonyOverlayTetris \
