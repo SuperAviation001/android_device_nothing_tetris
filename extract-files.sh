@@ -80,11 +80,9 @@ function blob_fixup() {
             echo "$(cat ${2}) input" > "${2}"
             ;;
         vendor/lib64/hw/hwcomposer.mtk_common.so)
-            sed -i "s/NTFingerprintDimLayer/SurfaceView[UdfpsCont/" "${2}" && \
-            ( "${PATCHELF}" --print-needed "${2}" | grep -q libprocessgroup_shim.so || \
+    	    ( "${PATCHELF}" --print-needed "${2}" | grep -q libprocessgroup_shim.so || \
               "${PATCHELF}" --add-needed libprocessgroup_shim.so "${2}" )
             ;;
-
     esac
 }
 
