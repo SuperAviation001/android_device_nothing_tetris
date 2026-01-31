@@ -4,11 +4,11 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.infinity.updater.tetris"
+    package="net.pixelos.ota.tetris"
     android:versionCode="1"
     android:versionName="1.0">
     <overlay
-      android:targetPackage="com.infinity.updater"
+      android:targetPackage="net.pixelos.ota"
       android:isStatic="true"
       android:priority="10" />
 </manifest>

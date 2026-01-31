@@ -16,6 +16,7 @@
 -->
 <resources>
     <bool name="config_prioritizeUpdateProcess">true</bool>
-    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/ProjectInfinity-X/official_devices/16/gapps/tetris.json</string>
-    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/ProjectInfinity-X/official_devices/16/changelog/tetris.txt</string>
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/pos-ota/sixteen/API/updater/tetris.json</string>
+    <string name="changelog_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/pos-ota/sixteen/API/updater/changelogs/tetris.md</string>
+    <string name="certified_prop_url" translatable="false">https://raw.githubusercontent.com/SuperAviation001/pos-ota/sixteen/API/updater/CertifiedProps/certified_build_props.apk</string>
 </resources>
