@@ -84,6 +84,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 
+# NTF
+PRODUCT_PACKAGES += \
+    nt-fwk.tetris
+
+PRODUCT_BOOT_JARS += \
+    nt-fwk.tetris
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.common-V1-ndk.vendor \
