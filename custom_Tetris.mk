@@ -15,7 +15,7 @@ $(call inherit-product, vendor/custom/config/common_full_phone.mk)
 $(call inherit-product, device/nothing/Tetris/device.mk)
 
 PRODUCT_NAME := custom_Tetris
-PRODUCT_DEVICE := tetris
+PRODUCT_DEVICE := Tetris
 PRODUCT_BRAND := Nothing
 PRODUCT_MANUFACTURER := Nothing
 PRODUCT_MODEL := A015
