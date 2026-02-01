@@ -29,7 +29,7 @@ vendor/lib64/hw/audio.primary.mediatek.so
 vendor/lib64/hw/audio.primary.mt6878.so
 vendor/lib64/hw/audio.r_submix.mediatek.so
 vendor/lib64/hw/audio.r_submix.mt6878.so
-vendor/lib64/libalsautils.so:vendor/lib64/libalsautils-stock.so
+vendor/lib64/libalsautils.so:vendor/lib64/libalsautils-stock.so;FIX_SONAME
 vendor/lib64/libaudio_param_parser-vnd.so
 vendor/lib64/libaudiocompensationfilter_vendor.so
 vendor/lib64/libaudiocompensationfilterc.so
@@ -1498,9 +1498,8 @@ system_ext/lib64/libimsma_rtp.so
 system_ext/lib64/libimsma_socketwrapper.so
 system_ext/lib64/libmtk_vt_service.so
 system_ext/lib64/libmtk_vt_wrapper.so
-system_ext/lib64/libmtk_vt_wrapper.so
 system_ext/lib64/libsignal.so
-system_ext/lib64/libsink.so
+system_ext/lib64/libsink.so:system_ext/lib64/libsink-mtk.so;FIX_SONAME
 system_ext/lib64/libsource.so
 system_ext/lib64/libvcodec_cap.so
 system_ext/lib64/libvcodec_capenc.so
@@ -2339,8 +2338,6 @@ vendor/lib64/libcodec2_vpp_AISR_plugin.so
 vendor/lib64/libcodec2_vpp_fa_plugin.so
 vendor/lib64/libcodec2_vpp_mi_plugin.so
 vendor/lib64/libcodec2_vpp_qt_plugin.so
-vendor/lib64/libcodec2_vpp_qt_plugin.so
-vendor/lib64/libcodec2_vpp_rs_plugin.so
 vendor/lib64/libcodec2_vpp_rs_plugin.so
 vendor/lib64/libformatter.so
 
@@ -2706,7 +2703,7 @@ vendor/lib64/libvibratorutils.so
 vendor/lib64/vendor.aac.hardware.richtap.vibrator-V2-ndk.so
 
 # Richtap
--vendor/lib64/libaacvibrator.so
+vendor/lib64/libaacvibrator.so
 
 # Richtap config
 vendor/etc/aac_richtap.config
@@ -2728,7 +2725,7 @@ vendor/firmware/connfem.cfg
 vendor/firmware/conninfra.cfg
 vendor/lib64/libconnfem.so
 vendor/lib64/libwapi.so
-vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so
+vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so;FIX_SONAME
 vendor/lib64/libwifical.so
 vendor/lib64/libwifinvram.so
 vendor/lib64/libwifinvramdata.so
