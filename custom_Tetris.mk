@@ -12,9 +12,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
 # Inherit from tetris device
-$(call inherit-product, device/nothing/tetris/device.mk)
+$(call inherit-product, device/nothing/Tetris/device.mk)
 
-PRODUCT_NAME := custom_tetris
+PRODUCT_NAME := custom_Tetris
 PRODUCT_DEVICE := tetris
 PRODUCT_BRAND := Nothing
 PRODUCT_MANUFACTURER := Nothing
@@ -22,7 +22,7 @@ PRODUCT_MODEL := A015
 
 PRODUCT_GMS_CLIENTID_BASE := android-nothing
 
-DEVICE_CODENAME := tetris
+DEVICE_CODENAME := Tetris
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="Tetris 15 AP3A.240905.015.A2 2506092111 release-keys" \

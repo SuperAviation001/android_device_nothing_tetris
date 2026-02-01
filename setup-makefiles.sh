@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
@@ -9,7 +8,7 @@
 
 set -e
 
-DEVICE=tetris
+DEVICE=Tetris
 VENDOR=nothing
 
 # Load extract_utils and do some sanity checks

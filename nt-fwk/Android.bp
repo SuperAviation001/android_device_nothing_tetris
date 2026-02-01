@@ -5,7 +5,7 @@
 //
 
 java_library {
-    name: "nt-fwk.tetris",
+    name: "nt-fwk.Tetris",
     installable: true,
 
     srcs: [
