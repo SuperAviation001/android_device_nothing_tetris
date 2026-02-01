@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from Tetris_V3.2-250609-2111_3.2
+# All unpinned blobs are extracted from Tetris_V3.2-250925-1843
 
 # AAL
 vendor/lib64/libaal_cust_func.so
