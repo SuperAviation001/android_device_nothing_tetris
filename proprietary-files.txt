@@ -486,7 +486,6 @@ vendor/lib64/libfeatureiodrv_mem.so
 vendor/lib64/libfeaturepolicy.so
 vendor/lib64/libfeaturepolicy_dbhandler.so
 vendor/lib64/libgpudataproducer.so
-vendor/lib64/libgpudataproducer.so
 vendor/lib64/libhdrvideo.so
 vendor/lib64/libheichal.so
 vendor/lib64/libhevce_sb.ca7.android.so
@@ -529,7 +528,6 @@ vendor/lib64/libmorpho_RawDeepDenoise.so
 vendor/lib64/libmorpho_video_stabilizer.so
 vendor/lib64/libmouth_mask_detection.arcsoft.so
 vendor/lib64/libmpbase.so
-vendor/lib64/libmsbc_mtk.so
 vendor/lib64/libmtk_bsg.so
 vendor/lib64/libmtk_drvb.so
 vendor/lib64/libmtkcam.atmseventmgr.so
@@ -689,7 +687,6 @@ vendor/lib64/libvainr_model.so
 vendor/lib64/libvega_face.so
 vendor/lib64/libvividhdr.so
 vendor/lib64/libwa_opticalzoomfactor.so
-vendor/lib64/libwa_opticalzoomfactor.so
 vendor/lib64/mt6878/gc16b3c_mipi_raw_IdxMgr.so
 vendor/lib64/mt6878/gc16b3c_mipi_raw_tuning.so
 vendor/lib64/mt6878/gc16b3ctxd_mipi_raw_IdxMgr.so
@@ -763,7 +760,6 @@ vendor/lib64/mt6878/libcam.hal3a.3aProvider.so
 vendor/lib64/mt6878/libcam.hal3a.afassitmgr.so
 vendor/lib64/mt6878/libcam.hal3a.cctsvr.v4l2.so
 vendor/lib64/mt6878/libcam.hal3a.ctrl.so
-vendor/lib64/mt6878/libcam.hal3a.ctrl.so
 vendor/lib64/mt6878/libcam.hal3a.custom.so
 vendor/lib64/mt6878/libcam.hal3a.guard.so
 vendor/lib64/mt6878/libcam.hal3a.ircutdrv.so
@@ -809,47 +805,27 @@ vendor/lib64/mt6878/libcam.utils.sensorprovider.so
 vendor/lib64/mt6878/libcam.vhdr.so
 vendor/lib64/mt6878/libcam_ipc_hal3a_client.so
 vendor/lib64/mt6878/libcam_ipc_nvbuf_client.so
-vendor/lib64/mt6878/libcam_ipc_nvbuf_client.so
 vendor/lib64/mt6878/libcam_nothing.so
 vendor/lib64/mt6878/libcamalgo.BSSwrapper.so
-vendor/lib64/mt6878/libcamalgo.BSSwrapper.so
 vendor/lib64/mt6878/libcamalgo.InlineCompGyro.so
-vendor/lib64/mt6878/libcamalgo.InlineCompGyro.so
-vendor/lib64/mt6878/libcamalgo.Mfbllwrapper.so
-vendor/lib64/mt6878/libcamalgo.Mfbllwrapper.so
 vendor/lib64/mt6878/libcamalgo.Mfbllwrapper.so
 vendor/lib64/mt6878/libcamalgo.aibc.so
 vendor/lib64/mt6878/libcamalgo.aibcwrapper.so
 vendor/lib64/mt6878/libcamalgo.ainr.so
 vendor/lib64/mt6878/libcamalgo.bss.so
-vendor/lib64/mt6878/libcamalgo.bss.so
-vendor/lib64/mt6878/libcamalgo.c3d.so
 vendor/lib64/mt6878/libcamalgo.c3d.so
 vendor/lib64/mt6878/libcamalgo.eis.so
-vendor/lib64/mt6878/libcamalgo.eis.so
-vendor/lib64/mt6878/libcamalgo.fsc.so
 vendor/lib64/mt6878/libcamalgo.fsc.so
 vendor/lib64/mt6878/libcamalgo.fus.so
-vendor/lib64/mt6878/libcamalgo.fus.so
-vendor/lib64/mt6878/libcamalgo.gyro.so
 vendor/lib64/mt6878/libcamalgo.gyro.so
 vendor/lib64/mt6878/libcamalgo.lmv.so
-vendor/lib64/mt6878/libcamalgo.lmv.so
-vendor/lib64/mt6878/libcamalgo.lsc.so
 vendor/lib64/mt6878/libcamalgo.lsc.so
 vendor/lib64/mt6878/libcamalgo.mcnr.so
-vendor/lib64/mt6878/libcamalgo.mcnr.so
-vendor/lib64/mt6878/libcamalgo.mfnr.so
 vendor/lib64/mt6878/libcamalgo.mfnr.so
 vendor/lib64/mt6878/libcamalgo.n3d.so
-vendor/lib64/mt6878/libcamalgo.n3d.so
-vendor/lib64/mt6878/libcamalgo.platform2.so
 vendor/lib64/mt6878/libcamalgo.platform2.so
 vendor/lib64/mt6878/libcamalgo.tsfs.so
-vendor/lib64/mt6878/libcamalgo.tsfs.so
 vendor/lib64/mt6878/libcamalgo.vaidepth.so
-vendor/lib64/mt6878/libcamalgo.vaidepth.so
-vendor/lib64/mt6878/libcamalgo.vsf.so
 vendor/lib64/mt6878/libcamalgo.vsf.so
 vendor/lib64/mt6878/libcamera.custom.af_assist_buf_mgr.so
 vendor/lib64/mt6878/libcamera.custom.af_assist_buf_mgr_open.so
@@ -881,7 +857,6 @@ vendor/lib64/mt6878/libfeature.stereo.platform.so
 vendor/lib64/mt6878/libfeature.stereo.provider.so
 vendor/lib64/mt6878/libfeature.vsdof.3a_info_provider.so
 vendor/lib64/mt6878/libfeature.vsdof.fd_info_provider.so
-vendor/lib64/mt6878/libfeature.vsdof.hal.so
 vendor/lib64/mt6878/libfeature.vsdof.hal.so
 vendor/lib64/mt6878/libfeature.vsdof.nvram_provider.so
 vendor/lib64/mt6878/libfeature.vsdof.ot_info_provider.so
@@ -931,7 +906,6 @@ vendor/lib64/mt6878/libmtkcam.featurepipe.streaming.so
 vendor/lib64/mt6878/libmtkcam.featurepipe.vsdof.wrapper.so
 vendor/lib64/mt6878/libmtkcam.logicalcaminfoprovider.so
 vendor/lib64/mt6878/libmtkcam.logicalmodule.so
-vendor/lib64/mt6878/libmtkcam.ndd.limit.so
 vendor/lib64/mt6878/libmtkcam.ndd.limit.so
 vendor/lib64/mt6878/libmtkcam_aicolor.so
 vendor/lib64/mt6878/libmtkcam_aie.so
@@ -1325,7 +1299,6 @@ vendor/etc/init/vendor.noth.fingerprint.goodix.config.rc
 
 # Firmware
 vendor/etc/init/init.bt_drv.rc
-vendor/firmware/BT_FW.cfg
 vendor/firmware/FT3519T_Conf_MultipleTest_V02.ini
 vendor/firmware/aw882xx_acf.bin
 vendor/firmware/fm_cust.cfg
@@ -1348,7 +1321,6 @@ vendor/firmware/mt6632_fm_v1_patch.bin
 vendor/firmware/mt6635_fm_v1_coeff.bin
 vendor/firmware/mt6635_fm_v1_patch.bin
 vendor/firmware/remoteproc_scp
-vendor/firmware/remoteproc_scp
 vendor/firmware/soc7_0_ram_bt_1_1_hdr.bin
 vendor/firmware/soc7_0_ram_bt_1a_1_hdr.bin
 vendor/firmware/soc7_0_ram_bt_1b_1_hdr.bin
@@ -1356,8 +1328,6 @@ vendor/firmware/soc7_0_ram_mcu_1_1_hdr.bin
 vendor/firmware/soc7_0_ram_mcu_1a_1_hdr.bin
 vendor/firmware/soc7_0_ram_mcu_1b_1_hdr.bin
 vendor/firmware/soc_fm_v1_coeff.bin
-vendor/firmware/soc_fm_v1_coeff.bin
-vendor/firmware/soc_fm_v1_patch.bin
 vendor/firmware/soc_fm_v1_patch.bin
 vendor/firmware/txpowerctrl.cfg
 vendor/firmware/valhall-1691526.wa
@@ -2447,8 +2417,6 @@ vendor/etc/init/vendor.mediatek.hardware.nvram-sevice.rc
 vendor/lib64/hw/vendor.mediatek.hardware.nvram-impl.so
 vendor/lib64/libcustom_nvram.so
 vendor/lib64/libfgauge_gm30.so
-vendor/lib64/libfgauge_gm30.so
-vendor/lib64/libfile_op.so
 vendor/lib64/libfile_op.so
 vendor/lib64/libhwm.so
 vendor/lib64/libnvram.so
